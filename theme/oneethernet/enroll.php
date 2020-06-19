@@ -207,7 +207,9 @@ $(function(){
 		var wallet_addr_len = $('#wallet_addr').val().length;
 		console.log(wallet_addr_len);
 		if(wallet_addr_len <= 40){
-			commonModal('Mobile authentication','<p>Please check your Wallet Address again</p>',80);
+				dialogModal("ID CHECK", "Please check wallet address agin ", 'failed');
+		}else{
+				dialogModal("ID CHECK", "Available wallet address", 'success');
 		}
 	});
 
@@ -222,6 +224,8 @@ function chkPwd_1(str,str2){
 	//var eng_large = pw.search(/[A-Z]/ig);
 	var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 
+var pattern = /^(?!((?:[0-9]+)|(?:[a-zA-Z]+)|(?:[\[\]\^\$\.\|\?\*\+\(\)\\~`\!@#%&\-_+={}'""<>:;,\n]+))$)(.){4,}$/;
+
 	if(pw.length < 4){
 		$("#pm_1").attr('class','x_li');
 	}else{
@@ -229,7 +233,14 @@ function chkPwd_1(str,str2){
 		pw_rule += 1;
 	}
 
-	if(eng < 0 || num < 0){
+	// if(eng < 0 || num < 0){
+	// 	$("#pm_3").attr('class','x_li');
+	// }else{
+	// 	$("#pm_3").attr('class','o_li');
+	// 	pw_rule += 1;
+	// }
+
+	if(!pattern.test(pw)){
 		$("#pm_3").attr('class','x_li');
 	}else{
 		$("#pm_3").attr('class','o_li');
@@ -312,7 +323,7 @@ function chkPwd_2(str,str2){
 					$(target_type + ' .modal-body').html(vHtml.html());
 					first_select();
 
-					
+
 					/* 첫번째 선택되어있게 */
 					function first_select(){
 						$(target_type + ' .modal-body .user:nth-child(1)').addClass('selected');
