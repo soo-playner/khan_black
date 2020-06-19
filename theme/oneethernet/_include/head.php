@@ -10,10 +10,10 @@
 	<meta name="Robots" content="ALL">
 
 	<!-- 기본 공유 설정 //-->
-	<meta name="title" content="ONE EHTER NET" />
-	<meta name="subject" content="ONE EHTER NET" />
-	<meta name="keywords" content="ONE EHTER NET" />
-	<meta name="description" content="ONE EHTER NET" />
+	<meta name="title" content="1 ETHER.NET" />
+	<meta name="subject" content="1 ETHER.NET" />
+	<meta name="keywords" content="1 ETHER.NET" />
+	<meta name="description" content="1 ETHER.NET" />
 	<link rel="image_src" href="http://one.willsoft.kr/img/launcher.png" />
 
 	<!--대표 이미지 URL (이미지를 여러 개 지정할 수 있음) //-->
@@ -23,9 +23,9 @@
 	<!-- 페이스북 공유 + 카카오톡 설정 //-->
 	<meta property="fb:app_id" content="" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="ONE EHTER NET" />
-	<meta property="og:description" content="ONE EHTER NET" />
-	<meta property="og:site_name" content="ONE EHTER NET" />
+	<meta property="og:title" content="1 ETHER.NET" />
+	<meta property="og:description" content="1 ETHER.NET" />
+	<meta property="og:site_name" content="1 ETHER.NET" />
 	<meta property="og:image" content="" />
 	<meta property="og:url" content="" />
 
