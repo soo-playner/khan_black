@@ -98,7 +98,7 @@
 
 				<ul class='row'>
 					<li class='col-sm-9 col-8'>
-					<label data-i18n="profile.이름">Name </label>  <p><?=$member['first_name']." ".$member['last_name']?></p>
+					<label data-i18n="profile.지갑주소">My Wallet Address </label>  <p><?=$member['first_name']." ".$member['last_name']?></p>
 						<!-- <p class="f_right">
 							<?if($kyc_cert == '1'){?>
 							<label class="font_green" data-i18n="KYC 승인 완료">KYC Approved</label>
@@ -128,9 +128,9 @@
 
 				<ul class='row'>
 					<li class='col-sm-12 col-12'>
-					<label data-i18n="profile.지갑주소">My wallet adress</label>  
+					<label data-i18n="profile.지갑주소">My wallet adress</label>
 					<p style='font-size:14px;letter-spacing:-0.25px;word-break: break-all;'><?=$member['eth_addr']?></p>
-				</ul>	
+				</ul>
 
 				<!-- <ul class='row'>
 					<li class='col-sm-9 col-8'><label data-i18n="profile.전화번호">Phone number</label>  <p><?=$member['mb_hp']?></p>
@@ -149,7 +149,7 @@
 
 			<div class='col-sm-12 col-12 content-box profile-box round third'>
 				<h3 class='title b_line'><i class="ri-settings-3-line bullet"></i><span data-i18n="profile.보안설정">Setting</span></h3>
-						
+
 				<ul class='row'>
 					<li class='col-sm-9 col-8'><span data-i18n="profile.로그인 비밀번호 변경">Change login password</span></li>
 					<li class='col-sm-3 col-4 text-right grid'><input type="button" value="change" class="btn inline white ch_pw_open pop_open" data-i18n="[value]profile.변경"></li>
@@ -160,8 +160,8 @@
 					<li class='col-sm-3 col-4 text-right grid'><input type="button"  value="change" class="btn inline white ch_tpw_open pop_open" data-i18n="[value]profile.변경"></li>
 				</ul> -->
 
-				
-				
+
+
 			</div>
 
 
@@ -265,7 +265,7 @@
 
 
 
-		
+
 <script>
 
 $(function() {
@@ -453,7 +453,7 @@ $(function() {
 
 			<label for="" data-i18n='popup.새로운 이메일 주소 확인'>Confirm new email</label>
 			<input type="text"  name="email_new_re" id="email_new_re" value="">
-			
+
 			<label for="" data-i18n='popup.로그인 비밀번호'>Login password for change</label>
 			<input type="password" id="auth_pwd" minlength='4' maxlength="20">
 
@@ -483,7 +483,7 @@ $(function() {
 
 		$('.email_pop_open').click(function(){
 			$('.chage_email_pop').css("display","block");
-			
+
 		validateEmail = function (email) {
 		var email = email;
 		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
@@ -505,7 +505,7 @@ $(function() {
 		$('.chage_email_pop .save').click(function(){
 			var email2 = $('.chage_email_pop #email_new').val();
 			var email3 = $('.chage_email_pop #email_new_re').val();
-			
+
 			if( email2 != email3){
 				dialogModal('Please check','<strong> New email does not matched confirm new mail.</strong>','failed');
 				return false;
@@ -608,7 +608,7 @@ $(function() {
 
 			$('.proceed').click(function(){
 				var new_hp_num = $('.num_pop_wrap #new_hp_num').val();
-				
+
 				$.ajax({
 					type: "POST",
 					url: "/util/profile_proc.php",
