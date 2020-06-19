@@ -10,22 +10,22 @@
 	<meta name="Robots" content="ALL">
 
 	<!-- 기본 공유 설정 //-->
-	<meta name="title" content="HAZ" />
-	<meta name="subject" content="HAZ" />
-	<meta name="keywords" content="HAZ" />
-	<meta name="description" content="HAZ" />
-	<link rel="image_src" href="" />
+	<meta name="title" content="ONE EHTER NET" />
+	<meta name="subject" content="ONE EHTER NET" />
+	<meta name="keywords" content="ONE EHTER NET" />
+	<meta name="description" content="ONE EHTER NET" />
+	<link rel="image_src" href="http://one.willsoft.kr/img/launcher.png" />
 
 	<!--대표 이미지 URL (이미지를 여러 개 지정할 수 있음) //-->
-	<meta name="apple-mobile-web-app-title" content="http://haz.willsoft.kr/img/launcher5.png" />
+	<meta name="apple-mobile-web-app-title" content="http://one.willsoft.kr/img/launcher.png" />
 	<meta name="format-detection" content="telephone=no" />
 
 	<!-- 페이스북 공유 + 카카오톡 설정 //-->
 	<meta property="fb:app_id" content="" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="HAZ" />
-	<meta property="og:description" content="HAZ" />
-	<meta property="og:site_name" content="HAZ" />
+	<meta property="og:title" content="ONE EHTER NET" />
+	<meta property="og:description" content="ONE EHTER NET" />
+	<meta property="og:site_name" content="ONE EHTER NET" />
 	<meta property="og:image" content="" />
 	<meta property="og:url" content="" />
 

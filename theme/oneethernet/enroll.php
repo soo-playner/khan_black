@@ -3,8 +3,10 @@ $menubar = 1;
 $email_auth = 0;
 $phone_auth = 0;
 
+
 include_once(G5_THEME_PATH.'/_include/head.php');
 include_once(G5_THEME_PATH.'/_include/gnb.php');
+
 
 if($_GET['recom_referral'])
 	$recom_sql = "select mb_id from g5_member where mb_no = '{$_GET['recom_referral']}'";

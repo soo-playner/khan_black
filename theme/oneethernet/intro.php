@@ -1,3 +1,4 @@
+
 <style>
 body{}
 .container {
@@ -16,7 +17,7 @@ body{}
   display: none;
   text-align: center;
   position:absolute;
-  bottom:10%;
+  bottom:25%;
   width:100%;
   z-index:1000;
 }
@@ -44,12 +45,12 @@ body{}
 
 @-webkit-keyframes animatebottom {
   from { bottom:-10%; opacity:0 } 
-  to { bottom:10%; opacity:1 }
+  to { bottom:25%; opacity:1 }
 }
 
 @keyframes animatebottom { 
   from{ bottom:-10%; opacity:0 } 
-  to{ bottom:10%; opacity:1 }
+  to{ bottom:25%; opacity:1 }
 }
 
 
@@ -131,6 +132,8 @@ body{}
 	}
 </script>
 
+<html>
+
 
 <body onload="myFunction();" style="margin:0;">
 
@@ -192,4 +195,6 @@ body{}
 		</div>
 	</section>
 -->
+
+</html>
 

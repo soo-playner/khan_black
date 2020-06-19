@@ -47,8 +47,8 @@ a:focus, a:active{color:inherit;}
 
 
 .btn-primary{background:#0062cc}
-.btn_primary{background:linear-gradient(to right,#054dd5,#00b6d3);color:white !important;font-weight:600}
-.btn_primary:hover{background:linear-gradient(to right,#054dd5,#054dd5);color:white;}
+.btn_primary{background:linear-gradient(to right,#054dd5,#054dd5);color:white !important;font-weight:600}
+.btn_primary:hover{background:linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.7));color:white;}
 
 .btn_secondary{background:rgba(255,255,255,0.8);color:black}
 .btn_secondary:hover{background:rgba(255,255,255,1);color:black}

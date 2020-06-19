@@ -1,2 +1,2 @@
-# haz
-haz wallet + myoffice
+# 1ETHNET
+1ETHNET wallet + myoffice

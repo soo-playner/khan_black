@@ -24,11 +24,11 @@ if($member['mb_wallet'] == ''){
 $mb_wallet = $member['mb_wallet'];
 
 /*코인잔고*/
-$sql_account = "select mb_id, sum(mb_v7_account ) as v7_total ,sum(mb_btc_account + mb_btc_calc + mb_btc_amt) as btc_total from g5_member where mb_id = '$member[mb_id]'";
+/* $sql_account = "select mb_id, sum(mb_v7_account ) as v7_total ,sum(mb_btc_account + mb_btc_calc + mb_btc_amt) as btc_total from g5_member where mb_id = '$member[mb_id]'";
 $account = sql_fetch($sql_account);
 $btc_total = $account['btc_total'];
 $v7_total = $account['v7_total'];
-
+ */
 
 if($is_member){
 	if(defined('G5_THEME_PATH')) {
