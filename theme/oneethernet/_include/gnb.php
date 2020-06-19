@@ -50,7 +50,7 @@ $(document).ready(function(){
 		<a href="#" class='menu_icon'><i class="ri-menu-2-line"></i></a>
 	</div>
 	<?}?>
-	
+
 	<?if(!$menubar){?>
 	<nav class="left_gnbWrap">
 		<a href="#" class="close">X</a>
@@ -65,30 +65,30 @@ $(document).ready(function(){
 			<li><a href="/page.php?id=upstairs"><img src="<?=G5_THEME_URL?>/_images/menu05.gif" alt="아이콘"><span data-i18n="nav.투자">Purchase</span></a></li> -->
 			<!-- <li><a href="/page.php?id=bonus_history"><img src="<?=G5_THEME_URL?>/_images/menu04.gif" alt="아이콘"><span data-i18n="nav.보너스 내역">Bonus history</span></a></li> -->
 
-			<!-- 
+			<!--
 			<li><a href="/page.php?id=deposit"><img src="<?=G5_THEME_URL?>/_images/menu04.gif" alt="아이콘"><span data-i18n="nav.입금">Deposit</span></a></li>
 			<li><a href="/page.php?id=withdrawal"><img src="<?=G5_THEME_URL?>/_images/menu04.gif" alt="아이콘"><span data-i18n="nav.출금">Withdraw</span></a></li>
 			-->
-			
+
 			<li><a href="/page.php?id=structure"><img src="<?=G5_THEME_URL?>/_images/menu05_1.gif" alt="아이콘"><span data-i18n="nav.추천도 보기">Level Structure</span></a></li>
-			
+
 			<!--
 			<li>
 				<a href="#0" class="menu_tree clear_fix"><img src="<?=G5_THEME_URL?>/_images/menu05.gif" alt="아이콘"><span data-i18n="nav.비즈니스 현황">Business Status</span></a>
 				<ul>
-				
+
 					<li><a href="/page.php?id=binary"><img src="<?=G5_THEME_URL?>/_images/menu05_2.gif" alt="아이콘"><span data-i18n="nav.후원도 보기">Binary Structure</span></a></li>
 				</ul>
-			</li> 
+			</li>
 
 			<li><a href="/page.php?id=news"><img src="<?=G5_THEME_URL?>/_images/menu07.gif" alt="아이콘"><span data-i18n="nav.뉴스">News</span></a></li>
 			<li><a href="/page.php?id=support_center"><img src="<?=G5_THEME_URL?>/_images/menu08.gif" alt="아이콘"><span data-i18n="nav.지원 센터">Support Center</span></a></li>
 			<li><a href="/page.php?id=referral_link"><img src="<?=G5_THEME_URL?>/_images/menu11.gif" alt="아이콘"><span data-i18n="nav.내 추천인 링크">My Referral Link</span></a></li>
 			-->
-			
+
 			<li><a href="javascript:void(0);" class="logout_pop_open"><img src="<?=G5_THEME_URL?>/_images/menu12.gif" alt="아이콘"><span data-i18n="nav.로그아웃">LOGOUT</span></a></li>
 
-			<!--<li><a href="javascript:serviceModal();"><img src="<?=G5_THEME_URL?>/_images/menu02.gif" alt="아이콘" ><span data-i18n="nav.개인정보와 보안설정">Profile & Settings</span></a></li>-->
+			<li><a href="javascript:serviceModal();"><img src="<?=G5_THEME_URL?>/_images/menu02.gif" alt="아이콘" ><span data-i18n="nav.개인정보와 보안설정">Profile & Settings</span></a></li>
 			<!--<li><a href="/wallet/wallet.php?id=wallet"><img src="<?=G5_THEME_URL?>/_images/menu04.gif" alt="아이콘"><span data-i18n="nav.클립토 월렛">Crypto Wallets</span></a></li>-->
 			<!--<li><a href="/page.php?id=purchase"><img src="<?=G5_THEME_URL?>/_images/menu06.gif" alt="아이콘"><span data-i18n="nav.팩 상품 구매하기">Purchase Packs</span></a></li>-->
 			<!--<li><a href="/page.php?id=avatar"><img src="<?=G5_THEME_URL?>/_images/menu05_3.gif" alt="아이콘"><span data-i18n="nav.아바타 보기">Avatar Account</span></a></li>-->

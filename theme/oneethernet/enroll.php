@@ -129,34 +129,34 @@ $(function(){
 	});
 
 	// 핀번호 (오직 숫자만)
-	document.getElementById('reg_tr_password').oninput = function(){
-		// if empty
-		if(!this.value) return;
-
-		// if non numeric
-		let isNum = this.value[this.value.length - 1].match(/[0-9]/g);
-		if(!isNum) this.value = this.value.substring(0, this.value.length - 1);
-
-		chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val());
-	}
-
-	document.getElementById('reg_tr_password_re').oninput = function(){
-		// if empty
-		if(!this.value) return;
-
-		// if non numeric
-		let isNum = this.value[this.value.length - 1].match(/[0-9]/g);
-		if(!isNum) this.value = this.value.substring(0, this.value.length - 1);
-
-		chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val());
-	}
+	// document.getElementById('reg_tr_password').oninput = function(){
+	// 	// if empty
+	// 	if(!this.value) return;
+	//
+	// 	// if non numeric
+	// 	let isNum = this.value[this.value.length - 1].match(/[0-9]/g);
+	// 	if(!isNum) this.value = this.value.substring(0, this.value.length - 1);
+	//
+	// 	chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val());
+	// }
+	//
+	// document.getElementById('reg_tr_password_re').oninput = function(){
+	// 	// if empty
+	// 	if(!this.value) return;
+	//
+	// 	// if non numeric
+	// 	let isNum = this.value[this.value.length - 1].match(/[0-9]/g);
+	// 	if(!isNum) this.value = this.value.substring(0, this.value.length - 1);
+	//
+	// 	chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val());
+	// }
 
 
 	// 아이디 중복 체크
 	$('#id_check').click(function(){
 		var registerId = $('#reg_mb_id').val();
-		if(registerId.length < 8){
-			dialogModal("ID CHECK", "Please put 8 letters or more", "failed");
+		if(registerId.length < 5){
+			dialogModal("ID CHECK", "Please put 5 letters or more", "failed");
 		}else{
 			$.ajax({
 					type : "POST",
@@ -171,6 +171,14 @@ $(function(){
 			});
 		}
 	});
+
+	$("#reg_mb_id").bind("keyup",function(){
+	 re = /[~!@\#$%^&*\()\-=+_']/gi;
+	 var temp=$("#reg_mb_id").val();
+	 if(re.test(temp)){ //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+	 $("#reg_mb_id").val(temp.replace(re,"")); } });
+
+
 
 	/*이용약관동의*/
 	$('.agreement_ly').click(function() {
@@ -191,6 +199,14 @@ $(function(){
 		chkPwd_1($('#reg_mb_password').val(), $('#reg_mb_password_re').val());
 	});
 
+	$('#wallet_addr_check').click(function(){
+		var wallet_addr_len = $('#wallet_addr').val().length;
+		console.log(wallet_addr_len);
+		if(wallet_addr_len <= 40){
+			commonModal('Mobile authentication','<p>Please check your Wallet Address again</p>',80);
+		}
+	});
+
 });
 
 /* 패스워드 확인*/
@@ -202,28 +218,28 @@ function chkPwd_1(str,str2){
 	//var eng_large = pw.search(/[A-Z]/ig);
 	var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 
-	if(pw.length < 4 || pw.length > 20){
+	if(pw.length < 4){
 		$("#pm_1").attr('class','x_li');
 	}else{
 		$("#pm_1").attr('class','o_li');
 		pw_rule += 1;
 	}
 
-	if(eng < 0 || num < 0 ){
+	if(eng < 0 || num < 0){
 		$("#pm_3").attr('class','x_li');
 	}else{
 		$("#pm_3").attr('class','o_li');
 		pw_rule += 1;
 	}
 
-	/*
-	if(spe < 0 ){
-		$("#pm_4").attr('class','x_li');
-	}else{
-		$("#pm_4").attr('class','o_li');
-		pw_rule += 1;
-	}
-	*/
+
+	// if(spe < 0 ){
+	// 	$("#pm_3").attr('class','x_li');
+	// }else{
+	// 	$("#pm_3").attr('class','o_li');
+	// 	pw_rule += 1;
+	// }
+
 
 	if( pw_rule == 2 && str == str2){
 		$("#pm_5").attr('class','o_li');
@@ -350,10 +366,10 @@ function chkPwd_2(str,str2){
 			return false;
 		}
 
-		if(!chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val())){
-			commonModal('Check password Rule','<strong> Transaction Password does not match password Rule.</strong>',80);
-			return false;
-		}
+		// if(!chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val())){
+		// 	commonModal('Check password Rule','<strong> Transaction Password does not match password Rule.</strong>',80);
+		// 	return false;
+		// }
 
 		/* 메일인증
 		if(verify == false){
@@ -417,6 +433,7 @@ function chkPwd_2(str,str2){
 		$('.agreement_btn').show();
 	});
 	*/
+
 </script>
 
 
@@ -426,7 +443,7 @@ function chkPwd_2(str,str2){
 	<div class="enroll_wrap">
 		<form id="fregisterform" name="fregisterform" action="/bbs/register_form_update.php" method="post" enctype="multipart/form-data" autocomplete="off">
 
-			<div>
+			<!-- <div>
 				<select id="nation_number" name="nation_number" required >
 					<option value="country" data-i18n="signUp.국가를 선택해주세요" >Select Country</option>
 					<option value="1">001 - USA</option>
@@ -438,39 +455,50 @@ function chkPwd_2(str,str2){
 					<option value="63">063 - Philippines</option>
 					<option value="66">066 - Thailand</option>
 				</select>
-			</div>
+			</div> -->
 
-			<section class='referzone blue'>
+			<!-- <section class='referzone blue'>
 				<label>Center's Username</label>
 				<div class="btn_input_wrap">
 					<input type="text" placeholder="" name='mb_center' id="reg_mb_center" data-i18n='[placeholder]signUp.센터 이름' value="<?=$mb_center?>" />
 					<div class='in_btn_ly2'>
 						<button type='button' class="btn_round check b_white" onclick="getUser('#reg_mb_center',2);" style="width:100px;"><span data-i18n="signUp.검색">Search</span></button>
 					</div>
-					<!--<a href="javascript:void(0);" class="btn_round check">Search Center</a>-->
+
+				</div>
+			</section> -->
+
+			<section class='referzone'>
+			<label class='text-white'>Referrer's Username</label>
+				<div class="btn_input_wrap">
+					<input type="text" name="mb_recommend" id="reg_mb_recommend"  value="<?=$mb_recommend ?>" placeholder="Referrers Username"  required data-i18n='[placeholder]signUp.추천인 이름'/>
+					<div class='in_btn_ly2'>
+						<button type='button' class="btn_round check " onclick="getUser('#reg_mb_recommend',1);"  style="width:100px;"><span data-i18n="signUp.검색">Search</span></button>
+					</div>
+					<!--<a href="javascript:getUser('#reg_mb_recommend',1);" class="btn_round check" data-i18n='register.추천인 검색'>Search Referrer</a>-->
 				</div>
 			</section>
 
 			<p class="check_appear_title mt40"><span data-i18n='signUp.일반정보'>General Information</span></p>
 			<div>
-				<input type="text" minlength="8"  name="mb_id"  id="reg_mb_id"  placeholder="" data-i18n='[placeholder]signUp.아이디'/>
+				<input type="text" minlength="5" maxlength="20" name="mb_id"  id="reg_mb_id"  placeholder="" data-i18n='[placeholder]signUp.아이디'/>
 				<div class='in_btn_ly'><input type="button" id='id_check' class='btn_round check' value="ID Check" data-i18n='[value]signUp.중복확인'></div>
 			</div>
 
 			<ul class="clear_fix pw_ul">
 				<li>
-					<input type="password" name="mb_password" id="reg_mb_password"  minlength="6" maxlength="20" placeholder="Login Password" data-i18n='[placeholder]signUp.로그인 비밀번호'/>
-					<input type="password" name="mb_password_re" id="reg_mb_password_re" minlength="6" maxlength="20" placeholder="Confirm login password" data-i18n='[placeholder]signUp.로그인 비밀번호 확인'/>
+					<input type="password" name="mb_password" id="reg_mb_password"  minlength="4" placeholder="Login Password" data-i18n='[placeholder]signUp.로그인 비밀번호'/>
+					<input type="password" name="mb_password_re" id="reg_mb_password_re" minlength="4" placeholder="Confirm login password" data-i18n='[placeholder]signUp.로그인 비밀번호 확인'/>
 
 					<strong ><span class='mb10' style='display:block' data-i18n='signUp.강도 높은 비밀번호 설정 조건' >Your password must contain</span></strong>
 					<ul>
-						<li class="x_li" id="pm_1" data-i18n='signUp.4자 이상 20자 이하' >4 to 20 characters long</li>
+						<li class="x_li" id="pm_1" data-i18n='signUp.4자 이상 20자 이하' >4 characters or more</li>
 						<li class="x_li" id="pm_3" data-i18n='signUp.숫자+영문' >Digits + Characters</li>
 						<!--<li class="x_li" id="pm_4" data-i18n='register.특수 기호' >Special Characters</li>-->
 						<li class="x_li" id="pm_5" data-i18n='signUp.비밀번호 비교' >Compare Password</li>
 					</ul>
 				</li>
-				<li>
+				<!-- <li>
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password" name="reg_tr_password" placeholder="Pin-Code" data-i18n='[placeholder]signUp.핀코드'/>
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password_re" name="reg_tr_password_re" placeholder="confirm Pin-Code" data-i18n='[placeholder]signUp.핀코드확인'/>
 
@@ -479,7 +507,7 @@ function chkPwd_2(str,str2){
 						<li class="x_li" id="pt_1" data-i18n='signUp.6 자리' >6 digits</li>
 						<li class="x_li" id="pt_2" data-i18n='signUp.핀코드 비교' >Compare Pin-code</li>
 					</ul>
-				</li>
+				</li> -->
 			</ul>
 
 
@@ -487,7 +515,8 @@ function chkPwd_2(str,str2){
 			<section id="personal">
 				<div class="check_appear mt40">
 				<p class="check_appear_title"><span data-i18n='signUp.개인 정보 & 인증'>Personal Information & Authentication </span></p>
-				<input type="text" name="first_name" placeholder="Name" data-i18n='[placeholder]signUp.이름'/>
+				<input class="input_addr" type="text" name="first_name" id="wallet_addr" placeholder="Name" data-i18n='[placeholder]signUp.이름'/>
+				<div class='in_btn_ly'><input type="button" id='wallet_addr_check' class='btn_round check' value="ID Check" data-i18n='[value]signUp.지갑 확인'></div>
 				<!--<input type="text" name="last_name" placeholder="Last Name (Must match the legal name on file)" data-i18n='[placeholder]register.성 (신분증에 기록된 이름과 동일해야 함)'/>-->
 				<input type="email" name="mb_email" id="reg_mb_email" onChange="validateEmail(this.value);" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소'/>
 
@@ -512,14 +541,14 @@ function chkPwd_2(str,str2){
 
 
 
-				<div>
+				<!-- <div>
 					<span style='display:block;margin-left:10px;' class='' data-i18n='signUp.핸드폰 번호'> Phone number</span>
 					<input type="text" name="mb_hp"  id="reg_mb_hp"  pattern="[09]*" placeholder="Phone number" value='' data-i18n='[placeholder]signUp.핸드폰 번호'/>
 					<label class='phone_num'><i class="ri-smartphone-line"></i></label>
-				</div>
+				</div> -->
 
 				<!-- // 폰인증 -->
-				<?if($phone_auth > 1){?>
+				<!-- <?if($phone_auth > 1){?>
 					<div class="clear_fix ecode_div">
 					<div class="verify_phone">
 						<input type="text" placeholder="Enter Phone Authtication Code"/>
@@ -529,18 +558,7 @@ function chkPwd_2(str,str2){
 						</a>
 						</div>
 					</div>
-				<?}?>
-			</section>
-
-			<section class='referzone'>
-			<label class='text-white'>Referrer's Username</label>
-				<div class="btn_input_wrap">
-					<input type="text" name="mb_recommend" id="reg_mb_recommend"  value="<?=$mb_recommend ?>" placeholder="Referrers Username"  required data-i18n='[placeholder]signUp.추천인 이름'/>
-					<div class='in_btn_ly2'>
-						<button type='button' class="btn_round check " onclick="getUser('#reg_mb_recommend',1);"  style="width:100px;"><span data-i18n="signUp.검색">Search</span></button>
-					</div>
-					<!--<a href="javascript:getUser('#reg_mb_recommend',1);" class="btn_round check" data-i18n='register.추천인 검색'>Search Referrer</a>-->
-				</div>
+				<?}?> -->
 			</section>
 
 			<!--

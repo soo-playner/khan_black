@@ -12,7 +12,7 @@ a:focus, a:active{color:inherit;}
 
 
 /*COLOR*/
-.font_blue{color:#006df3 !important;}.blue{background:#006df3} 
+.font_blue{color:#006df3 !important;}.blue{background:#006df3}
 .font_bblue{color:#4556ff !important;} .b_blue{background:#4556ff !important}
 .font_red{color:#ed2424 !important;}.b_red{background:#f36672 !important;}
 .font_green{color:#2bb34b !important;}.b_green{background:#1fc5be !important}
@@ -22,7 +22,7 @@ a:focus, a:active{color:inherit;}
 .font_sky{color:#07b5e5 !important;}
 .font_gray{color:#838282 !important;}
 .font_deepblue{color: #054dd5 !important;} .b_deepblue{background: #054dd5 !important;}
-.font_dodgerblue{color: dodgerblue !important;} .b_dodgerblue{background:dodgerblue !important}												  
+.font_dodgerblue{color: dodgerblue !important;} .b_dodgerblue{background:dodgerblue !important}
 .font_white{color: #fff !important;}.white{background:white;color:black} .b_white{background:white !important;color:black !important}
 .font_cadetblue{color:green !important}
 
@@ -72,7 +72,7 @@ a:focus, a:active{color:inherit;}
 
 .btn_double{width:48.5%; float:left;line-height:30px;}
 .btn_double + .btn_double{margin-left:1.5%}
-.btn_round{border:0; border-radius:25px;background:#326bad; min-width:80px; background:#565656;color:white;font-size:11px;}
+.btn_round{border:0; border-radius:25px;background:#326bad; min-width:72px; background:#565656;color:white;font-size:10px;}
 
 .c_btn{opacity: .9; box-shadow: inset 0 0 1px rgba(255,255,255,.5);}
 .c_btn:hover{transition: all .2s;opacity:1;box-shadow: inset 0 0 3px rgba(255,255,255,.8);}
@@ -88,7 +88,7 @@ a:focus, a:active{color:inherit;}
     width: 100%;
     height: 20px;
 	margin: 10px 0;}
-	
+
 #dialogModal .modal-dialog{    transform: translate(0,50%);}
 #dialogModal .modal-body{text-align:center;}
 #dialogModal .modal-body img{width:60px;margin-bottom:20px;}
@@ -112,6 +112,8 @@ a:focus, a:active{color:inherit;}
 .text_center{text-align: center;}
 .text_right{text-align: right;}
 
+.input_addr{font-size: 10px;}
+::placeholder{font-size:14px;}
 
 .mt10{margin-top:10px;}
 .mt20{margin-top:20px;}
@@ -158,10 +160,10 @@ hr{border-top:2px solid rgba(0,0,0,0.1)}
 
 
 /*최소크기*/
-h1 {min-width:100px}	
-#hd  {min-width:100px}	
-#gnb  {min-width:100px}	
-#wrapper  {min-width:100px}	
+h1 {min-width:100px}
+#hd  {min-width:100px}
+#gnb  {min-width:100px}
+#wrapper  {min-width:100px}
 .local_sch {min-width:100px}
 .local_ov {min-width:100px}
 main{min-height:50vh;padding-bottom:30px;height:100%;}
@@ -190,9 +192,9 @@ input[type="text"]+.currency-right{position: relative;;margin-top:-52px;color:bl
 	background: rgba(0,0,0,0.3) !important;
 	color:white !important;
 	box-shadow: 0 0 0 2px #1f5c86;
-	
+
 }
-	
+
 
 
 /* input 기본 */
@@ -204,7 +206,7 @@ input[type="text"],input[type="number"], input[type="password"], input[type="ema
 	background: transparent;
 	padding: 8px;
 	margin-bottom: 15px;
-	
+
 }
 input[type="button"]{text-align: center;}
 input[type="text"], input[type="number"], input[type="password"], input[type="email"],select{
@@ -217,7 +219,7 @@ input[type="text"], input[type="number"], input[type="password"], input[type="em
 	background: transparent;
 	padding: 8px;
 	margin-bottom: 15px;
-	
+
 }
 
 /*기본 레이아웃 공통*/
@@ -292,8 +294,10 @@ a.desc{font-size:13px;text-decoration: underline;color:#565656}
 /* 회원가입 enroll */
 .enroll_wrap{width:95%;margin:0 auto;font-size:15px;letter-spacing:-.3px;padding-bottom:50px}
 .enroll_title{padding:20px 0;font-size:23px;font-weight:600;text-align:center;color:#0079d3}
-.pw_ul>li{width:49%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;background:#f2f3f4;padding:10px;border-radius:10px}
-.pw_ul>li:last-child{margin-left:2%}
+.pw_ul>li{
+  /* width:49%; */
+  -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;background:#f2f3f4;padding:0px;border-radius:10px}
+/* .pw_ul>li:last-child{margin-left:2%} */
 .pw_ul ul li{padding-left:20px}
 .o_li{background:url(../../_images/okay_icon.gif) no-repeat center left; background-size:13px;}
 .x_li{background:url(../../_images/x_icon.gif) no-repeat  center left; background-size:13px;}
@@ -303,7 +307,9 @@ a.desc{font-size:13px;text-decoration: underline;color:#565656}
 #nation_number{height:48px;width:100%;padding-left:10px;font-size:0.9em;border-top:0; border-left:0; border-right:0;}
 
 .in_btn_ly{position:absolute; right:30px; margin-top:-56px;}
-.check{width:80px;height:28px;display:inline-block;line-height:28px;}
+.check{
+  /* width:80px; */
+  height:28px;display:inline-block;line-height:28px;}
 
 .in_btn_ly2{position:absolute; right:50px; margin-top:-38px;}
 .agreement_ly{background:#f5f5f5;padding:15px;margin:25px 0;letter-spacing:-1px; font-size:12px;border-radius:10px;}
@@ -402,7 +408,7 @@ input + label > i{font-size:20px;}
 	  margin-top: 50px;
 	  opacity: 0.7;
 	}
-  
+
 	to {
 	  margin-top: 0;
 	  opacity: 1;
@@ -486,7 +492,7 @@ input + label > i{font-size:20px;}
 
 
 @media only screen and (max-width: 450px) {
-	
+
 	.filter_btn{
 		padding-left:2px !important;
 		padding-right:2px !important;
@@ -521,7 +527,7 @@ input + label > i{font-size:20px;}
 
 .accordion_wrap dt {color: black;}
 .accordion_wrap dt div{float:right; font-size:0.9em; letter-spacing:-0.2px;}
-.accordion_wrap dt b{font-weight:500;} 
+.accordion_wrap dt b{font-weight:500;}
 .accordion_wrap dd{border:1px solid #ff0000; margin-bottom:5px; padding: 10px 5%; position:relative;}
 .accordion_wrap dd:after{content:''; display:block; clear:both;}
 .accordion_wrap dd>div{float:left; width:50%;}
@@ -548,7 +554,7 @@ input + label > i{font-size:20px;}
 
 /* referral_link */
 .dash_contents .refer_link_wrap>div{}
-.refer_link_wrap{color:#808080;} 
+.refer_link_wrap{color:#808080;}
 .refer_link_wrap img{display:block; margin:0px auto;}
 .refer_link_wrap .btn_basic_block{line-height: 40px;}
 
@@ -593,7 +599,7 @@ input + label > i{font-size:20px;}
 .deposit_wrap .money_chage{margin-top:40px;}
 .deposit_wrap .money_chage p{margin-bottom:10px; font-size:1.08em; font-weight: 600;}
 .deposit_wrap .money_chage li:nth-child(2){padding-top:42px;}
-/* 
+/*
 .mc_bit input[type=text],.mc_bit input[type=number]{border-color:#ff9b22;}
 .mc_eth input[type=text]{border-color:#3edc89;}
 .mc_rock input[type=text]{border-color:#a172c8;}
@@ -615,8 +621,8 @@ input + label > i{font-size:20px;}
 
 /* receive */
 .qr_wrap{
-	width:90%; 
-	margin:30px auto; 
+	width:90%;
+	margin:30px auto;
 	text-align:center;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -688,7 +694,7 @@ input + label > i{font-size:20px;}
 
 /* ==================== NEWS ===================== */
 .news+.news{margin-top:20px;}
-/* 
+/*
 .faq-container{background-color:#fff;border-radius:4px;margin-bottom:75px;position:relative;width:90%;margin:0 auto}
 .faq-panels ul li{border-bottom:1px solid #fff;color:#7c7c7c;cursor:pointer;display:inline-block;font-size:25px;list-style-type:none;margin-left:45px;margin-right:45px;transition:all .2s linear}
 .faq-panels ul li.active{border-bottom:1px solid #0079d3;color:#0079d3}
@@ -727,7 +733,7 @@ input + label > i{font-size:20px;}
 
 .btn_basic:hover{background:#0079d3;cursor:pointer}
 
-/* 
+/*
 @media only screen and (min-width: 400px) {
 	.qa-container .date,.qa-container .inner_title,.qa-container .views {font-size:16px}
 	.qa-container .title > .date{width:20%;text-align:center;padding-left:3%;}
@@ -800,8 +806,8 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 
 .input_pop_css form div{position: relative;}
 
-.code_btn{text-align:right; right:0; top:0; color: #006df3; cursor:pointer; bottom: 3px;height:30px} 
-.code_btn img{width:20px; vertical-align:middle;} 
+.code_btn{text-align:right; right:0; top:0; color: #006df3; cursor:pointer; bottom: 3px;height:30px}
+.code_btn img{width:20px; vertical-align:middle;}
 
 .send_tran_pop div p{margin-bottom:15px;}
 .send_tran_pop .not_btn_style{margin-left:20px;}
@@ -839,10 +845,10 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 	float: right;
 }
 .checkbox_wrap{
-	position: relative; 
+	position: relative;
 	display:inline-block;
 	width: 21px;
-} 
+}
 .checkbox_wrap input[type="checkbox"] {
 	position: absolute;
 	width: 1px;
@@ -892,7 +898,7 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 
 /* 모바일 */
 @media screen and (max-width:414px) {
-	
+
 	.pack_btn{line-height:18px;height:66px;}
 	.pakage_list .col-4:nth-of-type(3n-2) {
 		padding-left: 0px;
@@ -913,7 +919,7 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 	.login_wrap a.btn_basic_block{margin-top:20px;}
 	/*.login_btn_bottom{position:absolute; bottom:50px; width:70%; left: 15%;}*/
 	.login_btn_bottom{margin-top:100px;}
-	
+
 	.enroll_wrap{font-size:14px;}
 	input[type="password"]{font-size: 12px;}
 	.pw_ul ul li {font-size:12px; font-weight:500}
@@ -924,28 +930,28 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 	.filebox label{max-width:100px; padding-left: 31px;}
 
 	.bottom_menu img{height:20px;}
-	
+
 	.dash_price div{font-size:13px;}
 	.dash_business div{font-size:11px;}
 
 	.wallet_wrap{font-size:13px;}
-	
+
 	.trans_history li{font-size:12px;}
 
 	.send_con{padding-bottom:15px;}
 
 	.send_chk_wrap .send_con{font-size:13px; padding-bottom:20px;}
 	.send_chk_wrap>div{padding-bottom:50px;}
-	
+
 	.refer_link_wrap{font-size:13px;}
-	
+
 	.profile_wrap .id_file_wrap{font-size:13px;}
-	
+
 	.bin_wrap{margin:20px 0px;}
 	.bin_wrap table{font-size:10px;}
 	.bin_wrap img{width: 10px; vertical-align:bottom;}
 	.bin_wrap select{letter-spacing:-1px;}
-	
+
 	.ui-accordion .ui-accordion-header{padding:.5em 0em;}
 	.news_wrap{font-size:13px;}
 	.span1{width: 22%;}
@@ -967,7 +973,7 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 	.accordion_wrap dt div{font-size:11px; float: none;}
 	.accordion_wrap dd>div{font-size:13px; float: none : 100%;}
 
-	
+
 	.purchase_wrap th{font-size:13px;}
 	.purchase_wrap>div>p {font-size:13px;}
 
