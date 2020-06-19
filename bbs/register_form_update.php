@@ -24,8 +24,8 @@ mb_center : cw256
 ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <?
-include_once(G5_THEME_PATH.'/_include/head.php'); 
-include_once(G5_THEME_PATH.'/_include/gnb.php'); 
+include_once(G5_THEME_PATH.'/_include/head.php');
+include_once(G5_THEME_PATH.'/_include/gnb.php');
 include_once(G5_THEME_PATH.'/_include/popup.php');
 
 function generateRandomCharString($length = 3) {
@@ -156,14 +156,14 @@ if ($w == '' || $w == 'u') {
 
 	if ($w == '' && !$mb_password)
 		alert('Retry Check your E-mail Authentication Code and Input');
-	
+
 	if($w == '' && $mb_password != $mb_password_re)
 		alert('비밀번호가 일치하지 않습니다.');
-	
+
 	/*핀코드 패스워드*/
 	if($w == '' && $reg_tr_password != $reg_tr_password_re)
 		alert('핀코드가 일치하지 않습니다.');
-	
+
 
 	if ($msg = empty_mb_name($mb_name))       alert($msg, "", true, true);
 	//if ($msg = empty_mb_nick($mb_nick))     alert($msg, "", true, true);
@@ -177,7 +177,7 @@ if ($w == '' || $w == 'u') {
 	if ($msg = valid_mb_email($mb_email))    alert($msg, "", true, true);
 	if ($msg = prohibit_mb_email($mb_email)) alert($msg, "", true, true);
 	//if ($msg = empty_mb_recommend($mb_recommend)) alert($msg, "", true, true);
-	
+
 
 	// 휴대폰 필수입력일 경우 휴대폰번호 유효성 체크
 	/*
@@ -187,7 +187,7 @@ if ($w == '' || $w == 'u') {
 	*/
 	if ($w=='') {
 		if ($msg = exist_mb_id($mb_id))     alert($msg);
-		
+
 		if ($wx=="Y"){
 			/*
 			if ($mb_mprecommend) {
@@ -215,11 +215,11 @@ if ($w == '' || $w == 'u') {
 				if (!exist_mb_id($mb_recommend))
 					alert("추천인이 존재하지 않습니다.");
 			}
-			
+
 			if (strtolower($mb_id) == strtolower($mb_recommend)) {
 				alert('본인을 추천할 수 없습니다.');
 			}
-			
+
 			if (strtolower($mb_id) == strtolower($mb_center)) {
 				alert('본인을 센터멤버로 지정할 수 없습니다.');
 			}
@@ -346,7 +346,7 @@ if ($w == '') {
 	// 이 Email Verification을 사용하지 않는다면 이Email Verification시간을 바로 넣는다
 	if (!$config['cf_use_email_certify'])
 		$sql .= " , mb_email_certify = '".G5_TIME_YMDHIS."' ";
-	
+
 	//print_r($sql);
 	sql_query($sql);
 
@@ -384,7 +384,7 @@ if ($w == '') {
 
 	$mb_idx = sql_insert_id();
 	/*
-	if($mb_mprecommend){ // 마케터가 있는 경우 
+	if($mb_mprecommend){ // 마케터가 있는 경우
 		$sql = " INSERT INTO mp_soodang ( create_dt, mb_id, mb_mprecommend, commission, usdbtc) VALUES (now(), ";
 		$sql .= " '".$mb_id."', ";
 		$sql .= " '".$mb_mprecommend."', ";
@@ -410,12 +410,12 @@ if ($w == '') {
 			$subject = '['.$config['cf_title'].'] Membership Email.';
 
 			$mb_md5 = md5($mb_id.$mb_email.G5_TIME_YMDHIS);
-			
+
 			sql_query(" update {$g5['member_table']} set mb_email_certify2 = '$mb_md5' where mb_id = '$mb_id' ");
 
 			$certify_href = G5_BBS_URL.'/email_certify.php?mb_id='.$mb_id.'&amp;mb_md5='.$mb_md5;
 			$toadmin_href = G5_BBS_URL.'/email_toadmin.php?mb_id='.$mb_id.'&amp;mb_email='.$mb_email;
-			
+
 			/* 가입메일 미발송
 			ob_start();
 			include_once ('./register_form_update_mail1.php');
@@ -674,16 +674,16 @@ if ($msg)
 
 if ($w == '') {
 	//goto_url(G5_HTTP_BBS_URL.'/register_result.php');
-	
+
 	echo "<script>
-		function enroll_result(){ 
+		function enroll_result(){
 			$('.enroll_ok_pop').css('display', 'block');
 		}
 
 		$('.pop_close').click(function() {
 			document.location.href= '/index.php';
 		});
-		
+
 		enroll_result();
 		</script>";
 

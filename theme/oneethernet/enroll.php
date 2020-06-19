@@ -433,6 +433,11 @@ function chkPwd_2(str,str2){
 			return false;
 		}
 
+		if($('#wallet_addr').val().length <= 40){
+			commonModal('check wallet address!!','<strong>check wallet address!!</strong>',80);
+			return false;
+		}
+
 		f.submit();
 
 	}
