@@ -20,12 +20,6 @@ $menu['menu300'] = array (
     /*array('300400', 'KYC 회원인증', G5_ADMIN_URL.'/board_kyc.php','',1),*/
 );
 }else{
-    $menu['menu300'] = array (
-        
-        array('300000', '게시판관리', ''.G5_ADMIN_URL.'/board_notice.php', 'board'),
-        array('300100', '공지사항관리(Notice)', G5_ADMIN_URL.'/board_notice.php','',1),
-        array('300200', '뉴스관리(News)', G5_ADMIN_URL.'/board_news.php','',1),
-        array('300300', '서포트(Support)', G5_ADMIN_URL.'/board_support.php','',1)
-    );
+    
 }
 ?>

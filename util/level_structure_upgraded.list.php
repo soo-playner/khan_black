@@ -12,10 +12,10 @@ if($_GET['type'] == 'name'){
 	$mb_no = $_GET['mb_no'];
 }
 
-if($mb_no < 3){
+if($mb_no < 2){
 	$depth_limit = 5;
 }else{
-	$depth_limit = 5;
+	$depth_limit = 2;
 }
 
 $sql = "

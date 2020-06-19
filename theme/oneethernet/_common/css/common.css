@@ -47,7 +47,7 @@ a:focus, a:active{color:inherit;}
 
 
 .btn-primary{background:#0062cc}
-.btn_primary{background:linear-gradient(to right,#054dd5,#054dd5);color:white !important;font-weight:600}
+.btn_primary{background:linear-gradient(to right,#204f83,#054dd5);color:white !important;font-weight:600}
 .btn_primary:hover{background:linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.7));color:white;}
 
 .btn_secondary{background:rgba(255,255,255,0.8);color:black}
@@ -311,7 +311,7 @@ a.desc{font-size:13px;text-decoration: underline;color:#565656}
 .referzone{background:#8c96a0;padding:15px;margin:20px 0;border-radius:5px;box-shadow:0 1px 1px rgba(0,0,0,0.15)}
 .referzone input[type=text]{color:white;border-bottom:1px solid white;background:transparent;margin-bottom:0;border-radius: 0;;}
 .referzone input::placeholder{color:rgba(255,255,255,0.8)}
-.referzone.blue{background:#006df3;color:white}
+.referzone.blue{background:#204f83;color:white}
 
 #reg_mb_hp{padding-left:40px;}
 .phone_num{position:absolute;left:42px;margin-top:12px;z-index:2;display:inline;}

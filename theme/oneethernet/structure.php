@@ -1,5 +1,5 @@
 <?
-	$menubar = 1;
+	// $menubar = 1;
 	include_once('./_common.php');
 	include_once(G5_THEME_PATH.'/_include/gnb.php');
 	if( $member['mb_id'] == 'admin'){
@@ -88,11 +88,11 @@ var gradeMap = {
 						if(data.mb_level > 1 && data.mb_level < 9){
 							$selected.find('.rank').text((data.mb_level -2) + ' Star');
 						}
-						$selected.find('.email').text(data.mb_email);
+						/* $selected.find('.email').text(data.mb_email);
 						$selected.find('.pool1').text(data.it_pool1);
 						$selected.find('.pool2').text(data.it_pool2);
 						$selected.find('.pool3').text(data.it_pool3);
-						$selected.find('.gpu').text(data.it_gpu);
+						$selected.find('.gpu').text(data.it_gpu); */
 					}
 				}).fail(function(e) {
 					console.log( e );
