@@ -126,6 +126,12 @@
 					</li>
 				</ul>
 
+				<ul class='row'>
+					<li class='col-sm-12 col-12'>
+					<label data-i18n="profile.지갑주소">My wallet adress</label>  
+					<p style='font-size:14px;letter-spacing:-0.25px;word-break: break-all;'><?=$member['eth_addr']?></p>
+				</ul>	
+
 				<!-- <ul class='row'>
 					<li class='col-sm-9 col-8'><label data-i18n="profile.전화번호">Phone number</label>  <p><?=$member['mb_hp']?></p>
 					<?if($member['mb_certify'] == 1){?>
@@ -143,7 +149,7 @@
 
 			<div class='col-sm-12 col-12 content-box profile-box round third'>
 				<h3 class='title b_line'><i class="ri-settings-3-line bullet"></i><span data-i18n="profile.보안설정">Setting</span></h3>
-
+						
 				<ul class='row'>
 					<li class='col-sm-9 col-8'><span data-i18n="profile.로그인 비밀번호 변경">Change login password</span></li>
 					<li class='col-sm-3 col-4 text-right grid'><input type="button" value="change" class="btn inline white ch_pw_open pop_open" data-i18n="[value]profile.변경"></li>
@@ -154,10 +160,7 @@
 					<li class='col-sm-3 col-4 text-right grid'><input type="button"  value="change" class="btn inline white ch_tpw_open pop_open" data-i18n="[value]profile.변경"></li>
 				</ul> -->
 
-				<ul class='row'>
-					<li class='col-sm-12 col-12'>
-					<label data-i18n="profile.지갑주소변경">My wallet adress</label>  
-					<p style='font-size:14px;letter-spacing:-0.25px;word-break: break-all;'><?=$member['eth_addr']?></p>
+				
 				
 			</div>
 

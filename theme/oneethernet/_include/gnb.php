@@ -88,7 +88,7 @@ $(document).ready(function(){
 
 			<li><a href="javascript:void(0);" class="logout_pop_open"><img src="<?=G5_THEME_URL?>/_images/menu12.gif" alt="아이콘"><span data-i18n="nav.로그아웃">LOGOUT</span></a></li>
 
-			<li><a href="javascript:serviceModal();"><img src="<?=G5_THEME_URL?>/_images/menu02.gif" alt="아이콘" ><span data-i18n="nav.개인정보와 보안설정">Profile & Settings</span></a></li>
+			
 			<!--<li><a href="/wallet/wallet.php?id=wallet"><img src="<?=G5_THEME_URL?>/_images/menu04.gif" alt="아이콘"><span data-i18n="nav.클립토 월렛">Crypto Wallets</span></a></li>-->
 			<!--<li><a href="/page.php?id=purchase"><img src="<?=G5_THEME_URL?>/_images/menu06.gif" alt="아이콘"><span data-i18n="nav.팩 상품 구매하기">Purchase Packs</span></a></li>-->
 			<!--<li><a href="/page.php?id=avatar"><img src="<?=G5_THEME_URL?>/_images/menu05_3.gif" alt="아이콘"><span data-i18n="nav.아바타 보기">Avatar Account</span></a></li>-->
