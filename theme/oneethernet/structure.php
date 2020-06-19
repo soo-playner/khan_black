@@ -22,7 +22,7 @@
 
 <link rel="stylesheet" href="<?=G5_THEME_URL?>/_common/css/level_structure.css">
 <style>
-#now_id{width:calc(100% - 165px)}
+#now_id{width:calc(100% - 175px); margin-right:10px;}
 </style>
 
 
@@ -381,7 +381,7 @@ _
 			<div class="btn_input_wrap">
 				<input type="text" id="now_id" placeholder="Member Search" data-i18n='[placeholder]structure.회원찾기'/>
 
-				<button type="button" class="btn wide blue" id="binary_search" data-i18n='structure.검색' onclick="member_search();">Search</button>
+				<button type="button" class="btn wide blue" id="binary_search" style='height: 50px;margin: 0;' data-i18n='structure.검색' onclick="member_search();">Search</button>
 			</div>
 				<div class="structure_search_container">
 					<div class="structure_search_result" id="structure_search_result">

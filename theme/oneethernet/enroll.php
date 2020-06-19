@@ -166,7 +166,11 @@ $(function(){
 						"registerId" : registerId
 					},
 					success : function(res){
-						dialogModal("ID CHECK", res.response, 'success');
+						if(res.code == '000'){
+							dialogModal("ID CHECK", res.response, 'failed');
+						}else{
+							dialogModal("ID CHECK", res.response, 'success');
+						}
 					}
 			});
 		}

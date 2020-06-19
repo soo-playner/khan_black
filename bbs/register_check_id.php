@@ -10,9 +10,9 @@ $result = sql_query($sql);
 $count = sql_num_rows($result);
 
 if($count > 0){
-  $response = json_encode(array("response"=>"Aready exist"));
+  $response = json_encode(array("response"=>"Aready exist","code" => "000"));
 }else{
-  $response = json_encode(array("response"=>"Available ID"));
+  $response = json_encode(array("response"=>"Available ID","code" => "001"));
 }
 
 echo $response;

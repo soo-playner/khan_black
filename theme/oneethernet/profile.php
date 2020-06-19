@@ -87,9 +87,9 @@
 					<h6><?=$member['mb_name']?></h6>
 				</li>
 
-				<div class='col-sm-12 col-12 mt20'>
+			<!-- 	<div class='col-sm-12 col-12 mt20'>
 					<span data-i18n="profile.국가">Nationality</span> :  <?=get_member_nation($member['nation_number'])?>
-				</div>
+				</div> -->
 			</div>
 			</div>
 
@@ -107,7 +107,9 @@
 							<?}?>
 						</p> -->
 					</li>
-					<li class='col-sm-3 col-4 text-right grid'><input type="button" value="Change" class="btn inline white ch_name_open pop_open" data-i18n="[value]profile.변경"></li>
+					<li class='col-sm-3 col-4 text-right grid'>
+						<!-- <input type="button" value="Change" class="btn inline white ch_name_open pop_open" data-i18n="[value]profile.변경"> -->
+					</li>
 				</ul>
 
 				<ul class='row'>
@@ -119,19 +121,23 @@
 							<img src="<?=G5_THEME_URL?>/_images/x_icon.gif" alt="인증안됨" style="width:15px;">
 						<?}?> -->
 					</li>
-					<li class='col-sm-3 col-4 text-right grid'><input type="button" value="Change" class="btn inline white email_pop_open pop_open" data-i18n="[value]profile.변경"></li>
+					<li class='col-sm-3 col-4 text-right grid'>
+						<!-- <input type="button" value="Change" class="btn inline white email_pop_open pop_open" data-i18n="[value]profile.변경"> -->
+					</li>
 				</ul>
 
-				<ul class='row'>
+				<!-- <ul class='row'>
 					<li class='col-sm-9 col-8'><label data-i18n="profile.전화번호">Phone number</label>  <p><?=$member['mb_hp']?></p>
-					<!-- <?if($member['mb_certify'] == 1){?>
+					<?if($member['mb_certify'] == 1){?>
 						<img src="<?=G5_THEME_URL?>/_images/okay_icon.gif" alt="인증됨" style="width:15px;">
 					<?}else{?>
 						<img src="<?=G5_THEME_URL?>/_images/x_icon.gif" alt="인증안됨" style="width:15px;">
-					<?}?> -->
+					<?}?>
 					</li>
-					<li class='col-sm-3 col-4 text-right grid'><input type="button" value="Change" class="btn inline white num_pop_open pop_open" data-i18n="[value]profile.변경"></li>
-				</ul>
+					<li class='col-sm-3 col-4 text-right grid'>
+						<input type="button" value="Change" class="btn inline white num_pop_open pop_open" data-i18n="[value]profile.변경">
+					</li>
+				</ul> -->
 			</div>
 
 
@@ -143,10 +149,16 @@
 					<li class='col-sm-3 col-4 text-right grid'><input type="button" value="change" class="btn inline white ch_pw_open pop_open" data-i18n="[value]profile.변경"></li>
 				</ul>
 
-				<ul class='row'>
+				<!-- <ul class='row'>
 					<li class='col-sm-9 col-8'><span data-i18n="profile.출금 비밀번호 변경">Change Pin-Code</span></li>
 					<li class='col-sm-3 col-4 text-right grid'><input type="button"  value="change" class="btn inline white ch_tpw_open pop_open" data-i18n="[value]profile.변경"></li>
-				</ul>
+				</ul> -->
+
+				<ul class='row'>
+					<li class='col-sm-12 col-12'>
+					<label data-i18n="profile.지갑주소변경">My wallet adress</label>  
+					<p style='font-size:14px;letter-spacing:-0.25px;word-break: break-all;'><?=$member['eth_addr']?></p>
+				
 			</div>
 
 
@@ -166,12 +178,12 @@
 						<p><?=$member['mb_brecommend']?></p>
 					</li>
 				</ul> -->
-				<ul>
+				<!-- <ul>
 					<li class='col-sm-12 col-12'>
 						<label data-i18n="profile.나의 센터"> Center</label>
 						<p><?=$member['mb_center']?></p>
 					</li>
-				</ul>
+				</ul> -->
 				<ul>
 					<!-- <li><span data-i18n="profile.링크 QR 코드"> My QR Code:</span></li> -->
 					<!--<li><input type="button" value="Share" data-i18n="[value]profile.공유"></li>-->

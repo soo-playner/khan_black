@@ -6,7 +6,7 @@
 	if($_POST['mb_id']){
 		// 추천인
 		if($type == 1){
-			$sth = sql_query("select mb_id from {$g5['member_table']}  where mb_id like '%".$_POST['mb_id']."%' and mb_level > 0");
+			$sth = sql_query("select mb_id from {$g5['member_table']}  where mb_id like '%".$_POST['mb_id']."%'");
 			$rows = array();
 			while($r = mysqli_fetch_assoc($sth)) {
 				$rows[] = $r;
