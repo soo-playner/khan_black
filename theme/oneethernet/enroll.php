@@ -304,17 +304,29 @@ function chkPwd_2(str,str2){
 				if(list.length > 0){
 					$(target_type).modal('show');
 					var vHtml = $('<div>');
+
 					$.each(list, function( index, obj ) {
 						vHtml.append($('<div>').addClass('user').html(obj.mb_id));
 					});
 
 					$(target_type + ' .modal-body').html(vHtml.html());
+					first_select();
+
+					
+					/* 첫번째 선택되어있게 */
+					function first_select(){
+						$(target_type + ' .modal-body .user:nth-child(1)').addClass('selected');
+						$(target).val($( target_type + ' .modal-body .user.selected').html());
+					}
+
 
 					$(target_type + ' .modal-body .user').click(function(){
 						console.log('user click');
+						$( target_type + ' .modal-body .user').removeClass('selected');
 						$( target + ' .modal-body .user').removeClass('selected');
 						$(this).addClass('selected');
 					});
+
 
 					$(target_type + ' .modal-footer #btnSave').click(function(){
 						//console.log('user select : ' + $( target_type + '.modal-body .user.selected').html());

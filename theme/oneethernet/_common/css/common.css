@@ -296,7 +296,7 @@ a.desc{font-size:13px;text-decoration: underline;color:#565656}
 .enroll_title{padding:20px 0;font-size:23px;font-weight:600;text-align:center;color:#0079d3}
 .pw_ul>li{
   /* width:49%; */
-  -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;background:#f2f3f4;padding:15px;border-radius:10px}
+  -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;background:#f2f3f4;padding:15px;border-radius:10px;width:100%;}
 /* .pw_ul>li:last-child{margin-left:2%} */
 .pw_ul ul li{padding-left:20px}
 .o_li{background:url(../../_images/okay_icon.gif) no-repeat center left; background-size:13px;}
