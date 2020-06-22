@@ -126,11 +126,11 @@
 					</li>
 				</ul>
 
-				<ul class='row'>
+				<!-- <ul class='row'>
 					<li class='col-sm-12 col-12'>
 					<label data-i18n="profile.지갑주소">My wallet adress</label>
 					<p style='font-size:14px;letter-spacing:-0.25px;word-break: break-all;'><?=$member['eth_addr']?></p>
-				</ul>
+				</ul> -->
 
 				<!-- <ul class='row'>
 					<li class='col-sm-9 col-8'><label data-i18n="profile.전화번호">Phone number</label>  <p><?=$member['mb_hp']?></p>

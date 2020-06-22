@@ -452,7 +452,7 @@ input + label > i{font-size:20px;}
 .profile-box ul:last-child li{border-bottom:0;}
 .profile-box ul li label{font-weight:120;color:rgba(255,255,255,0.6);letter-spacing:-0.5px;margin-bottom:5px;font-size:0.8em;top:-7px;position: relative;float:left;height:10px;margin:2px 0 5px;}
 .profile-box ul li p{display:inline-block;letter-spacing: 1px; margin-left:10px; padding-bottom:5px;font-size:1.3em;float:left;clear:left}
-.profile-box ul li span{line-height:42px;}
+.profile-box ul li span{line-height:42px;font-size:14px;}
 
 .b_line{border-bottom:2px solid rgba(255,255,255,0.6); padding-bottom:20px;margin-top:10px !important;}
 }

@@ -5,8 +5,8 @@ body{}
 	margin:0;
 	padding:0;
 	width:100%;
-	display:block; 
-	height:100vh; 
+	display:block;
+	height:100vh;
 	background:url('<?=G5_THEME_URL?>/_images/launcher.png') no-repeat 50% 50%;
 	background-size:cover;
 }
@@ -44,19 +44,19 @@ body{}
 }
 
 @-webkit-keyframes animatebottom {
-  from { bottom:-10%; opacity:0 } 
+  from { bottom:-10%; opacity:0 }
   to { bottom:25%; opacity:1 }
 }
 
-@keyframes animatebottom { 
-  from{ bottom:-10%; opacity:0 } 
+@keyframes animatebottom {
+  from{ bottom:-10%; opacity:0 }
   to{ bottom:25%; opacity:1 }
 }
 
 
 
 @media screen and (max-width: 1600px) {
-	
+
 }
 
 @media screen and (max-width: 1200px) {
@@ -64,14 +64,14 @@ body{}
 }
 
 @media screen and (max-width: 1024px) {
-	
+
 }
 @media screen and (max-width: 993px) {
 
 }
 
 @media screen and (max-width: 767px){
-	
+
 }
 
 @media screen and (max-width: 736px) {
@@ -80,11 +80,11 @@ body{}
 
 
 @media (max-width: 414px) {
-	
+
 }
 
 @media (max-width: 650px) {
-	
+
 }
 
 @media (max-width: 768px) {
@@ -113,7 +113,7 @@ body{}
 	}
 
 	function move() {
-	  var elem = document.getElementById("myBar");   
+	  var elem = document.getElementById("myBar");
 	  var width = 1;
 	  var id = setInterval(frame, 5);
 	  function frame() {
@@ -125,8 +125,8 @@ body{}
 			showPage();
 		  }
 		} else {
-		  width++; 
-		  elem.style.width = width + '%'; 
+		  width++;
+		  elem.style.width = width + '%';
 		}
 	  }
 	}
@@ -139,7 +139,7 @@ body{}
 
 <div class="container">
 	<div id="myBar"></div>
-	
+
 	<div id="btnDiv" class="animate-bottom">
 		<div class='btn_ly'>
 	  		<a href="/bbs/login_pw.php" class="btn btn_wd btn_primary login_btn">LOG IN</a>
@@ -147,7 +147,7 @@ body{}
 		</div>
 	</div>
 </div>
-	
+
 
 
 <!--
@@ -171,21 +171,21 @@ body{}
 						<input type="password" name="mb_password" id="u_pw" style="line-height:22px;" />
 					</div>
 
-				
+
 					<div class="find_pw_div">
 						<input type="button" value="Login" class="btn_basic_block" onclick="flogin_submit();" >
-					
+
 						<a href="<?=G5_THEME_URL?>/forgot_password.php">비밀번호 찾기</a>
 					</div>
-					
+
 					<a href="index.php" class="fp_img_a">
 						<img class="fp_img" src="<?=G5_THEME_URL?>/_images/login_fingerprint.png" alt="지문">
 					</a>
-					
+
 					<?if(!strpos($url,'adm')){?>
 					<div class="login_btn_bottom">
 						<a href="/bbs/register_form.php" class="btn_basic_block btn_navy"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a>
-					
+
 						<a href="mailto:cs@v7wallet.com" class="support_a">Contact Support</a>
 					</div>
 					<?}?>
@@ -197,4 +197,3 @@ body{}
 -->
 
 </html>
-
