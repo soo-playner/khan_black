@@ -8,7 +8,7 @@ auth_check($auth[$sub_menu], 'r');
 $sql_common = " from {$g5['member_table']} ";
 
 $sql_search = " where (1) ";
-if ($stx) {     
+if ($stx) {
 	$sql_search .= " and ( ";
 	switch ($sfl) {
 		case 'mb_point' :
@@ -207,7 +207,7 @@ function out_check($val){
 	.td_mngsmall a {border:1px solid #ccc; padding:3px 10px; display:inline-block;text-decoration:none;}
 	.td_mngsmall a:hover{background:black;border:1px solid black; color:white;}
 	.labelM{text-align:left;}
-	
+
 	.red{color:red;font-weight:600;}
 	.btn_add01{padding-bottom:10px;border-bottom:1px solid #bbb}
 </style>
@@ -224,7 +224,7 @@ function out_check($val){
 	<div class="area nation">
 		<?
 		while( $row = sql_fetch_array($nation_row)){
-			
+
 
 			if($row['nation_number']=='1'){
 				echo "<span onclick='nation_search(1);' class='nation_item ".active_check(1, 'nation')."'><img src='./img/contry_3.png' class='nation_icon'/>".$row['cnt']." </span> ";
@@ -244,7 +244,7 @@ function out_check($val){
 		}
 		?>
 	</div>
-		
+
 	<div class="area level">
 	<?while($l_row = sql_fetch_array($get_lc)){
 
@@ -290,8 +290,9 @@ function out_check($val){
 	<a href="./member_table_fixtest.php">추천관계검사</a>
 	<a href="./member_table_depth.php" id="member_depth">회원추천관계갱신</a>
 	<a href="./member_form.php" id="member_add">회원직접추가</a>
-	<a href="#" onclick="javascript:document.myForm.submit();">회원엑셀다운로드</a>  <!--회원엑셀다운로드 버튼-->
-	<a href="../excel/all_member_list_excel.php">전체회원엑셀다운로드</a> <!--회원전체엑셀다운로드 버튼-->
+	<a href="../excel/excel_with_eth.php">회원엑셀다운로드</a> 
+	<!-- <a href="#" onclick="javascript:document.myForm.submit();">회원엑셀다운로드</a>
+	<a href="../excel/all_member_list_excel.php">전체회원엑셀다운로드</a>  -->
 </div>
 <?php } ?>
 
@@ -369,7 +370,7 @@ while($l_row = sql_fetch_array($get_lc)){
 		// 접근가능한 그룹수
 		$sql2 = " select count(*) as cnt from {$g5['group_member_table']} where mb_id = '{$row['mb_id']}' ";
 		$row2 = sql_fetch($sql2);
-		
+
 		$pinnacle_bal = $row['mb_balance'];
 		$group = '';
 		if ($row2['cnt'])
@@ -429,9 +430,9 @@ while($l_row = sql_fetch_array($get_lc)){
 		}
 	?>
 
-	
+
 	<?
-		// 수당설정값 
+		// 수당설정값
 		// $bonus_sql = "select * from {$g5['bonus_config']} order by idx";
 		// $list = sql_query($bonus_sql);
 		// $pre_setting = sql_fetch($bonus_sql);
@@ -443,12 +444,12 @@ while($l_row = sql_fetch_array($get_lc)){
 
 		// $math_percent_sql = "select sum(mb_balance / mb_deposit_point) * {$limited_per} as percent from g5_member where mb_id =  '".$row['mb_id']."'";
 		// $math_percent = sql_fetch($math_percent_sql);
-		
+
 		// $bonus_BENEFIT_TOTAL = number_format($row['mb_balance'],5); // 수당
 		// $bonus_TOTAL =  $math_total['total'];  //합계잔고
 		// $bonus_UPSTAIR = number_format($row['mb_deposit_point'],5); // 매출
 
-				
+
 		// 토탈 잔고 - 대쉬보드에서만 사용
 		// 잔고 토탈 = 입금(usdt,eth +) + 출금(-) + 예치금전환(-) + 수당(+)
 		$math_sql = "select sum(mb_usdt_account + mb_usdt_calc + mb_usdt_amt) as usdt_total, sum(mb_eth_account + mb_eth_calc + mb_eth_amt) as eth_total, sum(mb_balance + mb_shift_amt) as balance_total  from g5_member where mb_id = '{$row['mb_id']}' ";
@@ -485,9 +486,9 @@ while($l_row = sql_fetch_array($get_lc)){
 		<td headers="mb_list_id" rowspan="2" class="td_name sv_use" style="text-align:center !imporatant">
 		<?echo "<img src='/img/".$row['grade'].".png' style='width:20px;height:20px;'>";?>
 		<?php echo $mb_id ?></td>
-		
-		<!-- 
-			<td headers="mb_list_name" class="td_mbname"><?php echo get_text($row['mb_name']); ?></td> 
+
+		<!--
+			<td headers="mb_list_name" class="td_mbname"><?php echo get_text($row['mb_name']); ?></td>
 			<td headers="mb_list_name" class="td_mbname"><?php echo get_text($row['first_name']); ?></td>-->
 			<!--
 			<td headers="mb_list_otp" class="td_chk">
@@ -536,7 +537,7 @@ while($l_row = sql_fetch_array($get_lc)){
 		<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?=Number_format($total_usdt,2)?></td>
 
 		<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?=Number_format($total_eth,5)?></td>
-		
+
 
 		<td headers="mb_list_auth" class="td_mbstat" rowspan="2">
 			<strong><?=Number_format($row['mb_balance'],2)?> </strong><!--수당잔고-->
@@ -548,7 +549,7 @@ while($l_row = sql_fetch_array($get_lc)){
 		<!-- <td headers="mb_list_auth" class="td_mbstat" rowspan="2" ><?= $row['mb_deposit_acc'] ?></td> -->
 
 		<td headers="mb_list_member" class="td_mbgrade" rowspan="2">
-			
+
 			<?php
 			/*if ($leave_msg || $intercept_msg) echo $leave_msg.' '.$intercept_msg; else echo "정상 / ";*/
 			echo "<img src='/img/".$row['grade'].".png' style='width:20px;height:20px;'> ".$row['grade'].' / ';
