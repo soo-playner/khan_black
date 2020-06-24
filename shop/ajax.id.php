@@ -36,7 +36,7 @@ $(function(){
 		while ($res = sql_fetch_array($qry)) {
 			if ($res['mb_id']) {
 	?>
-		<li><span id="id_<?=$res['mb_id']?>"><?=$res['mb_id']?><p>(<?=$res['mb_name']?>)</p></span></li>	
+		<li><span id="id_<?=$res['mb_id']?>"><?=$res['mb_id']?><p>(<?=$res['mb_email']?>)</p></span></li>
 	<?
 				$i++;
 			}
@@ -76,7 +76,7 @@ $(function(){
 		$("#reg_mb_recommend",parent.document.body).focus();
 		$("#framer",parent.document.body).attr("src","");
 		$("#framewrp",parent.document.body).hide();
-		
+
 	});
 });
 </script>
@@ -85,11 +85,11 @@ $(function(){
 	<ul>
 	<?
 		$i = 0;
-		$qry = sql_query(" select mb_id, mb_name from g5_member where mb_leave_date = '' and mb_id != '{$_GET['mb_id']}' and (mb_id like '%{$_GET[rcm]}%' or mb_name like '%{$_GET[rcm]}%') and mb_level > 2 order by mb_id ");
+		$qry = sql_query(" select mb_id, mb_email from g5_member where mb_leave_date = '' and mb_id != '{$_GET['mb_id']}' and (mb_id like '%{$_GET[rcm]}%' or mb_name like '%{$_GET[rcm]}%') and mb_level < 2 order by mb_id ");
 		while ($res = sql_fetch_array($qry)) {
 			if ($res['mb_id']) {
 	?>
-		<li><span id="id_<?=$res['mb_id']?>"><?=$res['mb_id']?><p>(<?=$res['mb_name']?>)</p></span></li>	
+		<li><span id="id_<?=$res['mb_id']?>"><?=$res['mb_id']?><p>(<?=$res['mb_email']?>)</p></span></li>
 	<?
 				$i++;
 			}
@@ -118,12 +118,12 @@ function close_ajax(){
 include_once(G5_THEME_PATH.'/tail.sub.php');
 /*## ajax 회원정보입력 ################################################*/
 
-} else if ($_POST['mb_id']) { 
+} else if ($_POST['mb_id']) {
 	$mb_info = sql_fetch(" select mb_name, mb_tel, mb_hp, mb_zip1, mb_zip2, mb_addr1, mb_addr2, mb_addr3, mb_email from g5_member where mb_leave_date = '' and mb_id = '{$_POST['mb_id']}' ");
 ?>
-<?=$mb_info['mb_name']?>^<?=$mb_info['mb_tel']?>^<?=$mb_info['mb_hp']?>^<?=$mb_info['mb_zip1']?><?=$mb_info['mb_zip2']?>^<?=$mb_info['mb_addr1']?>^<?=$mb_info['mb_addr2']?>^<?=$mb_info['mb_addr3']?>^<?=$mb_info['mb_email']?>	
+<?=$mb_info['mb_name']?>^<?=$mb_info['mb_tel']?>^<?=$mb_info['mb_hp']?>^<?=$mb_info['mb_zip1']?><?=$mb_info['mb_zip2']?>^<?=$mb_info['mb_addr1']?>^<?=$mb_info['mb_addr2']?>^<?=$mb_info['mb_addr3']?>^<?=$mb_info['mb_email']?>
 <?
-} else if ($_POST['rcm_id']) { 
+} else if ($_POST['rcm_id']) {
 	$rcm_id = trim($_POST['rcm_id']);
 	$mb_info = sql_fetch(" select mb_id, mb_name from g5_member where mb_id = '{$rcm_id}' ");
 	if ($mb_info) {
