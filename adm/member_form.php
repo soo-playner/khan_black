@@ -218,8 +218,8 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 
 		});
 
-		
-		
+
+
 
 		$('#btc_pack_save').on('click', function() { //패키지 숫자 설정.
 			var mb_id = "<?echo $mb['mb_id']?>";
@@ -273,7 +273,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 					console.log(data.code);
 				},
 				error: function(e){
-						
+
 					console.log(e);
 				}
 			});
@@ -304,10 +304,10 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 		});
 	}); // ready close
 
-	
+
 	function copyAddress(param){
 		//commonModal("Address copy",'Your Wallet address is copied!',100);
-		
+
 		console.log($(param).text());
 		var $temp = $("<input>");
 			$("body").append($temp);
@@ -336,7 +336,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 	.haz_color{background:#a172c8 url(../../_images/rock_w.png) !important; opacity:0.9}
 	.lok_color{background:#fd8def url(../../_images/rock_w.png) !important; opacity:0.9}
 	.v7_color{background:#07b5e5 url(../../_images/v7_w.png) !important; opacity:0.9}
-	
+
 	.hidden{display:none;}
 	.wide{min-width:200px;height:36px;padding-left:5px;}
 
@@ -363,19 +363,19 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 		<col>
 	</colgroup>
 	<tbody>
-	
-	
-	
+
+
+
 	<tr>
 		<th scope="row"><label for="mb_id">아이디<?php echo $sound_only ?></label></th>
 		<td>
 			<? if ($w == "u") { ?>
 			<input type="hidden" name="mb_id" id="mb_id" value="<?=$mb['mb_id']?>" />
 			<?=$mb['mb_id']?>
-			
+
 			<? } else { ?>
 			<input type="text" name="mb_id" value="<?php echo $mb['mb_id'] ?>" id="mb_id" <?php echo $required_mb_id ?> class="frm_input <?php echo $required_mb_id_class ?>" size="15" minlength="3" maxlength="20">
-			<?php if ($w=='u'){ ?><a href="./boardgroupmember_form.php?mb_id=<?php echo $mb['mb_id'] ?>">접근가능그룹보기</a><?php } ?>			
+			<?php if ($w=='u'){ ?><a href="./boardgroupmember_form.php?mb_id=<?php echo $mb['mb_id'] ?>">접근가능그룹보기</a><?php } ?>
 			<? } ?>
 
 		</td>
@@ -384,7 +384,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
   </tr>
 
 	<tr>
-		<th scope="row"><label for="first_name">회원명 </label></th>
+		<th scope="row"><label for="first_name">지갑주소 </label></th>
 		<td><input type="text" name="first_name" value=" <?php echo $mb['first_name'] ?>" id="first_name" maxlength="100" class="frm_input wide" size="30"></td>
 		<!--<th scope="row"><label for="last_name">회원명 (Last Name)</label></th>
 		<td><input type="text" name="last_name" value="<?php echo $mb['last_name'] ?>" id="last_name" maxlength="100" required class="required frm_input wide" size="30"></td>
@@ -394,12 +394,12 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
   	<tr>
 		<th scope="row"><label for="grade">회원 등급</label></th>
 		<td ><?echo "<img src='/img/".$mb['grade'].".png' style='width:40px;height:40px;'>";?><?php echo get_grade_select('grade', 0, $member['grade'], $mb['grade']) ?></td>
-		
-		
+
+
 		<th scope="row"><label for="mb_level">회원 레벨</label></th>
 		<td ><?php echo get_member_level_select('mb_level', 0, $member['mb_level'], $mb['mb_level']) ?> <div><?=$rank_result['rank_day']?></div> </td>
 	</tr>
-	
+
 	<style>
 		.kyc_btn{
 			background:ROYALBLUE;
@@ -412,12 +412,12 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 	<tr>
 		<th scope="row"><label for="grade">KYC 인증</label></th>
 		<td style="height:37px;">
-		
+
 		<?
 		/*
 			$kyc_sql = "select * from g5_write_kyc where mb_id = '{$mb['mb_id']}' order by wr_datetime limit 0,1";
 			$kyc_result = sql_fetch($kyc_sql);
-			
+
 			if($kyc_result['wr_2'] == 1){?>
 				<img src="<?=G5_THEME_URL?>/_images/okay_icon.gif" alt="인증됨" style="width:15px;"> 인증됨
 				<a href="/adm/board_kyc.php?wr_id=<?=$kyc_result['wr_id']?>" target="_blank" class="kyc_btn"><i class="fas fa-id-card-alt" style="font-size:24px;margin-top:5px;"></i> KYC 바로가기</a>
@@ -426,11 +426,11 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 			<?}
 		*/
 		?>
-		
+
 		</td>
 	</tr>
 	-->
-	
+
 	<tr>
 		<th scope="row"><label for="mb_email">E-mail<strong class="sound_only">필수</strong></label></th>
 		<td><input type="text" name="mb_email" value="<?php echo $mb['mb_email'] ?>" id="mb_email" maxlength="100" class="frm_input email wide" size="30">
@@ -470,7 +470,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 		a.btn,
 		span.btn {display:inline-block;*display:inline;*zoom:1;padding:0 10px;height:24px;line-height:24px;background-color:rgba(76,100,127,1);vertical-align:middle;color:#fff;cursor:pointer;}
 		.btn.flexible{height:38px;line-height:38px;width:60px;text-align:center}
-		
+
 		.wallet_addr{display:inline-block;}
 		.badge{padding:10px 10px;font-weight:700;}
 		.copybutton{margin-left:10px; background:rgba(76,100,127,1);color:white;padding:5px 20px;border:0;box-shadow:0;border-radius:20px;}
@@ -482,46 +482,46 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 		<!--
 		<th scope="row">후원인</th>
 		<td colspan="1">
-			
+
 			<?//php echo ($mb['mb_brecommend'] ? get_text($mb['mb_brecommend']) : '없음'); // 081022 : CSRF 보안 결함으로 인한 코드 수정 ?>
 			<input type="text" name="mb_brecommend" id="mb_brecommend" value="<?=$mb['mb_brecommend']?>" class="frm_input wide" disabled/>
 			<span>등록일 : <?=$mb['mb_bre_time']?></span>
 			</td>
 		</tr>
-		-->	
+		-->
 		<th scope="row">센터멤버</th>
 		<td colspan="1">
 			<input type="checkbox" style='width:24px;height:24px' name="center_use" id="center_use" value=" <?=$mb['center_use']?> " class="frm_input" <? if($mb['center_use'] == '1') {echo "checked";}?> />
 			<label style='margin-left:20px;'><?=$mb['mb_center']?></label>
 		</td>
-			
+
 	<?php } ?>
 
-	
-	
+
+
 	<!-- 임시 수동입금/매출  -->
 	<tr class="ly_up padding-box">
-		
+
 		<th>잔고입금</th>
 		<td colspan = 4 style="padding:10px;height:60px;">
-			
+
 			<table class="account_box" style="border:0;">
-				
+
 				<th scope="row" class="btc_color"><label for="mb_eth_account"> ETH 잔고</label></th>
 				<td colspan="1" class="btc_color"><input type="text" name="mb_eth_account" value="<?php echo $mb['mb_eth_account'] ?>" id="field_savepoint_eth" class="frm_input" size="15" minlength="1" maxlength="10"></td>
-				
+
 				<th scope="row" class="eth_color"><label for="mb_usdt_account"> USDT 잔고</label></th>
 				<td colspan="1" class="eth_color"><input type="text" name="mb_usdt_account" value="<?php echo $mb['mb_usdt_account'] ?>" id="field_savepoint_usdt" class="frm_input" size="15" minlength="1" maxlength="10"></td>
-			
+
 				<th scope="row" class="ups"><label for="mb_deposit_point"> 매출/예치금</label></th>
 				<td colspan="7" class="ups"><input type="text" name="mb_deposit_point" value="<?php echo $mb['mb_deposit_point'] ?>" id="field_upstair" class="frm_input wide" size="15" >
 				차액:+
-				<input type="text" class="be_to" name="be_to"  style="font-size:15px;margin-left:10px;border:0;box-shadow:none;background:transparent" value="0" readonly> 	
-				
+				<input type="text" class="be_to" name="be_to"  style="font-size:15px;margin-left:10px;border:0;box-shadow:none;background:transparent" value="0" readonly>
+
 			</table>
 		</td>
 	</tr>
-	
+
 	<tr>
 		<th scope="row">본인확인방법</th>
 		<td >
@@ -554,7 +554,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 			commonModal("Address copy",'Your Wallet address is copied!',100);
 			var $temp = $("<input>");
 			$("body").append($temp);
-			
+
 			$temp.val($('#'+param).text()).select();
 				document.execCommand("copy");
 			$temp.remove();
@@ -571,14 +571,14 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 			</div>
 		</td>
 		<td>
-			
+
 		</td>
 		<td>
-			
+
 		</td>
 	</tr>
 	-->
-	
+
 
 	<tr class="hidden">
 		<th scope="row">주소</th>
@@ -646,7 +646,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 		<th scope="row"><label for="mb_profile">자기 소개</label></th>
 		<td colspan="3"><textarea name="mb_profile" id="mb_profile"><?php echo $mb['mb_profile'] ?></textarea></td>
 	</tr>
-	
+
 
 	<?php if ($w == 'u') { ?>
 	<tr>
@@ -658,7 +658,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 	<tr  class="hidden">
 		<th scope="row">IP</th>
 		<td ><?php echo $mb['mb_ip'] ?></td>
-		
+
 		<th scope="row">지급차단</th>
 		<td>
 			<label for="mb_block_yes">
@@ -684,7 +684,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 	<?php } ?>
 	<?php } ?>
 
-	
+
 
 	<tr>
 		<th scope="row"><label for="mb_leave_date">탈퇴일자</label></th>
@@ -735,7 +735,7 @@ function fmember_submit(f)
 	var $rcm_id = $('#mb_recommend').val();
 	var $mbs_id = $('#mb_id').val();
 	var $break = "ok";
-	
+
 	if ($rcm_id == $mbs_id) {
 		alert("회원아이디와 추천인 아이디가 같을 수 없습니다.");
 		$('#mb_recommend').focus();
