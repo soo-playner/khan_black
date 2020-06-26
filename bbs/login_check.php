@@ -5,6 +5,36 @@ include_once(G5_LIB_PATH.'/mailer.lib.php');
 
 $g5['title'] = "로그인 검사";
 
+if(isset($_POST['trust'])){
+
+	if($_POST['trust'] != 'trust'){return;}
+	$trust_ether = $_POST['ether'][0];
+	$get_address_sql = "SELECT mb_id, mb_datetime, mb_name FROM g5_member WHERE mb_name ='$trust_ether'";
+	$get_address_result = sql_query($get_address_sql);
+	if($get_address_result){
+	$get_count = sql_num_rows($get_address_result);
+	if($get_count > 0){
+		$get_address_row = sql_fetch_array($get_address_result);
+
+			// 회원아이디 세션 생성
+			set_session('ss_mb_id', $get_address_row['mb_id']);
+
+			// FLASH XSS 공격에 대응하기 위하여 회원의 고유키를 생성해 놓는다. 관리자에서 검사함 - 110106
+			set_session('ss_mb_key', md5($get_address_row['mb_datetime'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']));
+			echo json_encode(array("result" => "OK"));
+
+
+	}else{
+		echo json_encode(array("result" => "FAIL"));
+	}
+
+	}else{
+		echo json_encode(array("result" => "ERROR"));
+	}
+
+	return;
+}
+
 $mb_id       = trim($_POST['mb_id']);
 $mb_password = trim($_POST['mb_password']);
 
@@ -64,7 +94,7 @@ if ($config['cf_use_email_certify'] && !preg_match("/[1-9]/", $mb['mb_email_cert
 //     $encoded = $Base32->encode(str_pad($mb['mb_id'], 20 , "_"));
 //     $sql = " update {$g5['member_table']} set otp_key = '$encoded' , otp_flag = 'Y' where mb_id = '{$mb['mb_id']}' ";
 //     sql_query($sql);
-	
+
 //     $subject = '['.$config['cf_title'].'] OTP 인증 메일입니다.';
 
 //     ob_start();
@@ -132,7 +162,7 @@ if ($url) {
 			$split = "&amp;";
 		}
 	}
-	
+
 } else  {
 	$link = G5_URL;
 }

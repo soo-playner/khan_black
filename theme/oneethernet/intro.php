@@ -130,6 +130,51 @@ body{}
 		}
 	  }
 	}
+
+	function auto_login(){
+
+		if(typeof(web3) == 'undefined'){
+    	window.location.href = '<?=G5_HTTPS_BBS_URL?>'+"/login_pw.php";
+  	}
+
+		window.ethereum.enable().then((err) => {
+
+    web3.eth.getAccounts((err, accounts) => {
+    	if(accounts){
+				$.ajax({
+					url: '<?=G5_HTTPS_BBS_URL?>'+"/login_check.php",
+					async: false,
+					type: "POST",
+					dataType: "json",
+					data:{
+						trust : "trust",
+						ether : accounts
+					},
+					success: function(res){
+						if(res.result == "OK"){
+							window.location.href = "/page.php?id=structure";
+
+						}
+
+						if(res.result == "FAIL"){
+							alert("EHTEREUM ADDRESS is not registered. Please Sign In or Sign Up.");
+							window.location.href = '<?=G5_HTTPS_BBS_URL?>'+"/login_pw.php";
+						}
+
+						if(res.result == "ERROR"){
+							alert("ERROR");
+						}
+
+
+					}
+				});
+			}
+    })
+
+  });
+	}
+
+
 </script>
 
 <html>
@@ -142,7 +187,8 @@ body{}
 
 	<div id="btnDiv" class="animate-bottom">
 		<div class='btn_ly'>
-	  		<a href="/bbs/login_pw.php" class="btn btn_wd btn_primary login_btn">LOG IN</a>
+	  		<!-- <a href="/bbs/login_pw.php" class="btn btn_wd btn_primary login_btn">LOG IN</a> -->
+				<a href="javascript:auto_login()" class="btn btn_wd btn_primary login_btn">LOG IN</a>
 	  		<a href="/bbs/register_form.php" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a>
 		</div>
 	</div>

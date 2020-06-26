@@ -385,7 +385,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 
 	<tr>
 		<th scope="row"><label for="first_name">지갑주소 </label></th>
-		<td><input type="text" name="first_name" value=" <?php echo $mb['first_name'] ?>" id="first_name" maxlength="100" class="frm_input wide" size="30"></td>
+		<td><input type="text" name="first_name" value="<?php echo $mb['first_name'] ?>" id="first_name" maxlength="100" class="frm_input wide" size="30"></td>
 		<!--<th scope="row"><label for="last_name">회원명 (Last Name)</label></th>
 		<td><input type="text" name="last_name" value="<?php echo $mb['last_name'] ?>" id="last_name" maxlength="100" required class="required frm_input wide" size="30"></td>
 			-->
