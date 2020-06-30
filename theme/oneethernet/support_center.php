@@ -204,7 +204,7 @@ if($is_admin){
 			var File_Size = document.getElementById(param).files[0].size;
 
 			if( Number(File_Size) >= 5242880){
-				alert("File above than 5MB. try send support email : hazinformatioin@gmail.com");
+				alert("File above than 5MB. try send support email : bravepartners2015@gmail.com");
 				$("#"+param).val("");
 			}
 
@@ -282,7 +282,7 @@ if($is_admin){
 
 				<div class="email" style="font-size:14px;border:1px solid #e5e5e5;padding:15px;border-radius:5px;margin-top:30px;text-align:center;">
 				<span data-i18n="support.파일 크기 5MB 이상 jpg, png, pdf">File above 5MB .jpg, .png, .pdf</span>
-				<br> <a href="mailto:hazinformatioin@gmail.com">hazinformatioin@gmail.com</a>
+				<br> <a href="mailto:bravepartners2015@gmail.com">bravepartners2015@gmail.com</a>
 				</div>
 			</div>
 		</div>
