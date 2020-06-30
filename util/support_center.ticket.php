@@ -14,7 +14,7 @@ if($method == 'GET'){
 	if($is_admin){
 		if($_GET['is_answer']){
 			$sql = "select idx, topic, subject, is_closed, if(DATEDIFF(now(),create_date)>0,
-			DATE_FORMAT(create_date, '%b-%d %H:%i %p'), TIME_FORMAT(create_date, '%H:%i %p')) as create_date, 
+			DATE_FORMAT(create_date, '%b-%d %H:%i %p'), TIME_FORMAT(create_date, '%H:%i %p')) as create_date,
 			mb_no, t2.answer_dt, is_closed
 			from ticket t inner join (
 				select pid, max(create_date) as answer_dt from ticket_child where mb_no = 1
@@ -40,7 +40,7 @@ if($method == 'GET'){
 			) t2 on t.idx = t2.pid
 		where is_closed = {$_GET['is_closed']} and mb_no = {$member['mb_no']} order by idx desc";
 	}
-    
+
     //print_r($sql);
 
 	$sth = sql_query($sql);
@@ -55,7 +55,7 @@ if($method == 'GET'){
 
 	sql_query("insert into ticket_child(content, pid, mb_no, create_date) values ('{$_POST[content]}', ".$idx.", $member[mb_no], now())");
 
-	// 메일 전송 
+	// 메일 전송
 	//shell_exec("php support.ticket.mail.php ".$idx." ".$member['mb_id']." ".$member['mb_email']." ".$_POST['lang']." > /dev/null &");
 
 	///// 파일 업로드 시작 ////////
@@ -183,13 +183,13 @@ if($method == 'GET'){
 	}else{
 		header('Location: '.G5_URL.'/page.php?id=support_center&idx='.$pid);
     }
-    
-	
+
+
 }else if($method == 'PUT'){
 	parse_str(file_get_contents("php://input"),$put_vars);
-    
+
     $update_closed = sql_query("update ticket set is_closed = 1 where idx = {$put_vars['idx']}");
-    
+
     if($update_closed){
         print json_encode(array('idx' => $put_vars['idx']));
     }
