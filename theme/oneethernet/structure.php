@@ -406,7 +406,7 @@ _
 					<dt class="_lvl">
 						<p class="lv"></p>
 						<span  class="lvl-username">HAZ</span>
-						<span class="level badge"></span>
+						<!-- <span class="level badge"></span> -->
 						<span class='toggle'><i class="ri-line-height"></i></span>
 					</dt>
 				</dl>

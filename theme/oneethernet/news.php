@@ -4,7 +4,8 @@ include_once(G5_THEME_PATH.'/_include/head.php');
 include_once(G5_THEME_PATH.'/_include/gnb.php');
 
 
-$bo_table = "g5_write_news";
+$bo_table = "g5_write_notice";
+$bo_table_java = "notice";
 
 $list_cnt = sql_fetch("select count(*) as cnt from {$bo_table} where wr_1 = '1' order by wr_datetime desc");
 $cnt = $list_cnt['cnt'];
@@ -38,7 +39,7 @@ $title = 'News';
 			alterClass();
 
 			$(document).on('click','.question' ,function(e) {
-                var table = "news";
+                var table = "<?=$bo_table_java?>";
 
 				$selected = $(this).next();
 				if($(this).hasClass('qa-open')){// 닫기
@@ -56,7 +57,7 @@ $title = 'News';
 
 						$selected.find('p.writing').html(data.writing);
 						$selected.find('p.files').empty();
-						$selected.find('p.images').empty();
+						$selected.find('div.images').empty();
 
 						$.each(data.file_list, function( index, obj ) {
 							if(obj.filename != ''){
@@ -68,8 +69,9 @@ $title = 'News';
 								}else {
 									// console.log(obj)
 									var img = $('<img>');
-									img.attr('src','<?=G5_DATA_URL?>/file/<?=$bo_table?>/' + obj.bf_file);
-									$selected.find('p.images').append(img).append('<br>');
+
+									img.attr('src','<?=G5_DATA_URL?>/file/'+table+'/' + obj.bf_file);
+									$selected.find('div.images').append(img).append('<br>');
                                 }
 							}
 						});
@@ -93,7 +95,7 @@ $title = 'News';
 		<li><a href="/page.php?id=<?=$title?>" data-i18n="news.뉴스"><?=$title?></a></li>
 	</ol>
 	<?php if($is_admin){?>
-        <div class='admin_btn'><a class="btn wd btn-primary" style="color:white;" href="/bbs/write.php?bo_table=news">admin</a></div>
+        <div class='admin_btn'><a class="btn wd btn-primary" style="color:white;" href="/bbs/write.php?bo_table=notice">admin</a></div>
     <?php }?>
 </section>
 
@@ -110,7 +112,7 @@ $title = 'News';
 			</div>
 		</div>
 	</div>
-	
+
 	<?for($i; $row = sql_fetch_array($list); $i++){?>
         <div class="col-sm-12 col-12 content-box round news">
 			<div class="qa-container">

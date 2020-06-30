@@ -3,12 +3,12 @@ include_once('./_common.php');
 
 $wr_id = $_GET['no'];
 
-
+$table_name = "g5_write_notice";
 $ss_name = 'ss_view_'.$bo_table.'_'.$wr_id;
 //print_r(get_session($ss_name));
 
 if(!get_session($ss_name)){
-    sql_query("update g5_write_news set wr_hit = wr_hit + 1  where wr_id ={$wr_id}");
+    sql_query("update {$table_name} set wr_hit = wr_hit + 1  where wr_id ={$wr_id}");
 }
 
 set_session($ss_name, TRUE);
@@ -43,8 +43,7 @@ WHERE NOT EXISTS (
 		and wr_id = '{$_GET['no']}'
 ) LIMIT 1");
 
-$obj->not_read_cnt = sql_fetch("select count(*) as cnt from g5_write_news where wr_id not in (select wr_id from read_notice where mb_no = {$member['mb_no']})")['cnt'];
+$obj->not_read_cnt = sql_fetch("select count(*) as cnt from {$table_name} where wr_id not in (select wr_id from read_notice where mb_no = {$member['mb_no']})")['cnt'];
 
 echo json_encode($obj);
 ?>
-

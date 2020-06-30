@@ -1,6 +1,6 @@
 <?php
 include_once('./_common.php');
-include_once(G5_THEME_PATH.'/_include/head.php'); 
+include_once(G5_THEME_PATH.'/_include/head.php');
 include_once(G5_THEME_PATH.'/_include/gnb.php');
 
 if(!$is_admin){
@@ -24,15 +24,15 @@ if(!$is_admin){
 				$selected = $(this).next();
 				$(this).toggleClass('active');
 
-					
+
 				$selected.toggleClass('active');
 				getComment($(this).attr('idx'));
-				
+
 			});
 
 			// 코멘트 달기
 			$(document).on('click','.btn.send' ,function(e) {
-				
+
 				$('#ticketChildForm [name=idx]').val($(this).attr('idx'));
 				$('#ticketChildForm [name=content]').val($(this).parents('.chat-input').find('.message').val());
 				$('#ticketChildForm').append($(this).parents('.chat-input').find('.messageFile').clone());
@@ -47,7 +47,7 @@ if(!$is_admin){
 				}
 			});
 
-			// 티켓종료 
+			// 티켓종료
 			$(document).on('click','.btn.cl' ,function(e) {
 				console.log("closed");
 				$.ajax({
@@ -63,7 +63,7 @@ if(!$is_admin){
 						$('#commonModal #closeModal').click(function () {
 							location.reload();
 						});
-							
+
 
 					}
 				});
@@ -116,7 +116,7 @@ if(!$is_admin){
 					row.find('.chat-input').remove();
 				}else{
 					row.find('.btn.send').attr('idx', ticket.idx);
-					row.find('.btn.cl').attr('idx', ticket.idx);	
+					row.find('.btn.cl').attr('idx', ticket.idx);
 				}
 
 				vHtml.append(row.html());
@@ -151,6 +151,17 @@ if(!$is_admin){
 					}
 					vHtml.append(row.html());
 				});
+
+				if(data.file){
+					// console.log(data.file);
+					var btn = $('<a class="file_addon">');
+					btn.attr('href','<?=G5_URL?>/bbs/download.php?bo_table=supportCenter&wr_id=' + data.file.wr_id + '&no=' + data.file.bf_no);
+					btn.text(data.file.bf_source);
+					vHtml.find('.message.member-message').last().append(btn);
+				}
+
+
+
 				$selected.find('.chat').append(vHtml.html());
 			}).fail(function(e) {
 				console.log( e );
@@ -158,13 +169,13 @@ if(!$is_admin){
 		}
 
     </script>
-    
+
 
 	<section class="con90_wrap">
 
-	<div class="main-container dash_contents">		
+	<div class="main-container dash_contents">
 		<div id="body-wrapper" >
-			
+
 			<div class="support-container">
 				<div class="support-panels">
 					<ul class="support-tabs">
@@ -185,13 +196,13 @@ if(!$is_admin){
 	<div style="display:none;" id="dup">
 		<div class="ticket-header">
 			<strong class="topic"></strong>
-			<span class="ticket-title subject" ></span> 
+			<span class="ticket-title subject" ></span>
 			<span class="ticket-time create_date">12:34 PM</span>
 		</div>
-		
+
 		<div class="chat-box">
 			<div class="chat">
-				
+
 			</div>
 
 			<div class="chat-input">

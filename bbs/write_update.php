@@ -233,7 +233,7 @@ if ($w == '' || $w == 'r') {
 		$wr_reply = '';
 	}
 
-	
+
 
 	$sql = " insert into $write_table
 				set wr_num = '$wr_num',
@@ -295,7 +295,7 @@ if ($w == '' || $w == 'r') {
 		insert_point($member['mb_id'], $board['bo_comment_point'], "{$board['bo_subject']} {$wr_id} 글답변", $bo_table, $wr_id, '쓰기');
 	}
 
-	if($bo_table = 'notice'){
+	if($bo_table == 'notice'){
 		shell_exec("php notice_mail.php >/dev/null &");
 	}
 
@@ -699,4 +699,5 @@ if ($file_upload_msg)
 	alert($file_upload_msg, G5_HTTP_BBS_URL.'/board.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id.'&amp;page='.$page.$qstr);
 else
 	goto_url(G5_HTTP_BBS_URL.'/board.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id.$qstr);
+	// echo G5_HTTP_BBS_URL.'/board.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id.$qstr;
 ?>
