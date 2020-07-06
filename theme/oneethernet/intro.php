@@ -107,6 +107,10 @@ body{}
 	  move()
 	}
 
+	function temp_block(){
+	commonModal("Notice",'원이더넷 방문을 환영합니다.<br />사전 가입이 마감되었습니다.<br />가입하신 회원은 로그인 해주세요',100);
+	}
+
 	function showPage() {
 	  document.getElementById("myBar").style.display = "none";
 	  document.getElementById("btnDiv").style.display = "block";
@@ -189,7 +193,8 @@ body{}
 		<div class='btn_ly'>
 	  		<!-- <a href="/bbs/login_pw.php" class="btn btn_wd btn_primary login_btn">LOG IN</a> -->
 				<a href="javascript:auto_login()" class="btn btn_wd btn_primary login_btn">LOG IN</a>
-	  		<a href="/bbs/register_form.php" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a>
+	  		<!-- <a href="/bbs/register_form.php" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a> -->
+				<a href="javascript:temp_block()" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a>
 		</div>
 	</div>
 </div>

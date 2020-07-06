@@ -19,29 +19,30 @@
 				<div>
 					<label for="u_name"><span data-i18n="login.유저네임">Userid</span></label>
 					<input type="text" name="mb_id" id=" u_name" placeholder="ID"/>
-					
+
 				</div>
 				<div>
 					<label for="u_pw"><span data-i18n="login.비밀번호">Password</span></label>
 					<input type="password" name="mb_password" id="u_pw" style="line-height:22px;" placeholder="password" onkeyup="press(this.form)"/>
 				</div>
-				
+
 				<!--
 				<div>
 					<input type="checkbox" name="auto_login" id="login_auto_login" checked >
 					<label for="login_auto_login" class="">자동로그인</label>
 				</div>
 				-->
-				
+
 				<div class="login_btn_bottom">
 					<button type="button" class="btn btn_wd btn_primary" onclick="flogin_submit();" ><span>LOG IN</span></button>
-					<a href="/bbs/register_form.php" class="btn btn_wd btn_default"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a>
+					<!-- <a href="/bbs/register_form.php" class="btn btn_wd btn_default"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a> -->
+					<a href="javascript:temp_block();" class="btn btn_wd btn_default"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a>
 					<!--<a href="javascript:serviceModal();"class='desc'>lost password?</a>-->
 						<!--<a href="<?=G5_BBS_URL?>/password_lost.php" class='desc'>lost password?</a>-->
 						<a href="mailto:hazinformatioin@gmail.com" onclick='showhelp();' class='desc'>Need you Help?</a>
 						<p class='helpmail'>hazinformatioin@gmail.com</p>
 				</div>
-				
+
 			</form>
 		</div>
 
@@ -56,11 +57,14 @@
 	function showhelp(){
 		$('.helpmail').toggle();
 	}
-	function press(f){ 
+	function press(f){
 		console.log(event.keyCode);
-		if(event.keyCode == 13){ 
-			f.submit(); 
-		} 
+		if(event.keyCode == 13){
+			f.submit();
+		}
+	}
+	function temp_block(){
+	commonModal("Notice",'원이더넷 방문을 환영합니다.<br />사전 가입이 마감되었습니다.<br />가입하신 회원은 로그인 해주세요',100);
 	}
 </script>
 
