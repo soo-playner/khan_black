@@ -161,8 +161,7 @@ body{}
 						}
 
 						if(res.result == "FAIL"){
-							// alert("EHTEREUM ADDRESS is not registered. Please Sign In or Sign Up.");
-							commonModal("Notice",'EHTEREUM ADDRESS is not registered. Please Sign In or Sign Up.',100);
+							alert("EHTEREUM ADDRESS is not registered. Please Sign In or Sign Up.");
 							window.location.href = '<?=G5_HTTPS_BBS_URL?>'+"/login_pw.php";
 						}
 
