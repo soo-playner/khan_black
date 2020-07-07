@@ -36,7 +36,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => "{ \"from\":\"PINNACLE\", \"to\":\"{$mobile}\", \"text\":\"[PINNACLE] Verification Code: {$randomStr}\" }",
   CURLOPT_HTTPHEADER => array(
     "accept: application/json",
-    "authorization: Basic " . getHeader('PINNACLE_INTL', 'Pinnacle0214$'),
+    "authorization: Basic " . getHeader('HAZGLOBAL', 'Willsoft0780!@'),
     "content-type: application/json"
   ),
 ));
