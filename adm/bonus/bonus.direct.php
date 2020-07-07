@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 $sub_menu = "600200";
 include_once('./_common.php');
@@ -213,5 +213,37 @@ if($debug){}else{
     $logfile = G5_PATH.'/data/log/'.$code.'/'.$code.'_'.$bonus_day.'.html';
     fopen($logfile, "w");
     file_put_contents($logfile, ob_get_contents());
+}
+?> -->
+
+
+<?php
+$sub_menu = "600200";
+include_once('./_common.php');
+include_once('./bonus_inc.php');
+
+auth_check($auth[$sub_menu], 'r');
+
+
+// 직추천 수당
+$bonus_row = bonus_pick($code);
+$bonus_rate = $bonus_row['rate'];
+
+$pre_sql = "SELECT mb_id FROM g5_member ORDER BY mb_no ASC";
+
+$pre_result = sql_query($pre_sql);
+
+
+while($row=sql_fetch_array($pre_result)){
+
+    $mb_id = $row['mb_id'];
+    $cal_sql = "SELECT '{$bonus_rate}' * COUNT(mb_id) as total, COUNT(mb_id) as cnt FROM g5_member WHERE mb_recommend='{$mb_id}'";  
+    $result = sql_query($cal_sql);
+
+    $total_row = sql_fetch_array($result);
+    $total_eth = $total_row['total'];
+    $sql = "UPDATE g5_member SET mb_balance='{$total_eth}' WHERE mb_id='{$mb_id}'";
+    echo "회원아이디 : ".$mb_id." / 추천인수 : ".$total_row['cnt']." / 총 수익 : ".$total_eth." ETH <br>";
+    sql_query($sql);
 }
 ?>
