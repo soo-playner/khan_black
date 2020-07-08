@@ -2,7 +2,7 @@
 include_once('./_common.php');
 
 /*수당설정 로드*/
-define('BONUS_CURENCY','HAZ');
+define('BONUS_CURENCY','ETH');
 
 
 if($_GET['debug']){
