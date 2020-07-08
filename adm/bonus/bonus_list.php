@@ -312,7 +312,7 @@ $colspan = 16;
     <tr>
 		<th scope="col">수당날짜</th>
 		<th scope="col">회원아이디</a></th>
-		<th scope="col">회원이름</a></th>
+		<th scope="col">회원지갑</a></th>
 		<th scope="col">회원등급</a></th>
 		<th scope="col">현재예치금 (<?=BONUS_CURENCY?>)</a></th>	
         <th scope="col">수당이름</th>

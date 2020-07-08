@@ -119,7 +119,7 @@ function del_recommend(mb_id){
         <thead>
         <tr>
             <th width="30%" scope="col">회원아이디</th>
-            <th width="20%" scope="col">이름</th>
+            <th width="20%" scope="col">지갑주소</th>
             <th width="25%" scope="col"><?if ($gubun=="B"){?>바이너리레그<?}else{?>추천인<?}?></th>
             <th width="25%" scope="col">&nbsp;</th>
         </tr>
