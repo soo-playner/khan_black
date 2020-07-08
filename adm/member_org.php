@@ -388,7 +388,7 @@ text-align:center !important;
 }
 </style>
 <script type="text/javascript">
-<!--
+
 	function clickExportButton(){
 		 $(".oc-export-btn").click();
 	}
