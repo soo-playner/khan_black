@@ -385,7 +385,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 
 	<tr>
 		<th scope="row"><label for="first_name">지갑주소 </label></th>
-		<td><input type="text" name="first_name" value="<?php echo $mb['first_name'] ?>" id="first_name" maxlength="100" class="frm_input wide" size="30"></td>
+		<td><input type="text" name="first_name" value="<?php echo ltrim($mb['first_name']) ?>" id="first_name" maxlength="100" class="frm_input wide" size="30"></td>
 		<!--<th scope="row"><label for="last_name">회원명 (Last Name)</label></th>
 		<td><input type="text" name="last_name" value="<?php echo $mb['last_name'] ?>" id="last_name" maxlength="100" required class="required frm_input wide" size="30"></td>
 			-->
@@ -479,24 +479,26 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 			<?//php echo ($mb['mb_recommend'] ? get_text($mb['mb_recommend']) : '없음'); // 081022 : CSRF 보안 결함으로 인한 코드 수정 ?>
 			<input type="text" name="mb_recommend" id="mb_recommend" value="<?=$mb['mb_recommend']?>" class="frm_input wide" /><span id="ajax_rcm_search" class="btn flexible">검색</span>
 			</td>
-		<!--
+		
 		<th scope="row">후원인</th>
 		<td colspan="1">
 
 			<?//php echo ($mb['mb_brecommend'] ? get_text($mb['mb_brecommend']) : '없음'); // 081022 : CSRF 보안 결함으로 인한 코드 수정 ?>
 			<input type="text" name="mb_brecommend" id="mb_brecommend" value="<?=$mb['mb_brecommend']?>" class="frm_input wide" disabled/>
-			<span>등록일 : <?=$mb['mb_bre_time']?></span>
+			<span><?=$mb['mb_bre_time'] ? "등록일 : ".$mb['mb_bre_time'] : "" ?></span>
 			</td>
 		</tr>
-		-->
-		<th scope="row">센터멤버</th>
+		
+		<!-- <th scope="row">센터멤버</th>
 		<td colspan="1">
 			<input type="checkbox" style='width:24px;height:24px' name="center_use" id="center_use" value=" <?=$mb['center_use']?> " class="frm_input" <? if($mb['center_use'] == '1') {echo "checked";}?> />
 			<label style='margin-left:20px;'><?=$mb['mb_center']?></label>
-		</td>
+		</td> -->
 
 	<?php } ?>
-
+	
+	
+		
 
 
 	<!-- 임시 수동입금/매출  -->

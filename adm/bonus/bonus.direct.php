@@ -10,8 +10,9 @@ auth_check($auth[$sub_menu], 'r');
 // 직추천 수당
 $bonus_row = bonus_pick($code);
 
-$bonus_limit = $bonus_row['limited']/100;
-$bonus_rate = $bonus_row['rate']*0.01;
+// $bonus_limit = $bonus_row['limited']/100;
+// $bonus_rate = $bonus_row['rate']*0.01;
+$bonus_rate = $bonus_row['rate'];
 
 $bonus_condition = $bonus_row['source'];
 $bonus_condition_tx = bonus_condition_tx($bonus_condition);
@@ -21,14 +22,16 @@ $bonus_layer_tx = bonus_layer_tx($bonus_layer);
 
 
 //회원 리스트를 읽어 온다.
-$sql_common = " FROM g5_shop_order AS o, g5_member AS m ";
-$sql_search=" WHERE o.mb_id=m.mb_id AND od_date ='".$bonus_day."'";
-$sql_mgroup=' GROUP BY m.mb_id ORDER BY m.mb_no asc';
+// $sql_common = " FROM g5_shop_order AS o, g5_member AS m ";
+// $sql_search=" WHERE o.mb_id=m.mb_id AND od_date ='".$bonus_day."'";
+// $sql_mgroup=' GROUP BY m.mb_id ORDER BY m.mb_no asc';
 
-$pre_sql = "select count(*) 
-            {$sql_common}
-            {$sql_search}
-            {$sql_mgroup}";
+// $pre_sql = "select count(*) 
+//             {$sql_common}
+//             {$sql_search}
+//             {$sql_mgroup}";
+
+$pre_sql = "SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point FROM g5_member WHERE mb_id NOT IN('admin') ORDER BY mb_no ASC";
 
 
 if($debug){
@@ -43,7 +46,7 @@ $result_cnt = sql_num_rows($pre_result);
 ob_start();
 
 // 설정로그 
-echo "<strong>".strtoupper($code)." 지급비율 : ". $bonus_row['rate']."%   </strong> |    지급조건 :".$pre_condition.' | '.$bonus_condition_tx." | ".$bonus_layer_tx."<br>";
+echo "<strong>".strtoupper($code)." 지급비율 : ". $bonus_row['rate']."ETH   </strong> |    지급조건 :".$pre_condition.' | '.$bonus_condition_tx." | ".$bonus_layer_tx."<br>";
 echo "<strong>".$bonus_day."</strong><br>";
 echo "<br><span class='red'> 기준대상자(매출발생자) : ".$result_cnt."</span><br><br>";
 echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
@@ -55,13 +58,15 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
 <div>
 <?
 
-$price_cond=", SUM(pv) AS hap";
+// $price_cond=", SUM(pv) AS hap";
 
-$sql = "SELECT od_date AS od_time, m.mb_no, m.mb_id, m.mb_recommend, m.mb_name, m.mb_level, m.mb_deposit_point, m.mb_balance, m.grade
-            $price_cond 
-            {$sql_common}
-            {$sql_search}
-            {$sql_mgroup}";
+// $sql = "SELECT od_date AS od_time, m.mb_no, m.mb_id, m.mb_recommend, m.mb_name, m.mb_level, m.mb_deposit_point, m.mb_balance, m.grade
+//             $price_cond 
+//             {$sql_common}
+//             {$sql_search}
+//             {$sql_mgroup}";
+
+$sql = $pre_sql;
 $result = sql_query($sql);
 
 // 디버그 로그 
@@ -102,16 +107,17 @@ function  excute(){
         }
         
         // $sql = " SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point FROM g5_member WHERE {$recom}= '{$mb_id}' ";
-        $sql = "SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point,
-        (SELECT od_cart_price  FROM g5_shop_order WHERE A.mb_id = mb_id AND od_date = '{$bonus_day}') AS today_sale FROM g5_member AS A WHERE {$recom} = '{$mb_id}' ";
+        // $sql = "SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point,
+        // (SELECT od_cart_price  FROM g5_shop_order WHERE A.mb_id = mb_id AND od_date = '{$bonus_day}') AS today_sale FROM g5_member AS A WHERE {$recom} = '{$mb_id}' ";
+        $sql = "SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point FROM g5_member WHERE mb_recommend = '{$mb_id}' ";
         $sql_result = sql_query($sql);
         $sql_result_cnt = sql_num_rows($sql_result);
 
         echo "직추천인 : <span class='red'> ".$sql_result_cnt."</span> 명 <br>";
         
-
-        while( $recommend = sql_fetch_array($sql_result) ){   
         
+        while( $recommend = sql_fetch_array($sql_result) ){   
+            $recommend['today_sale'] = 1;
             $recom_id = $recommend['mb_id'];
             if($recommend['today_sale'] > 0){
                 $today_sales=$recommend['today_sale'];
@@ -127,9 +133,10 @@ function  excute(){
                 $mem_reult = sql_fetch($mem_sql);
                 $mb_balance = $mem_reult['mb_balance'];
 
-                $benefit=($today_sales*$bonus_rate);// 매출자 * 수당비율
+                // $benefit=($today_sales*$bonus_rate);// 매출자 * 수당비율
+                $benefit= $bonus_rate;
 
-                $balance_limit = $bonus_limit * $mb_deposit; // 수당한계선
+                // $balance_limit = $bonus_limit * $mb_deposit; // 수당한계선
                 $benefit_limit = $mb_balance + $benefit; // 수당합계
                 
                 $rec=$code.' Recommend Bonus from  '.$recom_id;
@@ -143,18 +150,18 @@ function  excute(){
                     echo "</code><br>";
                 }
                 
-                if($benefit_limit > $balance_limit){
-                    $benefit_limit = $balance_limit;
-                    $rec_adm = "benefit overflow";
-                    echo $recom_id." | ".$today_sales.'*'.$bonus_rate;
-                    echo "<span class=blue> ▶▶▶ 수당 지급 : ".$benefit."</span>";
-                    echo "<span class=red> ▶▶ 수당 초과 (한계까지만 지급)".$benefit_limit." </span><br>";
+                // if($benefit_limit > $balance_limit){
+                //     $benefit_limit = $balance_limit;
+                //     $rec_adm = "benefit overflow";
+                //     echo $recom_id." | ".$today_sales.'*'.$bonus_rate;
+                //     echo "<span class=blue> ▶▶▶ 수당 지급 : ".$benefit."</span>";
+                //     echo "<span class=red> ▶▶ 수당 초과 (한계까지만 지급)".$benefit_limit." </span><br>";
                     
-                }else{
+                // }else{
                     // 수당 로그
                     echo $recom_id." | ".$today_sales.'*'.$bonus_rate;
                     echo "<span class=blue> ▶▶▶ 수당 지급 : ".$benefit."</span><br>";
-                }
+                // }
 
                 if($benefit > 0){
                     //**** 수당이 있다면 함께 DB에 저장 한다.
@@ -171,7 +178,7 @@ function  excute(){
                     $bonus_sql .= " ,origin_balance	= '".$mb_balance."'";
                     $bonus_sql .= " ,origin_deposit	= '".$mb_deposit."'";
                     $bonus_sql .= " ,datetime		= '".date("Y-m-d H:i:s")."'";
-
+    
 
                     // 디버그 로그
                     if($debug){
@@ -215,35 +222,3 @@ if($debug){}else{
     file_put_contents($logfile, ob_get_contents());
 }
 ?>
-
-
-<!-- <?php
-$sub_menu = "600200";
-include_once('./_common.php');
-include_once('./bonus_inc.php');
-
-auth_check($auth[$sub_menu], 'r');
-
-
-// 직추천 수당
-$bonus_row = bonus_pick($code);
-$bonus_rate = $bonus_row['rate'];
-
-$pre_sql = "SELECT mb_id FROM g5_member ORDER BY mb_no ASC";
-
-$pre_result = sql_query($pre_sql);
-
-
-while($row=sql_fetch_array($pre_result)){
-
-    $mb_id = $row['mb_id'];
-    $cal_sql = "SELECT '{$bonus_rate}' * COUNT(mb_id) as total, COUNT(mb_id) as cnt FROM g5_member WHERE mb_recommend='{$mb_id}'";  
-    $result = sql_query($cal_sql);
-
-    $total_row = sql_fetch_array($result);
-    $total_eth = $total_row['total'];
-    $sql = "UPDATE g5_member SET mb_balance='{$total_eth}' WHERE mb_id='{$mb_id}'";
-    echo "회원아이디 : ".$mb_id." / 추천인수 : ".$total_row['cnt']." / 총 수익 : ".$total_eth." ETH <br>";
-    sql_query($sql);
-}
-?> -->
