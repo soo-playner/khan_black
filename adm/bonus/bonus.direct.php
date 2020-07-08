@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 $sub_menu = "600200";
 include_once('./_common.php');
@@ -214,10 +214,10 @@ if($debug){}else{
     fopen($logfile, "w");
     file_put_contents($logfile, ob_get_contents());
 }
-?> -->
+?>
 
 
-<?php
+<!-- <?php
 $sub_menu = "600200";
 include_once('./_common.php');
 include_once('./bonus_inc.php');
@@ -246,4 +246,4 @@ while($row=sql_fetch_array($pre_result)){
     echo "회원아이디 : ".$mb_id." / 추천인수 : ".$total_row['cnt']." / 총 수익 : ".$total_eth." ETH <br>";
     sql_query($sql);
 }
-?>
+?> -->

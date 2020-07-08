@@ -210,7 +210,7 @@ for($i=1;$i<=15;$i++){
 
 	if($my_rank > 7){$my_rank = 7;}
 
-	$my_rank_img = '<i class="material-icons grade'.$my_grade.'">star</i><img src="'.G5_THEME_URL.'/_images/star'.$my_rank.'.png" width="20"><br>';
+	$my_rank_img = '<img src="'.G5_THEME_URL.'/_images/user_icon.png" width="20"><br>';
 
 	array_push($list_info, $my_rank_img);
 	array_push($list_pinfo, $my_pool_lv);
@@ -307,7 +307,7 @@ for($i=1;$i<=15;$i++){
 								<?echo $list_info[0] ?>
 								<?echo $b_recom_arr[1]?><br>
 								<?echo $list_pinfo[0]?><br>
-								L : <?echo $left_point[0]?> / R : <?echo $right_point[0]?>
+								<!-- L : <?echo $left_point[0]?> / R : <?echo $right_point[0]?> -->
 							</div>
 						</div>
 
@@ -325,7 +325,7 @@ for($i=1;$i<=15;$i++){
 							<?echo $list_info[$i-1] ?>
 							<?echo $b_recom_arr[$i]?><br>
 							<?echo $list_pinfo[$i-1]?><br>
-							 L : <?echo $left_point[$i-1]?> / R : <?echo $right_point[$i-1]?>
+							 <!-- L : <?echo $left_point[$i-1]?> / R : <?echo $right_point[$i-1]?> -->
 							</div>
 
 							<?}else{?>
@@ -360,7 +360,7 @@ for($i=1;$i<=15;$i++){
 								<?echo $list_info[$i-1] ?>
 								<?echo $b_recom_arr[$i]?><br>
 								<?echo $list_pinfo[$i-1]?><br>
-								 L : <?echo $left_point[$i-1]?> / R : <?echo $right_point[$i-1]?>
+								 <!-- L : <?echo $left_point[$i-1]?> / R : <?echo $right_point[$i-1]?> -->
 							</div>
 							<?//if end}
 							}
@@ -481,7 +481,7 @@ for($i=1;$i<=15;$i++){
 				-->
 
 
-					<div class="member-volume">
+					<!-- <div class="member-volume">
 						<h5 data-i18n="binary.바이너리 볼륨" >Binary Volume</h5>
 
 							<?
@@ -515,7 +515,7 @@ for($i=1;$i<=15;$i++){
 								?>
 
 							<nav class="pagination-container"></nav>
-					  </div>
+					  </div> -->
 
 
 		</section>
