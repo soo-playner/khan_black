@@ -210,7 +210,7 @@ if (!$to_date) $to_date = Date("Y-m-d", time());
 				
 				<select name="sfl" id="sfl">
 				    <option value="mb_id"<?php echo get_selected($_GET['sfl'], "mb_id"); ?>>회원아이디</option>
-					<option value="mb_name"<?php echo get_selected($_GET['sfl'], "mb_name"); ?>>이름</option>
+					<!-- <option value="mb_name"<?php echo get_selected($_GET['sfl'], "mb_name"); ?>>이름</option> -->
 					</select>
 				<div style="padding-top:5px">
 				<label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
@@ -613,9 +613,9 @@ function open_register(){
 
 $(document).ready(function(){
 	$("#fr_date, #to_date").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+0d" });
-	<?if ($stx && $sfl){?>
+	<?php if ($stx && $sfl){ ?>
 		btn_search();
-	<?}?>
+	<?php } ?>
 });
 
 function edit_member(edit_id){
