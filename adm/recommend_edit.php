@@ -92,7 +92,7 @@ function del_recommend(mb_id){
 			<div style="padding-left:20px;padding-bottom:5px">
 			<select name="sfl" id="sfl">
 			        <option value="mb_id"<?php echo get_selected($_REQUEST['sfl'], "mb_id"); ?>>회원아이디</option>
-					<option value="mb_name"<?php echo get_selected($_REQUEST['sfl'], "mb_name"); ?>>이름</option>
+					<!-- <option value="mb_name"<?php echo get_selected($_REQUEST['sfl'], "mb_name"); ?>>이름</option> -->
 					
 				</select>
 
