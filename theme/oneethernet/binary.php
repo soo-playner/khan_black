@@ -604,7 +604,7 @@ for($i=1;$i<=15;$i++){
 						$.each(result, function( index, obj ) {
 							var opt = $('#dup > option').clone();
 							opt.attr('value', obj.mb_id);
-							opt.html(obj.mb_id + '(' + obj.first_name + ' ' + obj.last_name + ')');
+							opt.html(obj.mb_id);
 							$div.append(opt);
 						});
 						$('#'+id+'.lvl-open').find('select').append($div.html());
