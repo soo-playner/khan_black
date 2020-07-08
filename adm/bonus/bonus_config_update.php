@@ -2,7 +2,7 @@
 include_once('./_common.php');
 
 
-for($i = 0 ; $i < 10; $i ++){
+for($i = 0 ; $i < 12; $i ++){
     $idx = $_POST['idx'][$i];
     $name = $_POST['name'][$i];
     $code = $_POST['code'][$i];
@@ -36,8 +36,8 @@ for($i = 0 ; $i < 10; $i ++){
     source = '{$source}',
     memo = '{$memo}',
     used = '{$used}'
-    where idx = $idx ;";
-    
+    where idx = $idx ";
+
     $up_query = sql_query($update_bounus_set);
     //print_R($update_bounus_set);
 

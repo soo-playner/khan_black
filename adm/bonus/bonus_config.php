@@ -88,12 +88,21 @@ $token = get_token();
     $(document).ready(function(){
 
         $(".checkbox" ).on( "click",function(){
-            if($("input:checkbox[name='check']").is(":checked") == true){
-                console.log( $(this).next().val() );
-                $(this).next().val(1);
-            }else{
+
+            if($(this).next().val()== 1){
                 $(this).next().val(0);
+                console.log( $(this).next().val() );
+            }else{
+                $(this).next().val(1);
+                console.log( $(this).next().val() );
             }
+
+            // if($("input:checkbox[name='check']").is(":checked") == true){
+            //     console.log( $(this).next().val() );
+            //     $(this).next().val(1);
+            // }else{
+            //     $(this).next().val(0);
+            // }
         });
         
     });

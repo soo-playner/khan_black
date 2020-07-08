@@ -2,12 +2,11 @@
 $sub_menu = "600300";
 include_once('./_common.php');
 
-$tree_id;
 
 if ($gubun=="B"){
-	$sql = "select * from {$g5['member_table']} where  mb_leave_date = '' and mb_id in (select c_id from g5_member_bclass where mb_id='".$tree_id."')  ";
+	$sql = "select * from {$g5['member_table']} where  mb_leave_date = '' and mb_id in (select c_id from g5_member_bclass where mb_id='".$member['mb_id']."')  ";
 }else{
-	$sql = "select * from {$g5['member_table']} where  mb_leave_date = '' and mb_id in (select c_id from g5_member_class where mb_id='".$tree_id."')  ";
+	$sql = "select * from {$g5['member_table']} where  mb_leave_date = '' and mb_id in (select c_id from g5_member_class where mb_id='".$member['mb_id']."')  ";
 }
 if ($stx) {
     $sql .= " and {$sfl} like '{$stx}%' ";
@@ -26,7 +25,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 ?>
 			<tr>
 				<td bgcolor="#f9f9f9"  style="padding:10px 0px 10px 10px">
-				<span style="cursor:pointer" onclick="go_member('<?=$row['mb_id']?>')"><?=$row['mb_name']?> (<?=$row['mb_id']?>)</span>
+				<span style="cursor:pointer" onclick="go_member('<?=$row['mb_id']?>')"><?=$row['mb_id']?></span>
 				</td>
 			
 <?
