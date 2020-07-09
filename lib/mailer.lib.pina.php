@@ -93,8 +93,9 @@ function mailer($fname, $fmail, $to, $subject, $content, $type=0, $file="", $cc=
         $content = nl2br($content);
     }
     // Associate Array of the post parameters to be sent to the API
+    // mail.1eth.net
     $postData = array(
-        'from' => $fname.' <noreply@mail.pinnaclemining.net>',
+        'from' => $fname.' <noreply@worlds-connected.co>',
         'to' => $to,
         'subject' => $subject,
         'html' => $content
@@ -104,7 +105,7 @@ function mailer($fname, $fmail, $to, $subject, $content, $type=0, $file="", $cc=
     $context = stream_context_create(array(
         'http' => array(
             'method' => 'POST',
-            'header' => getHeader('PINNACLE_INTL', 'Pinnacle0214$'),
+            'header' => getHeader('HAZGLOBAL', 'Willsoft0780!@'),
             'content' =>  getBody($postData),
         )
     ));
