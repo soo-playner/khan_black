@@ -138,7 +138,7 @@ body{}
 	function auto_login(){
 
 		if(typeof(web3) == 'undefined'){
-    	window.location.href = '<?=G5_HTTPS_BBS_URL?>'+"/login_pw.php";
+    	window.location.href = "/bbs/login_pw.php";
   	}
 
 		window.ethereum.enable().then((err) => {
@@ -146,7 +146,7 @@ body{}
     web3.eth.getAccounts((err, accounts) => {
     	if(accounts){
 				$.ajax({
-					url: '<?=G5_HTTPS_BBS_URL?>'+"/login_check.php",
+					url: "/bbs/login_check.php",
 					async: false,
 					type: "POST",
 					dataType: "json",
@@ -162,7 +162,7 @@ body{}
 
 						if(res.result == "FAIL"){
 							alert("EHTEREUM ADDRESS is not registered. Please Sign In or Sign Up.");
-							window.location.href = '<?=G5_HTTPS_BBS_URL?>'+"/login_pw.php";
+							window.location.href = "/bbs/login_pw.php";
 						}
 
 						if(res.result == "ERROR"){
