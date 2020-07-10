@@ -6,7 +6,7 @@ $menu["menu700"] = array (
 	array('700100', '예치금 통계', G5_ADMIN_URL.'/shop_admin/sale1.php', 'sst_order_stats'),
 	array('700200', '예치금 내역', G5_ADMIN_URL.'/shop_admin/orderlist.php', 'scf_order', 1),
 	array('700300', '출금 요청 내역', G5_ADMIN_URL.'/adm.withdrawal_request.php', 'bbs_board'),
-	array('700600', '입금 요청 내역', G5_ADMIN_URL.'/adm.deposit_request.php', 'bbs_board'),
+	array('700600', '입금 요청 내역', G5_ADMIN_URL.'/adm.deposit_request.php', 'bbs_board')
 	//array('700400', '코인(포인트)전환 내역', G5_ADMIN_URL.'/config_change.php', 'bbs_board'),
 	//array('700500', '코인 송금', G5_ADMIN_URL.'/config_wallet.php', 'bbs_board'),
 
