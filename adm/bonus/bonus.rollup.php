@@ -120,7 +120,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         echo "</code>";
     }
  */
-    echo "직추천인 : ".$directs." 명 | ".$member_layer." 대 롤업 지급<br><br>";
+    echo "직추천인 : <span class='red'>".$directs." 명</span> | <span class='blue'>".$member_layer."</span> 대 롤업 지급<br><br>";
     
     
 
