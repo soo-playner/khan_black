@@ -16,7 +16,7 @@ $token = get_token();
     table tbody tr:first-child td{background:#efefef;padding-bottom:20px;border-bottom:2px solid #333;}  
     table tbody tr:nth-child(2) td{padding-top:30px;} 
     tfoot td{background:white}
-    .bonus_input{box-shadow:none;text-shadow:none;padding:10px;border:0;background: whitesmoke}
+    .bonus_input{box-shadow:none;text-shadow:none;padding:10px;border:0;background: whitesmoke;width:90%;}
 	.btn_ly{text-align:center;}
     .btn_confirm.btn_submit:hover{background:black !important;}
     .bonus_source{height:36px;}
@@ -37,9 +37,10 @@ $token = get_token();
         
         <th scope="col" width="80">수당한계 (%)</th>
 		<th scope="col" width="100">수당비율 (%)</th>
-		<th scope="col" width="80">수당지급제한(대수)</th>
+        <th scope="col" width="80">수당지급제한(대수)</th>
+        <th scope="col" width="100">수당발생조건</th>
         <th scope="col" width="100">수당지급방식</th>
-        <th scope="col" width="100">수당설명</th>
+        <th scope="col" width="200">수당설명</th>
     </tr>
     </thead>
 
@@ -57,6 +58,7 @@ $token = get_token();
 	<td style="text-align:center"><input class='bonus_input' name="limited[]"  value="<?=$row['limited']?>"></input></td>
 	<td style="text-align:center"><input class='bonus_input' name="rate[]"  value="<?=$row['rate']?>"></input></td>
     <td style="text-align:center"><input class='bonus_input' name="layer[]"  value="<?=$row['layer']?>"></input></td>
+    <td style="text-align:center"><input class='bonus_input' name="condition[]"  value="<?=$row['condition']?>"></input></td>
     <td style="text-align:center">
         <select id="bonus_source" class='bonus_source' name="source[]">
             <?php echo option_selected(0, $row['source'], "ALL"); ?>
@@ -64,6 +66,7 @@ $token = get_token();
             <?php echo option_selected(2, $row['source'], "바이너리[binary]"); ?>
         </select>
     </td>
+    
     <td style="text-align:center"><input class='bonus_input' name="memo[]"  value="<?=$row['memo']?>"></input></td>
     </tr>
     <?}?>

@@ -9,11 +9,11 @@ if($_GET['debug']){
 	$debug = 1;
 }
 
-$bonus_sql = "select * from {$g5['bonus_config']} WHERE used < 2 order by idx";
+$bonus_sql = "select * from {$g5['bonus_config']} WHERE used < 2 order by used desc, idx asc";
 $list = sql_query($bonus_sql);
 $pre_setting = sql_fetch($bonus_sql);
 $pre_condition ='';
-$admin_condition = " and "." mb_level < 10 ";
+$admin_condition = " mb_level < 10 ";
 
 // 이미지급받은경우
 $file_name = explode(".",basename($_SERVER['PHP_SELF']));
@@ -34,6 +34,8 @@ if(!$debug){
 if($pre_setting['layer'] != ''){
     $pre_condition = ' and '.$pre_setting['layer'];
     $pre_condition_in = $pre_setting['layer'];
+}else{
+    $pre_condition_in = 1;
 }
 
 

@@ -6,42 +6,48 @@ include_once('./bonus_inc.php');
 
 auth_check($auth[$sub_menu], 'r');
 
-if($_GET['debug']){
-	$debug = 1;
-}
 
 // 롤업 수당
 
 $bonus_row = bonus_pick($code);
 
-$bonus_limit = $bonus_row['limited']/100;
-$bonus_rate = $bonus_row['rate']*0.01;
+// $bonus_limit = $bonus_row['limited']/100;
+$bonus_rate = $bonus_row['rate']; //고정수당
 
 $bonus_condition = $bonus_row['source'];
 $bonus_condition_tx = bonus_condition_tx($bonus_condition);
 
-$bonus_layer = $bonus_row['layer'];
-$bonus_layer_tx = bonus_layer_tx($bonus_layer);
+
+
+if(strpos($bonus_row['layer'],',')){
+    $bonus_layer = array();
+    $bonus_layer = explode(',',$bonus_row['layer']);
+}else{
+    $bonus_layer = $bonus_row['layer'];
+}
+
+
+$bonus_layer_tx = bonus_layer_tx($bonus_row['layer']);
 
 $today=$bonus_day;
 
 //회원 리스트를 읽어 온다.
-$sql_common = " FROM g5_shop_order AS o, g5_member AS m ";
-$sql_search=" WHERE o.mb_id=m.mb_id AND DATE_FORMAT(o.od_time,'%Y-%m-%d')='".$bonus_day."'";
-$sql_mgroup=' GROUP BY m.mb_id ORDER BY m.mb_no asc';
+$sql_common = " FROM g5_member";
+$sql_search=" WHERE ".$admin_condition;
+// $sql_mgroup=' GROUP BY m.mb_id ORDER BY m.mb_no asc';
 
-$pre_sql = "select count(*) 
+$pre_sql = "select *
                 {$sql_common}
-                {$sql_search}
-                {$sql_mgroup}";
+                {$sql_search} ";
 
 $pre_result = sql_query($pre_sql);
 $result_cnt = sql_num_rows($pre_result);
 
+
 ob_start();
 
 // 설정로그 
-echo "<strong>".strtoupper($code)." 지급비율 : ". $bonus_row['rate']."%   </strong> |    지급조건 :".$pre_condition.' | '.$bonus_condition_tx." | ".$bonus_layer_tx."<br>";
+echo "<strong>".strtoupper($code)." 지급비율 : ". $bonus_row['rate']."ETH   </strong> |    지급조건 :".$pre_condition.' | '.$admin_condition.' | '.$bonus_condition_tx." | ".$bonus_layer_tx."<br>";
 echo "<strong>".$bonus_day."</strong><br>";
 echo "<br><span class='red'> 기준대상자(매출발생자) : ".$result_cnt."</span><br><br>";
 echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
@@ -53,22 +59,22 @@ echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
 <div>
 <?
 
-$price_cond=", SUM(pv) AS hap";
+/* $price_cond=", SUM(pv) AS hap";
 
-$sql = "SELECT DATE_FORMAT(o.od_time,'%Y-%m-%d') AS od_time, m.mb_id, m.mb_recommend,m.mb_name
-            $price_cond 
+$sql = "SELECT *
             {$sql_common}
             {$sql_search}
             {$sql_mgroup}";
-$result = sql_query($sql);
+$result = sql_query($sql); */
+$result = $pre_result;
+
 
 // 디버그 로그 
 if($debug){
 	echo "<code>";
-    print_r($sql);
+    print_r($pre_sql);
 	echo "</code><br>";
 }
-
 
 $history_cnt=0;
 $rec='';
@@ -81,8 +87,6 @@ function  excute(){
     global $g5, $bonus_day, $bonus_condition, $code, $bonus_rate,$pre_condition_in,$bonus_limit,$bonus_layer,$today;
     global $debug;
 
-    
-
 
 for ($i=0; $row=sql_fetch_array($result); $i++) {   
    
@@ -93,18 +97,31 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $firstname='';
     $firstid='';
 
-    $daily_soodang = "SELECT allowance_name, day, mb_id, benefit FROM {$g5['bonus']} WHERE day = '{$today}' AND mb_id = '{$comp}' ";
+    /* $daily_soodang = "SELECT allowance_name, day, mb_id, benefit FROM {$g5['bonus']} WHERE day = '{$today}' AND mb_id = '{$comp}' ";
     $daily_soodang_result = sql_fetch($daily_soodang);
     $today_sales=$daily_soodang_result['benefit'];
-    if(!$today_sales){$today_sales = 0;}
+    if(!$today_sales){$today_sales = 0;} */
+
+    //직추천인
+    $directs_sql = "select count(mb_id) as cnt FROM g5_member WHERE mb_recommend = '{$comp}' ";
+    $directs_result = sql_fetch($directs_sql);
+    $directs = $directs_result['cnt'];
+
+    $member_layer = $bonus_layer[$directs];
+
+
+    if(!$today_sales){$today_sales = 1;}
 
     echo "<br><br><span class='title' style='font-size:30px;'>".$comp."</span><br>";
-
+/* 
     if($debug){
         echo "<code>";
         echo $today_sales;
         echo "</code>";
     }
+ */
+    echo "직추천인 : ".$directs." 명 | ".$member_layer." 대 롤업 지급<br><br>";
+    
     
 
     while(  ($comp!='admin') || ($comp != $config['cf_admin']) ){   
@@ -135,13 +152,17 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
                 $firstname=$mb_name;
                 $firstid=$mb_id;
 
-            }else if($history_cnt <= $bonus_layer){                 // 본인 제외 - 지정대수까지
+            }else if($history_cnt <= $member_layer){                 // 본인 제외 - 지정대수까지
             
                 if($pre_condition_in){	
 
                 $benefit=($today_sales*$bonus_rate);// 매출자 * 수당비율
                 
-                $balance_limit = $bonus_limit * $mb_deposit; // 수당한계선
+                if($bonus_limit){
+                    $balance_limit = $bonus_limit * $mb_deposit; // 수당한계선
+                }else{
+                    $balance_limit = 10000000000; // 수당한계선
+                }
                 $benefit_limit = $mb_balance + $benefit; // 수당합계
                 
                 $rec=$code.' Bonus from '.$firstid.'('. $firstname.') :: step : '.$history_cnt.')';

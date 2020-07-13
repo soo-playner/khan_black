@@ -144,7 +144,7 @@ $colspan = 16;
 
 .benefit{color:white;border:0;height:40px;cursor:pointer;text-align:center;padding:5px 20px;width:100%;}
 .benefit.b1{background:cornflowerblue}
-.benefit.b2{background:steelblue}
+.benefit.b2,.benefit.b11{background:steelblue}
 .benefit.b3{background:slateblue}
 .benefit.b4{background:dodgerblue}
 .benefit.b5{background:slategray}

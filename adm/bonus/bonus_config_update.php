@@ -1,22 +1,17 @@
 <?
 include_once('./_common.php');
 
+$total_count = count($_POST['idx']);
 
-for($i = 0 ; $i < 12; $i ++){
+for($i = 0 ; $i < $total_count; $i ++){
+
     $idx = $_POST['idx'][$i];
     $name = $_POST['name'][$i];
     $code = $_POST['code'][$i];
     $rate = $_POST['rate'][$i];
-
-    // 전체설정
-    /* if($_POST['limited'][0]){
-        $limited = $_POST['limited'][0];
-    }else{
-        $limited = $_POST['limited'][$i];
-    } */
     $limited = $_POST['limited'][$i];
-    
     $layer = $_POST['layer'][$i];
+    $condition = $_POST['condition'][$i];
     $memo = $_POST['memo'][$i];
     $source = $_POST['source'][$i];
 
@@ -34,12 +29,13 @@ for($i = 0 ; $i < 12; $i ++){
     rate = '{$rate}',
     layer = '{$layer}',
     source = '{$source}',
+    bonus_condition = '{$condition}',
     memo = '{$memo}',
     used = '{$used}'
-    where idx = $idx ";
+    where idx = $idx ;";
 
     $up_query = sql_query($update_bounus_set);
-    //print_R($update_bounus_set);
+    
 
     if(!is_dir(G5_PATH."/data/log/".$code)){ 
         umask(0); 
@@ -47,7 +43,8 @@ for($i = 0 ; $i < 12; $i ++){
             print_r(error_get_last()); return; 
         } 
     }
-    //print_R($update_bounus_set."<br>");
+
+    print_R($update_bounus_set."<br>");
 }
 
 if( $up_query){

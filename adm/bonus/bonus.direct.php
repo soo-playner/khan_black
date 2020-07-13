@@ -12,7 +12,7 @@ $bonus_row = bonus_pick($code);
 
 // $bonus_limit = $bonus_row['limited']/100;
 // $bonus_rate = $bonus_row['rate']*0.01;
-$bonus_rate = $bonus_row['rate'];
+$bonus_rate = $bonus_row['rate']; // ETH 고정수당
 
 $bonus_condition = $bonus_row['source'];
 $bonus_condition_tx = bonus_condition_tx($bonus_condition);
@@ -31,7 +31,25 @@ $bonus_layer_tx = bonus_layer_tx($bonus_layer);
 //             {$sql_search}
 //             {$sql_mgroup}";
 
-$pre_sql = "SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point FROM g5_member WHERE mb_id NOT IN('admin') ORDER BY mb_no ASC";
+if(!$get_today ){
+
+	/*현재수당 테이블 복사*/
+	if(!$debug){
+		$db_table_copy = 'g5_member_'.$bonus_day;
+		if(!sql_query(" DESC `{$db_table_copy}` ", false)) {
+			sql_query(" CREATE TABLE IF NOT EXISTS `$db_table_copy` (
+						`mb_no` INT(11) DEFAULT NULL ,
+						`mb_id` VARCHAR(255) NOT NULL DEFAULT '',
+						`mb_balance` DOUBLE NOT NULL DEFAULT '0'
+						) ", false);
+			
+			$copysql = "INSERT INTO `{$db_table_copy}`(mb_no, mb_id, mb_balance) SELECT mb_no, mb_id, mb_balance FROM  g5_member ";
+			sql_query($copysql);
+		}
+    }
+}
+
+$pre_sql = "SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point FROM g5_member WHERE {$admin_condition} ORDER BY mb_no ASC";
 
 
 if($debug){
@@ -46,7 +64,7 @@ $result_cnt = sql_num_rows($pre_result);
 ob_start();
 
 // 설정로그 
-echo "<strong>".strtoupper($code)." 지급비율 : ". $bonus_row['rate']."ETH   </strong> |    지급조건 :".$pre_condition.' | '.$bonus_condition_tx." | ".$bonus_layer_tx."<br>";
+echo "<strong>".strtoupper($code)." 지급비율 : ". $bonus_row['rate']."ETH   </strong> |    지급조건 :".$pre_condition.' | '.$admin_condition.' | '.$bonus_condition_tx." | ".$bonus_layer_tx."<br>";
 echo "<strong>".$bonus_day."</strong><br>";
 echo "<br><span class='red'> 기준대상자(매출발생자) : ".$result_cnt."</span><br><br>";
 echo "<div class='btn' onclick='bonus_url();'>돌아가기</div>";
@@ -188,7 +206,6 @@ function  excute(){
                     }else{
                         sql_query($bonus_sql);
                     }
-
 
                     $balance_up = "update g5_member set mb_balance = ".$benefit_limit."  where mb_id = '".$mb_id."'";
 
