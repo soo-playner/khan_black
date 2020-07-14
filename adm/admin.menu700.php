@@ -19,6 +19,8 @@ $menu["menu700"] = array (
 	array('700300', '출금 요청 검토', G5_ADMIN_URL.'/withdrawal_batch.php', 'bbs_board')
 	*/
 );
-}else{}
+}else{
+
+}
 
 ?>
