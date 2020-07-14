@@ -66,11 +66,11 @@ SELECT allowance_name AS cate, DAY, round(SUM(benefit),3) AS c_sum  FROM soodang
                     <dd class='col-5'><?=$member['mb_balance'];?></dd>
                 </div>
 
-                <div class="innerBox round col-sm-12" >
+                <!-- <div class="innerBox round col-sm-12" >
                     <div class='bonus_state_bar' id='total_B_bar'></div>
                     <dt class='col-7'><span class='t_shadow_white'>BONUS LIMIT</span></dt>
                     <dd class='col-5'><?=Number_format($bonus_per,1);?>%</dd>
-                </div>
+                </div> -->
             </div>
 
             <!-- SEARCH -->
