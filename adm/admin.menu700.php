@@ -19,6 +19,11 @@ $menu["menu700"] = array (
 	array('700300', '출금 요청 검토', G5_ADMIN_URL.'/withdrawal_batch.php', 'bbs_board')
 	*/
 );
-}else{}
+}else{
+	$menu["menu700"] = array (
+	array('700000', ' 입금/출금/매출', ''.G5_ADMIN_URL.'/shop_admin/orderlist.php', '0'),	
+	array('700600', '입금 요청 내역', G5_ADMIN_URL.'/adm.deposit_request.php', 'bbs_board')
+	);
+}
 
 ?>

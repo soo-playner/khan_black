@@ -15,7 +15,7 @@
 	$bonus_per = bonus_state($member['mb_id']);
 
 	//시세 업데이트 시간
-	$next_rate_time = next_exchange_rate_time();
+	// $next_rate_time = next_exchange_rate_time();
 	
 	//하부매출 
 	$recom_sale =  refferer_habu_sales($member['mb_id']);
@@ -23,7 +23,7 @@
 	$recom_sale_weak = ($recom_sale - $recom_sale_power);
 
 	// 공지사항
-	$notice_sql = "select * from g5_write_notice where wr_1 = '1' order by wr_datetime desc";
+	$notice_sql = "select * from g5_write_notice where wr_1 = '1' order by wr_datetime desc limit 1";
 	$notice_sql_query = sql_query($notice_sql);
 	$notice_result_num = sql_num_rows($notice_sql_query);
 
@@ -43,7 +43,7 @@
 		<li><a href="/page.php?id=<?=$title?>" data-i18n="dashboard.메인화면"><?=$title?></a></li>
 	</ol>
 
-	<ol class='f_right black' id='timer'>
+	<!-- <ol class='f_right black' id='timer'>
 		<div class='counters '>
 			<div class='counter tx'>
 				<span class='exchange_tx'>Exchange Rate</span>
@@ -52,23 +52,20 @@
 
 			<div class='counter'>
 				<span id='hours' class='num'>12</span>
-				<!-- <p>Hours</p> -->
 				<p>H</p>
 			</div>
 			
 			<div class='counter'>
 				<span id='minutes' class='num'>00</span>
-				<!-- <p>Minutes</p> -->
 				<p>M</p>
 			</div>
 			
 			<div class='counter'>
 				<span id='seconds' class='num'>00</span>
-				<!-- <p>Seconds</p> -->
 				<p>S</p>
 			</div>
 		</div>
-	<ol>
+	<ol> -->
 
 </section>
 
@@ -102,7 +99,7 @@
 		<div class="col-sm-12 col-12 content-box round primary">
 			
 			<div class='user-content'>
-				<li><p class='userid grade_<?=$member['grade']?>'></p></li>
+				<!-- <li><p class='userid grade_<?=$member['grade']?>'></p></li> -->
 				<li><p class='userid user_level'>
 					<?=$user?>
 					<!-- <i class='ri-user-line icon_user'></i><i class='ri-number-8 level_txt'></i> -->
@@ -119,24 +116,26 @@
 				<?}?>
 			</div>
 
-			<div class="innerBox round mt20">
+			<!-- <div class="innerBox round mt20">
 				<dt class='col-6'><span> BONUS <?=BONUS_CURENCY?> </span></dt>
 				<dd class='col-6 '><?=$total_balance_num?> <?=BONUS_CURENCY?></dd>
-			</div>
+			</div> -->
 
-			<div class="innerBox round col-sm-12" >
-				<div class='bonus_state_bar' id='total_B_bar'></div>
+			<!-- <div class="innerBox round col-sm-12" > -->
+			<div class="innerBox round mt20" >
+				<!-- <div class='bonus_state_bar' id='total_B_bar'></div> -->
 				<dt class='col-6'><span class='t_shadow_white'>TOTAL BONUS</span></dt>
-				<dd class='col-6 bonus_per'><?=Number_format($bonus_per,1);?>%</dd>
+				<dd class='col-6'><?=$member['mb_balance']?> ETH</dd>
+				<!-- <dd class='col-6 bonus_per'><?=Number_format($bonus_per,1);?>%</dd> -->
 			</div>
-			<div class='exp_per'>
+			<!-- <div class='exp_per'>
 				<p class='start'>0%</p>
 				<p class='end'>100%</p>
-			</div>
+			</div> -->
 
 			<div class="row mt20">
 			   <article class="col-md-6 col-sm-12"><button type='button' class='btn wd c_btn b_blue' onclick="go_to_url('mywallet');" data-i18n="dashboard.내 지갑"> MY WALLET</button></article>
-			   <article class="col-md-6 col-sm-12"><button type='button' class='btn wd c_btn b_green' onclick="go_to_url('referral_link');" data-i18n="dashboard.내 추천인"> MY REFERRAL</button></article>
+			   <!-- <article class="col-md-6 col-sm-12"><button type='button' class='btn wd c_btn b_green' onclick="go_to_url('referral_link');" data-i18n="dashboard.내 추천인"> MY REFERRAL</button></article> -->
 			</div>
 
 		</div>
@@ -152,18 +151,23 @@
 
 			<div class="incard">
 				<dt data-i18n="dashboard.총 받은수당">Total My Bonus</dt>
-				<dd><?=number_format($member['mb_balance'])?> <span class='currency-right'>HAZ</span></dd>
+				<dd><?=number_format($member['mb_balance'])?> <span class='currency-right'>ETH</span></dd>
 			</div>
 
-			<div class="incard">
+			<!-- <div class="incard">
 				<dt data-i18n="dashboard.패키지레벨">My Package</dt>
 				<dd>P<?=number_format($member['mb_level'])?></dd>
-			</div>
+			</div> -->
 
 			<div class="incard">
+				<dt data-i18n="dashboard.내 사이클">My Cycle</dt>
+				<dd>preparing</dd>
+			</div>
+
+			<!-- <div class="incard">
 				<dt data-i18n="dashboard.등급">My rank</dt>
 				<dd><span class='userid grade_<?=$member['grade']?> small'></span><?=number_format($member['grade'])?>STAR</dd>
-			</div>
+			</div> -->
 
 			<div class="incard">
 				<dt data-i18n="dashboard.추천인">My Referrer</dt>
@@ -176,7 +180,7 @@
 				<dd><?=Number_format($recom_sale)?><span class='currency-right'>$</span></dd>
 			</div>
 
-			<div class="incard">
+			<!-- <div class="incard">
 				<dt data-i18n="dashboard. 대실적 ">Total Power leg Sales</dt>
 				<dd><?=Number_format($recom_sale_power)?><span class='currency-right'>$</span></dd>
 			</div>
@@ -184,7 +188,7 @@
 			<div class="incard">
 				<dt data-i18n="dashboard.소실적">Total weak leg Sales</dt>
 				<dd><?=number_format($recom_sale_weak)?><span class='currency-right'>$</span></dd>
-			</div>
+			</div> -->
 
 		</div>
 	</div>

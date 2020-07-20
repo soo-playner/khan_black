@@ -27,6 +27,11 @@ $menu['menu600'] = array (
     */
 );
 }else{
-    
+    $menu['menu600'] = array (
+
+        array('600000', '마케팅플랜', ''.G5_ADMIN_URL.'/bonus/bonus_list.php','bbs_board'),
+        array('600200', '수당지급 및 지급내역', ''.G5_ADMIN_URL.'/bonus/bonus_list.php','bbs_board')
+        
+    );
 }
 ?>

@@ -65,7 +65,8 @@
 		"내 지갑" : "MY WALLET",
 		"보너스" : "BONUS",
 		"총 보너스" : "TOTAL BONUS",
-		"홈" : "HOME"
+		"홈" : "HOME",
+		"내 사이클" : "My Cycle"
 	},
 
 	"profile" : {
@@ -178,7 +179,7 @@
 
 	"deposit" : {
 		"입금" : "Deposit",
-		"대문자 입금" : "DEPOSIT",
+		"대문자 입금" : "only 1ether DEPOSIT",
 		"입금 내역" : "Deposit History",
 		"USDT 입금 주소" : "Deposit USDT Address",
 		"주소복사" : "Copy Address",
