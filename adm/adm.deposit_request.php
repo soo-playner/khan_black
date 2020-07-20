@@ -24,9 +24,9 @@ if($_GET['fr_id']){
 	$qstr .= "&fr_id=".$_GET['fr_id'];
 }
 
-if($_GET['fr_date'] && $_GET['to_date']){
-	$sql_condition .= " and DATE_FORMAT(A.create_dt, '%Y-%m-%d') between '{$_GET['fr_date']}' and '{$_GET['to_date']}' ";
-	$qstr .= "&fr_date=".$_GET['fr_date']."&to_date=".$_GET['to_date'];
+if($fr_date && $to_date){
+	$sql_condition .= " and DATE_FORMAT(A.create_dt, '%Y-%m-%d') between '{$fr_date}' and '{$to_date}' ";
+	$qstr = "fr_date=".$fr_date."&amp;to_date=".$to_date."&amp;to_id=".$fr_id;
 }
 
 if($_GET['update_dt']){
@@ -55,7 +55,7 @@ $sql = " select count(create_d) as cnt
 {$sql_common}
 {$sql_search}";
 $rows = sql_fetch($sql);
-$total_count = $row['cnt'];
+$total_count = $rows['cnt'];
 
 $rows = 30;
 $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
@@ -68,6 +68,7 @@ $sql = " select *
             order by create_dt desc
             limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
+echo $sql;
 ?>
 
 
@@ -205,6 +206,7 @@ $qstr .= "&amp;page=";
 
 $pagelist = get_paging($config['cf_write_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?$qstr");
 echo $pagelist;
+
 
 include_once('./admin.tail.php');
 ?>
