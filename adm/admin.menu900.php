@@ -26,5 +26,11 @@ $menu["menu900"] = array (
     array('900900', '휴대폰번호 파일', ''.G5_SMS5_ADMIN_URL.'/num_book_file.php' , 'hp_file', 1)
 	*/
 );
-}else{}
+}else{
+
+  $menu["menu900"] = array (
+    array('900000', '기타', ''.G5_ADMIN_URL.'/admin.sub.maintenance.php', 'maintenance'),
+    array('900100', '서비스 점검 사용 관리', ''.G5_ADMIN_URL.'/admin.sub.maintenance.php', 'maintenance')
+  );
+}
 ?>
