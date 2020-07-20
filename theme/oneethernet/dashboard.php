@@ -199,12 +199,12 @@
 </section>
 
 
-
-<script src="<?=G5_THEME_URL?>/_common/js/timer.js"></script>
+<!-- 
+<script src="<?=G5_THEME_URL?>/_common/js/timer.js"></script> -->
 <script>
 	window.onload = function(){
 		// move(<?=$bonus_per?>,1);
-		getTime("<?=$next_rate_time?>");
+		// getTime("<?=$next_rate_time?>");
 	}
 
 	$(function(){
