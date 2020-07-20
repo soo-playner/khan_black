@@ -98,13 +98,13 @@
 
 <script type="text/javascript" src="./js/qrcode.js"></script>
 
-    <!-- <section class='breadcrumb'>
+    <section class='breadcrumb'>
         <ol>
             <li class="active title" data-i18n="deposit.내 지갑"><?=$title?></li>
             <li class='home'><i class="ri-home-4-line"></i><a href="<?php echo G5_URL; ?>" data-i18n='deposit.홈'>Home</a></li>
             <li><a href="/page.php?id=<?=$title?>" data-i18n="deposit.내 지갑"><?=$title?></a></li>
         </ol>
-        <ol class='f_right black' id='timer'>
+        <!-- <ol class='f_right black' id='timer'>
           <div class='counters '>
             <div class='counter tx'>
               <span class='exchange_tx'>Exchange Rate</span>
@@ -129,8 +129,8 @@
               <p>S</p>
             </div>
           </div>
-        <ol>
-    </section> -->
+        <ol> -->
+    </section>
 
 
     <main>
@@ -143,7 +143,7 @@
               <li><p class='userid user_level'> <?=$user?></p></li>
               <li>
                 <h4><?=$member['mb_id']?></h4>
-                <h6><?=$member['mb_name']?></h6>
+                <!-- <h6><?=$member['mb_name']?></h6> -->
               </li>
          	</div>
 
@@ -152,7 +152,7 @@
                 <dd class='col-7 '><?=$total_balance_num?> <?=BONUS_CURENCY?></dd> -->
 
                 <dt class='col-6'><span class='t_shadow_white'>TOTAL BONUS</span></dt>
-              <dd class='col-6'><?=$member['mb_balance']?></dd>
+              <dd class='col-6'><?=$member['mb_balance']?> ETH</dd>
             </div>
 
             <!-- <div class="innerBox round col-sm-12" > -->
