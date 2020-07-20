@@ -24,7 +24,7 @@
 	$mysales = $member['mb_deposit_point'];
 
   //시세 업데이트 시간
-  $next_rate_time = next_exchange_rate_time();
+  // $next_rate_time = next_exchange_rate_time();
   
   //보너스/예치금 퍼센트
   
@@ -98,7 +98,7 @@
 
 <script type="text/javascript" src="./js/qrcode.js"></script>
 
-    <section class='breadcrumb'>
+    <!-- <section class='breadcrumb'>
         <ol>
             <li class="active title" data-i18n="deposit.내 지갑"><?=$title?></li>
             <li class='home'><i class="ri-home-4-line"></i><a href="<?php echo G5_URL; ?>" data-i18n='deposit.홈'>Home</a></li>
@@ -113,24 +113,24 @@
 
             <div class='counter'>
               <span id='hours' class='num'>12</span>
-              <!-- <p>Hours</p> -->
+
               <p>H</p>
             </div>
             
             <div class='counter'>
               <span id='minutes' class='num'>00</span>
-              <!-- <p>Minutes</p> -->
+        
               <p>M</p>
             </div>
             
             <div class='counter'>
               <span id='seconds' class='num'>00</span>
-              <!-- <p>Seconds</p> -->
+         
               <p>S</p>
             </div>
           </div>
         <ol>
-    </section>
+    </section> -->
 
 
     <main>
@@ -139,7 +139,7 @@
         <div class="col-sm-12 col-12 content-box round primary">
           
           <div class='user-content'>
-              <li><p class='userid grade_<?=$member['grade']?>'></p></li>
+              <!-- <li><p class='userid grade_<?=$member['grade']?>'></p></li> -->
               <li><p class='userid user_level'> <?=$user?></p></li>
               <li>
                 <h4><?=$member['mb_id']?></h4>
@@ -148,34 +148,37 @@
          	</div>
 
             <div class="innerBox round mt20">
-                <dt class='col-5'><span> BONUS <?=BONUS_CURENCY?></span></dt>
-                <dd class='col-7 '><?=$total_balance_num?> <?=BONUS_CURENCY?></dd>
+                <!-- <dt class='col-5'><span> BONUS <?=BONUS_CURENCY?></span></dt>
+                <dd class='col-7 '><?=$total_balance_num?> <?=BONUS_CURENCY?></dd> -->
+
+                <dt class='col-6'><span class='t_shadow_white'>TOTAL BONUS</span></dt>
+              <dd class='col-6'><?=$member['mb_balance']?></dd>
             </div>
 
-            <div class="innerBox round col-sm-12" >
-              <div class='bonus_state_bar' id='total_B_bar'></div>
-              <dt class='col-6'><span class='t_shadow_white'>TOTAL BONUS</span></dt>
+            <!-- <div class="innerBox round col-sm-12" > -->
+              <!-- <div class='bonus_state_bar' id='total_B_bar'></div> -->
+              <!-- <dt class='col-6'><span class='t_shadow_white'>TOTAL BONUS</span></dt> -->
               <!-- <dd class='col-6 bonus_per'><?=Number_format($bonus_per,1);?>%</dd> -->
-              <dd class='col-6 bonus_per'><?=$member['mb_balance']?> HAZ</dd>
-            </div>
-            <div class='exp_per'>
+              <!-- <dd class='col-6 bonus_per'><?=$member['mb_balance']?> HAZ</dd> -->
+            <!-- </div> -->
+            <!-- <div class='exp_per'>
               <p class='start'>0%</p>
               <p class='end'>100%</p>
-            </div>
+            </div> -->
 
             <div class="row mt20">
               <article class="col-md-6 col-sm-6"><button type='button' class='btn wd c_btn b_blue' onclick="switch_func_paging('deposit')" data-i18n='deposit.대문자 입금'> DEPOSIT</button></article>
-              <article class="col-md-6 col-sm-6"><button type='button' class='btn wd c_btn b_red' onclick="switch_func_paging('withdraw')" data-i18n='withdraw.대문자 출금'> WITHDRAW</button></article>
+              <!-- <article class="col-md-6 col-sm-6"><button type='button' class='btn wd c_btn b_red' onclick="switch_func_paging('withdraw')" data-i18n='withdraw.대문자 출금'> WITHDRAW</button></article> -->
             </div>
         </div>
 
-        <hr class='hr_dash'>
+        <!-- <hr class='hr_dash'> -->
 
         <!-- 입금 -->
         <section  id='deposit' class='loadable'>
 
             <!-- USDT -->
-            <div class="col-sm-12 col-12 content-box round mt20" id="usdt" style='border-top:2px solid #4556ff'>
+            <!-- <div class="col-sm-12 col-12 content-box round mt20" id="usdt" style='border-top:2px solid #4556ff'>
                 <h3 class="wallet_title font_bblue" data-i18n="deposit.USDT 입금 주소">Deposit USDT  Address</h3>
 
                 <div class="wallet qrBox">
@@ -183,18 +186,18 @@
                     <input type="text" id="usdt_wallet_addr" class="wallet_addr" value="" title='my address' disabled/>
                 </div>
 
-                <div class="btn_ly">
+                <div class="btn_ly"> -->
                     
-                    <?if($sel_price){?> 
-                      <div class='col-sm-12 col-12'>
+                    <!-- <?if($sel_price){?>  -->
+                      <!-- <div class='col-sm-12 col-12'>
                         <div class='pre_price round'>
                           <span class='deposit_price'>Selected Deposit Price</span>
                           <h2 class='d_price'><?=round(shift_price('usd',$sel_price,'usdt'),2)?> USDT </h2>
                         </div>
-                      </div>
-                    <?}?>
+                      </div> -->
+                    <!-- <?}?> -->
 
-                    <div class='col-sm-12 col-12 '>
+                    <!-- <div class='col-sm-12 col-12 '>
                         <button class="btn wd line_btn" id="accountCopy" onclick="copyURL('#usdt_wallet_addr')">
                             <span data-i18n="deposit.주소복사"> Copy Address </span><i class="ri-file-copy-2-line"></i>
                         </button>
@@ -213,7 +216,7 @@
                 </div>
             </div>
 
-            <hr class='hr_dash'>
+            <hr class='hr_dash'> -->
 
             <!-- 입금요청 통합
             <div class="col-sm-12 col-12 content-box primary round mt20">
@@ -334,7 +337,7 @@
                 
                 <div class="input_shift_value">
                   <input type="text" id="sendCoin" class="send_coin" placeholder="Enter Withdraw quantity" data-i18n='[placeholder]withdraw.출금 금액을 입력해주세요'>
-                  <label class='currency-right'>HAZ</label>
+                  <label class='currency-right'></label>
 
                   <div class='row'>
                     <div class='col-4'><span class='text-center' style='font-size:90%;vertical-align: middle'>Withdrawal ETH</span></div>
@@ -385,7 +388,7 @@
                     <span class="hist_date"><?=$row['create_dt']?></span>
                     </div>
                     <div class="row1_right">
-                      <span class="hist_value"><strong><?=Number_format($row['amt'],2)?></strong> haz</span>
+                      <span class="hist_value"><strong><?=Number_format($row['amt'],2)?></strong></span>
                       <span class="hist_value eth"><strong><?=Number_format($row['amt_total'],5)?></strong> Eth</span>
                     </div>
                 </div>
@@ -448,7 +451,7 @@ aria-labelledby="ethereumAddressModalCenterTitle" aria-hidden="true">
 
 
 
-<script src="<?=G5_THEME_URL?>/_common/js/timer.js"></script>
+<!-- <script src="<?=G5_THEME_URL?>/_common/js/timer.js"></script> -->
 <script>
 $(function(){
     $(".top_title h3").html("<a href='/'><img src='<?=G5_THEME_URL?>/_images/title.png' alt='logo'></a>");
@@ -460,11 +463,11 @@ $(function(){
     }
 
     /* 입금 */
-    var usdt_wallet_addr = '<?=USDT_ADDRESS?>';
-    if(usdt_wallet_addr != ''){
-        $('#usdt_wallet_addr').val(usdt_wallet_addr);
-        generateQrCode("usdt_qr_img",usdt_wallet_addr, 150, 150);
-    }
+    // var usdt_wallet_addr = '<?=USDT_ADDRESS?>';
+    // if(usdt_wallet_addr != ''){
+    //     $('#usdt_wallet_addr').val(usdt_wallet_addr);
+    //     generateQrCode("usdt_qr_img",usdt_wallet_addr, 150, 150);
+    // }
 
     var eth_wallet_addr = '<?=ETH_ADDRESS?>';
     if(eth_wallet_addr != ''){
@@ -483,7 +486,7 @@ $(function(){
     var max_limit = '<?=$max_limit?>';
     var day_limit = '<?=$day_limit?>';
     var mb_max_limit = <?=$total_balance?> * max_limit * 0.01;
-    var fee = (<?=$fee?>*0.01);
+    // var fee = (<?=$fee?>*0.01);
 
     if(debug) console.log("ETH PRICE :: " + "<?=$eth_price?>" + ' / ' + fee);
 
@@ -529,7 +532,7 @@ $(function(){
       }
       // 최소 금액 확인
       if($('#sendCoin').val() != 0  && $('#sendCoin').val() < min_limit){
-        dialogModal('check input quantity','<strong> out of the mimimum amount 100 haz.</strong>','warning');
+        dialogModal('check input quantity','<strong> out of the mimimum amount 100.</strong>','warning');
         return false;
       }
       //최대 금액 확인
@@ -683,7 +686,7 @@ $(function(){
 window.onload = function(){
   move(<?=$bonus_per?>);
   switch_func("<?=$view?>");
-  getTime("<?=$next_rate_time?>");
+  // getTime("<?=$next_rate_time?>");
 }
 
 

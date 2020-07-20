@@ -34,7 +34,7 @@ if (empty($to_date)){$to_date =  date("Y-m-d", strtotime(date("Y-m-d")));}
 define('BONUS_CURENCY','HAZ');
 define('BALANCE_CURENCY','$');
 
-define('ETH_ADDRESS','0x286704d10f39a874148ff3d3ee70c1c76fd9bfb0');
+define('ETH_ADDRESS','0xd1c8090E1d483Cb37577D46BBcAA41Caa1aD9562');
 define('USDT_ADDRESS','0xD566877a3bC69671051443f295648c4fdfCCec36');
 
 
