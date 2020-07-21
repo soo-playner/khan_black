@@ -68,7 +68,6 @@ $sql = " select *
             order by create_dt desc
             limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
-echo $sql;
 ?>
 
 
