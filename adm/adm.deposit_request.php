@@ -112,8 +112,12 @@ $result = sql_query($sql);
                 amt : amt,
                 func : 'deposit'
 			}, function(data) {
-				if(data.result =='OK'){
-					alert('변경되었습니다.');
+				if(data.result =='success'){
+                    if(data.code == 0001 || data.code == 0002){
+                        alert(data.sql);
+                    }else{
+					    alert('변경되었습니다.');
+                    }
 					location.reload();
 				}else{
 					alert("처리되지 않았습니다.");
