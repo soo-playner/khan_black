@@ -842,7 +842,7 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 
 .div46 input{width:35%;}
 .div46 input:last-child{float:right; width: 63%;}
-.btn_input_wrap input{width:calc(100% - 125px);}
+.btn_input_wrap input{width:90%;}
 .btn_input_wrap .search_result_btn{
 	border:1px solid #0000ff;
 	background: #00aeef;

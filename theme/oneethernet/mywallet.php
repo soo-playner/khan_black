@@ -639,12 +639,16 @@ $(function(){
 
 		/*입금 확인 요청*/
     $('.deposit_request').on('click', function (e) {
-
+      var already_deposit = '<?=$member['mb_brecommend']?>';
       var coin = $(this).data('currency');
       var hash_target = $(this).parent().parent().find('.confirm_hash');
 
       if(hash_target.val()==""){
           dialogModal('Deposit Confirmation Request','<p>Transaction Hash is empty!</p>','warning');
+          return;
+      }
+      if(already_deposit != ''){
+          dialogModal('Deposit Confirmation Request','<p>Request already confirmed!</p>','warning');
           return;
       }
 

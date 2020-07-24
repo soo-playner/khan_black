@@ -78,6 +78,7 @@ $result = sql_query($sql);
     .reg_text{border:1px solid #ccc;padding:5px 10px;width:80%;}
     select{padding:5px;min-width:80px;width:80%;}
     table tr td{text-align:center}
+    .row_dup td{background:bisque}
 </style>
 
 
@@ -169,9 +170,13 @@ $result = sql_query($sql);
     <?php
     for ($i=0; $row=sql_fetch_array($result); $i++) {
         $bg = 'bg'.($i%2);
+        $duplicate_sql ="select COUNT(*) as cnt from wallet_deposit_request WHERE mb_id='{$row['mb_id']}' ";
+        $duplicate_result = sql_fetch($duplicate_sql);
+        $duplicate = $duplicate_result['cnt'];
+        if($duplicate > 1){$row_dup = 'row_dup';}else{$row_dup = '';}
     ?>
    
-    <tr class="<?php echo $bg; ?>">
+    <tr class="<?php echo $bg; ?> <?=$row_dup?>">
         <td ><?php echo $row['uid'] ?></td>
         <td><a href='/adm/member_form.php?sst=&sod=&sfl=&stx=&page=&w=u&mb_id=<?=$row['mb_id']?>' target='_blank'><?=$row['mb_id'] ?></a></td>
         <td ><a href="https://etherscan.io/tx/<?=$row['txhash']?>" target='_blank' class='hash'>
