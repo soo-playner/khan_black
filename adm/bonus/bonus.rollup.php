@@ -110,7 +110,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $directs_result = sql_fetch($directs_sql);
     $directs = $directs_result['cnt'];
 
-    $member_layer = $bonus_layer[$directs];
+    // $member_layer = $bonus_layer[$directs];
+    $member_layer = 20;
 
 
     if(!$today_sales){$today_sales = 1;}
