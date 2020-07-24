@@ -117,7 +117,7 @@ $sql = "select *
         {$sql_search}
         {$sql_order}
         limit {$from_record}, {$rows} ";
-
+print_r($sql);
 $result = sql_query($sql);
 
 

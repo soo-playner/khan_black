@@ -120,7 +120,16 @@ if ($func == 'withrawal') {
 				echo "<br><br>";
 			}
 
-			$mem_sql = "SELECT * from g5_member where mb_id='{$now_brecom['id']}' ";
+			// 아바타인지 회원마스터인지 판별
+			if(strpos($now_brecom['id'],'_')){
+				$master_id_raw = explode('_',$mb['mb_id']);
+				$master_id = $master_id_raw[0];
+			}else{
+				$master_id = $now_brecom['id'];
+			}
+			
+
+			$mem_sql = "SELECT * from g5_member where mb_id='{$master_id}' ";
 			$mb = sql_fetch($mem_sql);
 
 			if ($debug){
@@ -129,6 +138,9 @@ if ($func == 'withrawal') {
 			
 			$mem_avatar_num = $mb['avatar_last'];
 			$avatar_last_num = $mem_avatar_num+1;
+
+			
+
 
 			$avata_id = $mb['mb_id']."_".sprintf("%02d",$avatar_last_num);
 
