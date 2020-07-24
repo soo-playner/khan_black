@@ -6,6 +6,8 @@ include_once('./bonus_inc.php');
 
 auth_check($auth[$sub_menu], 'r');
 
+$now_datetime = date('Y-m-d H:i:s');
+$now_date = date('Y-m-d');
 
 // 직추천 수당
 $bonus_row = bonus_pick($code);
@@ -14,8 +16,10 @@ $bonus_row = bonus_pick($code);
 // $bonus_rate = $bonus_row['rate']*0.01;
 $bonus_rate = $bonus_row['rate']; // ETH 고정수당
 
-$bonus_condition = $bonus_row['source'];
-$bonus_condition_tx = bonus_condition_tx($bonus_condition);
+// $bonus_condition = $bonus_row['source'];
+// $bonus_condition_tx = bonus_condition_tx($bonus_condition);
+$bonus_condition = " substr(mb_bre_time,1,10) = '{$bonus_day}' and ";
+$bonus_condition_tx = "후원인지정일이 당일";
 
 $bonus_layer = $bonus_row['layer'];
 $bonus_layer_tx = bonus_layer_tx($bonus_layer);
@@ -49,7 +53,7 @@ if(!$get_today ){
     }
 }
 
-$pre_sql = "SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point FROM g5_member WHERE {$admin_condition} ORDER BY mb_no ASC";
+$pre_sql = "SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point FROM g5_member WHERE {$bonus_condition} {$admin_condition}   ORDER BY mb_no ASC";
 
 
 if($debug){
