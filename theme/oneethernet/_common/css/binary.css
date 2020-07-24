@@ -241,7 +241,7 @@
 	align-items: center;
 	border: 1px solid rgb(124, 124, 124);
 	/* display: flex; */
-	min-height: 100px;
+	min-height: 70px;
 	justify-content: center;
 	width: 100%;
 	text-align: center;
@@ -299,12 +299,17 @@
 	justify-content: space-between;
 	margin-bottom: 50px;
 }
+.member-details .mem_btn{}
+.member-details .mem_btn:hover th, .member-details .mem_btn:hover td{background:gold !important}
 
+.member-details h5{padding:10px 0;}
 .member-details, .member-volume {
 	background: white;
 	padding: 10px;
 	width: 100%;
+	color:#333;
 }
+.member-details .m_id{color:black;font-weight:600;}
 
 .pagination-container {
 	display: flex;

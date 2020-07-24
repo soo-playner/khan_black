@@ -1,12 +1,10 @@
 <?php
 include_once('./_common.php');
 
-$sql = "select * from {$g5['member_table']} where  mb_id in (select c_id from g5_member_bclass where mb_id='".$member['mb_id']."')  ";
-
-if ($binary_seach) {
-	$sql .= " and mb_id like '{$binary_seach}%' ";
-}
-$sql .= " order by mb_name";
+// $sql = "select * from {$g5['member_table']} where  mb_id in (select c_id from g5_member_bclass where mb_id='".$member['mb_id']."')  ";
+$sql = "select * from {$g5['member_table']} where  ";
+$sql .= "mb_id like '{$binary_seach}%' ";
+$sql .= " order by mb_id";
 
 $result = sql_query($sql);
 ?>
