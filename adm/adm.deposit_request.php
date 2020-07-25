@@ -78,7 +78,7 @@ $result = sql_query($sql);
     .reg_text{border:1px solid #ccc;padding:5px 10px;width:80%;}
     select{padding:5px;min-width:80px;width:80%;}
     table tr td{text-align:center}
-    .row_dup td{background:bisque}
+    .row_dup td{background:rgba(253,240,220,0.8)}
 </style>
 
 
@@ -157,12 +157,15 @@ $result = sql_query($sql);
     <thead>
     <tr>
         <th scope="col" width='5%'>no</th>
-        <th scope="col" width='10%'>아이디</th>
-        <th scope="col" width='20%'>Transaction_hash</th>
-        <th scope="col" width='10%'>코인종류</th>
-        <th scope="col" width='15%'>요청시간</th>
-        <th scope="col" width='15%'>입금확인금액(각코인단위)</th>
+        <th scope="col" width='8%'>아이디</th>
+        <th scope="col" width='8%'>추천인</th>
+        <th scope="col" width='8%'>추천인의후원인</th>
+        <th scope="col" width='21%'>Transaction_hash</th>
+        <th scope="col" width='5%'>코인종류</th>
+        
+        <th scope="col" width='10%'>입금확인금액(각코인단위)</th>
         <th scope="col" width='10%'>승인여부</th>
+        <th scope="col" width='10%'>요청시간</th>
         <th scope="col" width='15%'>상태변경일</th>
     </tr>
     </thead>
@@ -174,15 +177,21 @@ $result = sql_query($sql);
         $duplicate_result = sql_fetch($duplicate_sql);
         $duplicate = $duplicate_result['cnt'];
         if($duplicate > 1){$row_dup = 'row_dup';}else{$row_dup = '';}
+
+        $member_sql = "SELECT A.mb_recommend,B.mb_brecommend from g5_member A, g5_member B WHERE A.mb_id = '{$row['mb_id']}' AND B.mb_id = A.mb_recommend";
+        $member_result = sql_fetch($member_sql);
+
     ?>
    
-    <tr class="<?php echo $bg; ?> <?=$row_dup?>">
+    <tr class=" <?=$row_dup?>">
         <td ><?php echo $row['uid'] ?></td>
-        <td><a href='/adm/member_form.php?sst=&sod=&sfl=&stx=&page=&w=u&mb_id=<?=$row['mb_id']?>' target='_blank'><?=$row['mb_id'] ?></a></td>
+        <td style='color:#333;font-weight:600'><a href='/adm/member_form.php?sst=&sod=&sfl=&stx=&page=&w=u&mb_id=<?=$row['mb_id']?>' target='_blank'><?=$row['mb_id'] ?></a></td>
+        <td style='color:#666'><?=$member_result['mb_recommend']?></td>
+        <td style='color:#333'><?=$member_result['mb_brecommend']?></td>
         <td ><a href="https://etherscan.io/tx/<?=$row['txhash']?>" target='_blank' class='hash'>
         <?=short_code($row['txhash'],10)?><i class="ri-external-link-fill" style='font-size:16px;vertical-align:sub;float:right;margin-right:10px;'></i></a></td>
-        <td class='red coin'><strong><?=strtoupper($row['coin']);?></strong></td>
-        <td><?=$row['create_dt']?></td>
+        <td class='coin'><?=strtoupper($row['coin']);?></td>
+        
         <td><input type='text' class='reg_text input_amt_val' value='<?=$row['in_amt']?>'></td>
         <td>
             <!-- <?=status($row['status'])?> -->
@@ -194,7 +203,7 @@ $result = sql_query($sql);
                 <option <?=$row['status'] == 4 ? 'selected':'';?> value=4>취소</option>
             </select>	
         </td>
-        
+        <td><?=$row['create_dt']?></td>
         <td><?=$row['update_dt']?></td>
     </tr>
 
