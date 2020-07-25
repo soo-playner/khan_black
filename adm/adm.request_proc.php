@@ -139,9 +139,6 @@ if ($func == 'withrawal') {
 			$mem_avatar_num = $mb['avatar_last'];
 			$avatar_last_num = $mem_avatar_num+1;
 
-			
-
-
 			$avata_id = $mb['mb_id']."_".sprintf("%02d",$avatar_last_num);
 
 			/* $avata_sql = "CREATE table g5_member_avatar AS SELECT * FROM {$g5['member_table']} WHERE mb_id='{$mb['mb_id']}';

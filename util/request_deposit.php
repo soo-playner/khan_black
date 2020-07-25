@@ -10,7 +10,7 @@ $mb_id = $_POST['mb_id'];
 $txhash = $_POST['hash'];
 $coin = $_POST['coin'];
 
-$sql = "INSERT INTO wallet_deposit_request(mb_id, txhash, create_dt,create_d,status,coin) VALUES('$mb_id','$txhash','$now_datetime','$now_date',0,'$coin')";
+$sql = "INSERT INTO wallet_deposit_request(mb_id, txhash, create_dt,create_d,status,coin,in_amt) VALUES('$mb_id','$txhash','$now_datetime','$now_date',0,'$coin',1)";
 $result = sql_query($sql);
 
 if($result){
