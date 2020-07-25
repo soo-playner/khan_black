@@ -109,7 +109,7 @@ if ($page < 1) $page = 1; // 페이지가 없으면 첫 페이지 (1 페이지)
 $from_record = ($page - 1) * $rows; // 시작 열을 구함
 
 
-$sql_order='order by day,no desc';
+$sql_order='order by day desc';
 
 
 $sql = "select * 
@@ -117,7 +117,7 @@ $sql = "select *
         {$sql_search}
         {$sql_order}
         limit {$from_record}, {$rows} ";
-print_r($sql);
+
 $result = sql_query($sql);
 
 
