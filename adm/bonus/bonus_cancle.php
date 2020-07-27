@@ -65,7 +65,7 @@ if(!sql_query(" DESC `{$db_table_copy}` ", false)) {
 
 	
     $droptarget = "FROM information_schema.TABLES 
-    WHERE TABLE_SCHEMA = 'haz' AND TABLE_NAME LIKE 'g5_member_2020%'
+    WHERE TABLE_SCHEMA = 'oneethernet' AND TABLE_NAME LIKE 'g5_member_2020%'
     AND MID(TABLE_NAME, 11, 10) >= '{$bonus_day}' ";
 
     $drops_query = "SELECT COUNT(*) cnt ". $droptarget;
