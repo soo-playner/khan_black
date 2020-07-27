@@ -6,16 +6,20 @@ include_once('./bonus_inc.php');
 
 auth_check($auth[$sub_menu], 'r');
 
+$now_datetime = date('Y-m-d H:i:s');
+$now_date = date('Y-m-d');
+
 
 // 롤업 수당
-
 $bonus_row = bonus_pick($code);
 
 // $bonus_limit = $bonus_row['limited']/100;
 $bonus_rate = $bonus_row['rate']; //고정수당
 
-$bonus_condition = $bonus_row['source'];
-$bonus_condition_tx = bonus_condition_tx($bonus_condition);
+// $bonus_condition = $bonus_row['source'];
+// $bonus_condition_tx = bonus_condition_tx($bonus_condition);
+$bonus_condition = " substr(mb_bre_time,1,10) = '{$bonus_day}' and ";
+$bonus_condition_tx = "후원인지정일이 당일";
 
 
 
@@ -33,7 +37,7 @@ $today=$bonus_day;
 
 //회원 리스트를 읽어 온다.
 $sql_common = " FROM g5_member";
-$sql_search=" WHERE ".$admin_condition;
+$sql_search=" WHERE ".$bonus_condition.$admin_condition;
 // $sql_mgroup=' GROUP BY m.mb_id ORDER BY m.mb_no asc';
 
 $pre_sql = "select *
@@ -42,7 +46,12 @@ $pre_sql = "select *
 
 $pre_result = sql_query($pre_sql);
 $result_cnt = sql_num_rows($pre_result);
-
+// 디버그 로그 
+if($debug){
+	echo "<code>";
+    print_r($pre_sql);
+	echo "</code><br>";
+}
 
 ob_start();
 
@@ -69,12 +78,6 @@ $result = sql_query($sql); */
 $result = $pre_result;
 
 
-// 디버그 로그 
-if($debug){
-	echo "<code>";
-    print_r($pre_sql);
-	echo "</code><br>";
-}
 
 $history_cnt=0;
 $rec='';
@@ -107,7 +110,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $directs_result = sql_fetch($directs_sql);
     $directs = $directs_result['cnt'];
 
-    $member_layer = $bonus_layer[$directs];
+    // $member_layer = $bonus_layer[$directs];
+    $member_layer = 20;
 
 
     if(!$today_sales){$today_sales = 1;}
