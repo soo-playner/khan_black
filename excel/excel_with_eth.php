@@ -4,7 +4,7 @@ include_once("./db_connect.php");
 
 $objPHPExcel = new PHPExcel();
 
-$sql = "select * from g5_member";
+$sql = "select * from g5_member order by mb_no asc";
 
 $result = mysqli_query($conn,$sql);
 
