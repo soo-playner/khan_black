@@ -91,7 +91,7 @@ foreach($arr as $key => $val) {
 
 	-> setCellValue(sprintf("F%s", $num), $val['allowance_name'])
 
-	-> setCellValue(sprintf("G%s", $num), $val['benefit'])
+	-> setCellValue(sprintf("G%s", $num), Number_format($val['benefit'],2))
 	  
 	-> setCellValue(sprintf("H%s", $num), $val['rec']." [".$val['rec_adm']." ]");
 
