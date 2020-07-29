@@ -289,7 +289,7 @@ $colspan = 16;
 	?>
 	||
 	<input type="submit" class="btn_submit search" value="검색"/>
-	<input type="button" class="btn_submit excel" value="엑셀" onclick="document.location.href='benefit_list_excel_out.php?<?echo $qstr?>'" />	
+	<input type="button" class="btn_submit excel" value="엑셀" onclick="window.location.href='../../excel/benefit_list_excel_down.php?fr_date=<?=$_GET['start_dt']?>&to_date=<?=$_GET['end_dt']?>'" />	
 	<br/>
 </form>
 
