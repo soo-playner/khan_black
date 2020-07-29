@@ -117,7 +117,7 @@ $objPHPExcel -> getActiveSheet() -> getColumnDimension("F") -> setWidth(25);
 
 $objPHPExcel -> getActiveSheet() -> getColumnDimension("G") -> setWidth(25);
 
-$objPHPExcel -> getActiveSheet() -> getColumnDimension("H") -> setWidth(60);
+$objPHPExcel -> getActiveSheet() -> getColumnDimension("H") -> setWidth(150);
 
 
 
