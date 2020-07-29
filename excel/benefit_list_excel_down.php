@@ -6,6 +6,9 @@ $objPHPExcel = new PHPExcel();
 
 $fr_date = $_GET['fr_date'];
 $to_date = $_GET['to_date'];
+$direct = $_GET['allowance_chk1'];
+$rollup = $_GET['allowance_chk2'];
+$cycle = $_GET['allowance_chk3'];
 
 $new_fr_date = date_create($fr_date);
 $new_to_date = date_create($to_date);
@@ -30,20 +33,52 @@ if($inerval->format('%a') > 0){
     return;
 }
 
+ $sql_search = "and day >= '$fr_date' and day <= '$to_date'";
+ if($direct != "" || $rollup != "" || $cycle != ""){
+    $sql_allow = "and (";
 
-$sql = "select * from soodang_pay where (1) and day >= '$fr_date' and day <= '$to_date' order by day desc";
+    if($direct != ""){
+
+        $sql_allow .= "(allowance_name='$direct')";       
+
+    }
+    
+    if($rollup != ""){
+
+        if($direct != ""){
+            $sql_allow .= " or ( allowance_name='$rollup' )";
+        }else{
+            $sql_allow .= "( allowance_name='$rollup' )";
+        }
+
+    }
+    
+    if($cycle != ""){
+
+        if($direct != "" || $rollup != ""){
+            $sql_allow .= " or ( allowance_name='$cycle' ) ";
+        }else{
+            $sql_allow .= "( allowance_name='$cycle' ) ";
+        }
+
+    }
+    $sql_allow .= ")";
+
+ }
+
+$sql = "select * from soodang_pay where (1) {$sql_search} {$sql_allow} order by day desc";
 
 $result = mysqli_query($conn,$sql);
 
-$row_count = mysqli_num_rows($result);
+// $row_count = mysqli_num_rows($result);
 
-if($row_count >= 5000){
-	echo "<script>
-	alert('5000건 이상은 다운로드가 되지 않습니다.')
-	history.back();
-	</script>";
-	return;
-}
+// if($row_count >= 5000){
+// 	echo "<script>
+// 	alert('5000건 이상은 다운로드가 되지 않습니다.')
+// 	history.back();
+// 	</script>";
+// 	return;
+// }
 
 $arr = array();
 

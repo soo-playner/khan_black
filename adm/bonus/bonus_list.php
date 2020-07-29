@@ -99,7 +99,6 @@ $sql = " select count(*) as cnt
             {$sql_order} ";
 
 
-
 $row = sql_fetch($sql);
 $total_count = $row['cnt'];
 
@@ -120,7 +119,6 @@ $sql = "select *
 
 $result = sql_query($sql);
 
-
 $send_sql = $sql;
 $listall = '<a href="'.$_SERVER['PHP_SELF'].'" class="ov_listall">전체목록</a>';
 
@@ -129,7 +127,6 @@ include_once ('../admin.head.php');
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 
 $colspan = 16;
-
 ?>   
  
 
@@ -289,7 +286,7 @@ $colspan = 16;
 	?>
 	||
 	<input type="submit" class="btn_submit search" value="검색"/>
-	<input type="button" class="btn_submit excel" value="엑셀" onclick="window.location.href='../../excel/benefit_list_excel_down.php?fr_date=<?=$_GET['start_dt']?>&to_date=<?=$_GET['end_dt']?>'" />	
+	<input type="button" class="btn_submit excel" value="엑셀" onclick="window.location.href='../../excel/benefit_list_excel_down.php?fr_date=<?=$_GET['start_dt']?>&to_date=<?=$_GET['end_dt']?>&allowance_chk1=<?=$_GET['allowance_chk1']?>&allowance_chk2=<?=$_GET['allowance_chk2']?>&allowance_chk3=<?=$_GET['allowance_chk3']?>'" />	
 	<br/>
 </form>
 
