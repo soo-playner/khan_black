@@ -4,14 +4,16 @@ include_once("./db_connect.php");
 
 $objPHPExcel = new PHPExcel();
 
-$sql = "select * from g5_member";
+$sql = "select * from g5_member order by mb_no asc";
 
 $result = mysqli_query($conn,$sql);
 
 $arr = array();
 
 for($i=0; $i < $row=mysqli_fetch_array($result); $i++){
-  array_push($arr, array("id" => $row['mb_id'], "eth_address" => $row['first_name'], "mail" => $row['mb_email'], "recom"=> $row['mb_recommend']));
+  array_push($arr, array("id" => $row['mb_id'], "eth_address" => $row['first_name'], "mail" => $row['mb_email'], "recom"=> $row['mb_recommend'],
+  						"mb_brecommend"=>$row['mb_brecommend'],
+						"mb_balance"=>$row['mb_balance']));
 }
 
 
@@ -25,7 +27,11 @@ $objPHPExcel -> setActiveSheetIndex(0)
 
 -> setCellValue("D1", "이메일")
 
--> setCellValue("E1", "추천인");
+-> setCellValue("E1", "추천인")
+
+-> setCellValue("F1", "후원인")
+
+-> setCellValue("G1", "BENEFIT( 총 발생수당 )");
 
 $count = 1;
 
@@ -35,6 +41,9 @@ foreach($arr as $key => $val) {
 
 	$objPHPExcel -> setActiveSheetIndex(0)
 
+
+	
+
 	-> setCellValue(sprintf("A%s", $num), $key+1)
 
 	-> setCellValue(sprintf("B%s", $num), $val['id'])
@@ -43,7 +52,11 @@ foreach($arr as $key => $val) {
 
 	-> setCellValue(sprintf("D%s", $num), $val['mail'])
 
-  -> setCellValue(sprintf("E%s", $num), $val['recom']);
+	-> setCellValue(sprintf("E%s", $num), $val['recom'])
+	  
+	-> setCellValue(sprintf("F%s", $num), $val['mb_brecommend'])
+
+	-> setCellValue(sprintf("G%s", $num), number_format($val['mb_balance']*1,2));
 
 	$count++;
 
@@ -55,11 +68,17 @@ foreach($arr as $key => $val) {
 
 $objPHPExcel -> getActiveSheet() -> getColumnDimension("A") -> setWidth(6);
 
-$objPHPExcel -> getActiveSheet() -> getColumnDimension("B") -> setWidth(12);
+$objPHPExcel -> getActiveSheet() -> getColumnDimension("B") -> setWidth(20);
 
-$objPHPExcel -> getActiveSheet() -> getColumnDimension("C") -> setWidth(30);
+$objPHPExcel -> getActiveSheet() -> getColumnDimension("C") -> setWidth(55);
 
-$objPHPExcel -> getActiveSheet() -> getColumnDimension("D") -> setWidth(15);
+$objPHPExcel -> getActiveSheet() -> getColumnDimension("D") -> setWidth(35);
+
+$objPHPExcel -> getActiveSheet() -> getColumnDimension("E") -> setWidth(25);
+
+$objPHPExcel -> getActiveSheet() -> getColumnDimension("F") -> setWidth(25);
+
+$objPHPExcel -> getActiveSheet() -> getColumnDimension("G") -> setWidth(30);
 
 
 
@@ -71,7 +90,7 @@ $objPHPExcel -> getActiveSheet() -> getDefaultRowDimension() -> setRowHeight(15)
 
 // 전체 가운데 정렬
 
-$objPHPExcel -> getActiveSheet() -> getStyle(sprintf("A1:E%s", $count)) -> getAlignment()
+$objPHPExcel -> getActiveSheet() -> getStyle(sprintf("A1:G%s", $count)) -> getAlignment()
 
 -> setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
@@ -79,7 +98,7 @@ $objPHPExcel -> getActiveSheet() -> getStyle(sprintf("A1:E%s", $count)) -> getAl
 
 // 전체 테두리 지정
 
-$objPHPExcel -> getActiveSheet() -> getStyle(sprintf("A1:E%s", $count)) -> getBorders() -> getAllBorders()
+$objPHPExcel -> getActiveSheet() -> getStyle(sprintf("A1:G%s", $count)) -> getBorders() -> getAllBorders()
 
 -> setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
 
@@ -87,9 +106,9 @@ $objPHPExcel -> getActiveSheet() -> getStyle(sprintf("A1:E%s", $count)) -> getBo
 
 // 타이틀 부분
 
-$objPHPExcel -> getActiveSheet() -> getStyle("A1:E1") -> getFont() -> setBold(true);
+$objPHPExcel -> getActiveSheet() -> getStyle("A1:G1") -> getFont() -> setBold(true);
 
-$objPHPExcel -> getActiveSheet() -> getStyle("A1:E1") -> getFill() -> setFillType(PHPExcel_Style_Fill::FILL_SOLID)
+$objPHPExcel -> getActiveSheet() -> getStyle("A1:G1") -> getFill() -> setFillType(PHPExcel_Style_Fill::FILL_SOLID)
 
 -> getStartColor() -> setRGB("CECBCA");
 
@@ -97,7 +116,7 @@ $objPHPExcel -> getActiveSheet() -> getStyle("A1:E1") -> getFill() -> setFillTyp
 
 // 내용 지정
 
-$objPHPExcel -> getActiveSheet() -> getStyle(sprintf("A2:E%s", $count)) -> getFill()
+$objPHPExcel -> getActiveSheet() -> getStyle(sprintf("A2:G%s", $count)) -> getFill()
 
 -> setFillType(PHPExcel_Style_Fill::FILL_SOLID) -> getStartColor() -> setRGB("F4F4F4");
 

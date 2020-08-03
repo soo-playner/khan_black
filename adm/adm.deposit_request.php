@@ -4,7 +4,7 @@ include_once('./_common.php');
 
 auth_check($auth[$sub_menu], 'r');
 
-$g5['title'] = "<span class='font_blue'>입금 요청 내역</psan>";
+$g5['title'] = "입금 요청 내역";
 
 include_once('./adm.header.php');
 
@@ -79,6 +79,8 @@ $result = sql_query($sql);
     select{padding:5px;min-width:80px;width:80%;}
     table tr td{text-align:center}
     .row_dup td{background:rgba(253,240,220,0.8)}
+    .btn_submit.excel{background:green}
+
 </style>
 
 
