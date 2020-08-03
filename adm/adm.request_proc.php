@@ -1,8 +1,19 @@
 <?php
 include_once('./_common.php');
+include_once('../bonus_inc.php');
+
 //include_once(G5_LIB_PATH.'/mailer.lib.php');
 $now_datetime = date('Y-m-d H:i:s');
 $now_date = date('Y-m-d');
+
+
+function bonus_pick($val){    
+    global $g5;
+    $pick_sql = "select * from {$g5['bonus_config']} where code = '{$val}' ";
+    $list = sql_fetch($pick_sql);
+    return $list;
+}
+
 if ($_GET['debug']) $debug = 1;
 
 $uid = $_POST['uid'];
@@ -14,6 +25,9 @@ $func = $_POST['func'];
 
 $count = 1;
 $drain = 1;
+$bonus_row = bonus_pick('cycle');
+$bonus_rate = $bonus_row['rate'];
+// echo "보너스 :: ".$bonus_row['rate'];
 
 
 if ($debug) {
@@ -180,7 +194,7 @@ if ($func == 'withrawal') {
 							, day = '{$now_date}'
 							, mb_id = '{$mb['mb_id']}'
 							, mb_no = {$mb['mb_no']}
-							, benefit = '0.12'
+							, benefit = '{$bonus_rate}'
 							, mb_level = {$mb['mb_level']}
 							, grade = {$mb['grade']}
 							, mb_name = '{$mb['mb_name']}'
@@ -201,7 +215,7 @@ if ($func == 'withrawal') {
 
 			// 대상자 업데이트
 			if($bonus_result){
-				$origin_mem_update = "UPDATE g5_member set avatar_last = {$avatar_last_num},mb_balance = (mb_balance +0.12 )  WHERE mb_id ='{$mb['mb_id']}' ";
+				$origin_mem_update = "UPDATE g5_member set avatar_last = {$avatar_last_num},mb_balance = (mb_balance + $bonus_rate )  WHERE mb_id ='{$mb['mb_id']}' ";
 
 				if ($debug){
 					echo "<br><br>대상자 업데이트 :: ";
