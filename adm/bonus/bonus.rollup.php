@@ -21,7 +21,8 @@ $bonus_rate = $bonus_row['rate']; //고정수당
 $bonus_condition = " substr(mb_bre_time,1,10) = '{$bonus_day}' and ";
 $bonus_condition_tx = "후원인지정일이 당일";
 
-
+// 수당 타겟
+$bonus_target = $bonus_row['source'];
 
 if(strpos($bonus_row['layer'],',')){
     $bonus_layer = array();
@@ -46,6 +47,7 @@ $pre_sql = "select *
 
 $pre_result = sql_query($pre_sql);
 $result_cnt = sql_num_rows($pre_result);
+
 // 디버그 로그 
 if($debug){
 	echo "<code>";
@@ -87,7 +89,7 @@ excute();
 function  excute(){
 
     global $result;
-    global $g5, $bonus_day, $bonus_condition, $code, $bonus_rate,$pre_condition_in,$bonus_limit,$bonus_layer,$today;
+    global $g5, $bonus_day, $bonus_condition, $code, $bonus_rate,$pre_condition_in,$bonus_limit,$bonus_layer,$today,$bonus_target;
     global $debug;
 
 
@@ -142,10 +144,12 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 
 
         // 추천, 후원 조건
-        if($bonus_condition < 2){
+        if($bonus_target < 2){
             $recom=$recommend['mb_recommend'];
+            echo "상위추천인 : ";
         }else{
             $recom=$recommend['mb_brecommend'];
+            echo "상위후원인 : ";
         }
         
 
