@@ -134,8 +134,18 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         $sql = " SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point FROM g5_member WHERE mb_id = '{$comp}' ";
         $recommend = sql_fetch($sql);
 
-        $mb_no=$recommend['mb_no'];
+        $avata_check = 0;
         $mb_id=$recommend['mb_id'];
+
+        if(strpos($mb_id,'_')){
+            $master_id_raw = explode('_',$mb_id);
+            $avata_check = 1;
+            $master_id = $master_id_raw[0];
+        }else{
+            $master_id = $mb_id;
+        }
+
+        $mb_no=$recommend['mb_no'];
         $mb_name=$recommend['mb_name'];
         $mb_level=$recommend['mb_level'];
         $mb_deposit=$recommend['mb_deposit_point'];
@@ -146,10 +156,10 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         // 추천, 후원 조건
         if($bonus_target < 2){
             $recom=$recommend['mb_recommend'];
-            echo "상위추천인 : ";
+           
         }else{
             $recom=$recommend['mb_brecommend'];
-            echo "상위후원인 : ";
+            
         }
         
 
@@ -173,8 +183,14 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
                 }
                 $benefit_limit = $mb_balance + $benefit; // 수당합계
                 
-                $rec=$code.' Bonus from '.$firstid.'('. $firstname.') :: step : '.$history_cnt.')';
-                $rec_adm= ''.$firstid.' - '.$history_cnt.'대 :'.$today_sales.'*'.$bonus_rate.'='.$benefit;
+                if($avata_check ==1){
+                    $rec=$code.' Bonus from '.$firstid.' :: step : '.$history_cnt.'('.$master_id.') - '.$mb_id;
+                    $rec_adm= ''.$firstid.' - '.$history_cnt.'대 :'.$today_sales.'*'.$bonus_rate.'='.$benefit.'|| ('.$mb_id.")" ;
+                }else{
+                    $rec=$code.' Bonus from '.$firstid.' :: step : '.$history_cnt.'('.$mb_id.')';
+                    $rec_adm= ''.$firstid.' - '.$history_cnt.'대 :'.$today_sales.'*'.$bonus_rate.'='.$benefit ;
+                }
+                
 
 
                     // 디버그 로그
@@ -185,8 +201,12 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
                     }
 
                 // 수당 로그
-                echo $mb_id." | ".$history_cnt." 단계 :: ".$today_sales.'*'.$bonus_rate;
-                
+                if($avata_check ==1){
+                    echo $master_id."(".$mb_id.") | ".$history_cnt." 단계 :: ".$today_sales.'*'.$bonus_rate;
+                }else{
+                    echo $mb_id." | ".$history_cnt." 단계 :: ".$today_sales.'*'.$bonus_rate;
+                }
+
                 if($balance_limit == 0){
                     echo " <span> ▶▶ 수당 자격 없음 - 회원수당 :".$balance_limit." </span><br>";
                 }else{
@@ -204,8 +224,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
                     //**** 수당이 있다면 함께 DB에 저장 한다.
                     $bonus_sql = " insert `{$g5['bonus']}` set day='".$bonus_day."'";
                     $bonus_sql .= " ,mb_no			= ".$mb_no;
-                    $bonus_sql .= " ,mb_id			= '".$mb_id."'";
-                    $bonus_sql .= " ,mb_name		= '".$mb_name."'";
+                    $bonus_sql .= " ,mb_id			= '".$master_id."'";
+                    $bonus_sql .= " ,mb_name		= '".$mb_id."'";
                     $bonus_sql .= " ,mb_level      = ".$mb_level;
                     $bonus_sql .= " ,grade      = ".$grade;
                     $bonus_sql .= " ,allowance_name	= '".$code."'";
@@ -227,7 +247,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
                     }
 
 
-                    $balance_up = "update g5_member set mb_balance = ".$benefit_limit."  where mb_id = '".$mb_id."'";
+                    $balance_up = "update g5_member set mb_balance = ".$benefit_limit."  where mb_id = '".$master_id."'";
 
                     // 디버그 로그
                     if($debug){

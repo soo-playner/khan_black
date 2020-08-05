@@ -115,7 +115,7 @@ function  excute(){
         $mb_name=$row['mb_name'];
         $mb_level=$row['mb_level'];
         $mb_deposit=$row['mb_deposit_point'];
-        //$mb_balance=$row['mb_balance'];
+        $mb_recommend = $row['mb_recommend'];
         $grade=$row['grade'];
         
         
@@ -128,22 +128,20 @@ function  excute(){
             $recom= 'mb_brecommend';
         }
         
-        // $sql = " SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point FROM g5_member WHERE {$recom}= '{$mb_id}' ";
-        // $sql = "SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point,
-        // (SELECT od_cart_price  FROM g5_shop_order WHERE A.mb_id = mb_id AND od_date = '{$bonus_day}') AS today_sale FROM g5_member AS A WHERE {$recom} = '{$mb_id}' ";
-        $sql = "SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point FROM g5_member WHERE mb_recommend = '{$mb_id}' ";
+        // 직추천인수
+        /* $sql = "SELECT mb_no, mb_id, mb_name,grade,mb_level, mb_balance, mb_recommend, mb_brecommend, mb_deposit_point FROM g5_member WHERE mb_recommend = '{$mb_id}' ";
         $sql_result = sql_query($sql);
         $sql_result_cnt = sql_num_rows($sql_result);
+        echo "직추천인 : <span class='red'> ".$sql_result_cnt."</span> 명 <br>"; */
+        
+        $sql = "SELECT * FROM g5_member WHERE mb_id = '{$mb_recommend}' ";
+        $sql_result = sql_query($sql);
 
-        echo "직추천인 : <span class='red'> ".$sql_result_cnt."</span> 명 <br>";
-        
-        
-        while( $recommend = sql_fetch_array($sql_result) ){   
+        while( $recommend = sql_fetch_array($sql_result) ){  
+            $today_sales =1;
             $recommend['today_sale'] = 1;
             $recom_id = $recommend['mb_id'];
-            if($recommend['today_sale'] > 0){
-                $today_sales=$recommend['today_sale'];
-            }else{$today_sales = 0;}
+
 
             // 관리자 제외
             if($mb_level > 9 ){ break;} 
@@ -151,7 +149,7 @@ function  excute(){
             if($pre_condition_in){	
 
                 // 실시간 반영 
-                $mem_sql="SELECT mb_balance FROM g5_member WHERE mb_id ='{$mb_id}' ";
+                $mem_sql="SELECT mb_balance FROM g5_member WHERE mb_id ='{$recom_id}' ";
                 $mem_reult = sql_fetch($mem_sql);
                 $mb_balance = $mem_reult['mb_balance'];
 
@@ -161,7 +159,7 @@ function  excute(){
                 // $balance_limit = $bonus_limit * $mb_deposit; // 수당한계선
                 $benefit_limit = $mb_balance + $benefit; // 수당합계
                 
-                $rec=$code.' Recommend Bonus from  '.$recom_id;
+                $rec=$code.' Recommend Bonus from  '.$mb_id;
                 $rec_adm= ''.$today_sales.'*'.$bonus_rate.'='.$benefit;
 
 
@@ -189,7 +187,7 @@ function  excute(){
                     //**** 수당이 있다면 함께 DB에 저장 한다.
                     $bonus_sql = " insert `{$g5['bonus']}` set day='".$bonus_day."'";
                     $bonus_sql .= " ,mb_no			= ".$mb_no;
-                    $bonus_sql .= " ,mb_id			= '".$mb_id."'";
+                    $bonus_sql .= " ,mb_id			= '".$recom_id."'";
                     $bonus_sql .= " ,mb_name		= '".$mb_name."'";
                     $bonus_sql .= " ,mb_level      = ".$mb_level;
                     $bonus_sql .= " ,grade      = ".$grade;
@@ -211,7 +209,7 @@ function  excute(){
                         sql_query($bonus_sql);
                     }
 
-                    $balance_up = "update g5_member set mb_balance = ".$benefit_limit."  where mb_id = '".$mb_id."'";
+                    $balance_up = "update g5_member set mb_balance = ".$benefit_limit."  where mb_id = '".$recom_id."'";
 
                     // 디버그 로그
                     if($debug){
