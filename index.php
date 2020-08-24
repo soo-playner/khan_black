@@ -20,24 +20,23 @@ if($member['mb_wallet'] == ''){
 	include_once(G5_PATH.'/wallet_create.php');
 }
 */
+$domain = $_SERVER["HTTP_HOST"];
+print_R($domain);
 
-$mb_wallet = $member['mb_wallet'];
-
-/*코인잔고*/
-/* $sql_account = "select mb_id, sum(mb_v7_account ) as v7_total ,sum(mb_btc_account + mb_btc_calc + mb_btc_amt) as btc_total from g5_member where mb_id = '$member[mb_id]'";
-$account = sql_fetch($sql_account);
-$btc_total = $account['btc_total'];
-$v7_total = $account['v7_total'];
- */
-
-if($is_member){
-	if(defined('G5_THEME_PATH')) {
-		require_once(G5_THEME_PATH.'/index.php');
-	}
+if($domain == 'adm.1eth.net'){
+	Header("Location:/adm/");  
 }else{
-	//Header("Location:./bbs/login_pw.php");
-	Header("Location:/wallet/intro.php");
-	//require_once(G5_THEME_PATH.'/intro.php');
+	$mb_wallet = $member['mb_wallet'];
+
+	if($is_member){
+		if(defined('G5_THEME_PATH')) {
+			require_once(G5_THEME_PATH.'/index.php');
+		}
+	}else{
+		//Header("Location:./bbs/login_pw.php");
+		Header("Location:/wallet/intro.php");
+		//require_once(G5_THEME_PATH.'/intro.php');
+	}
 }
 
 include_once(G5_PATH.'/tail.php');

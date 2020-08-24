@@ -335,7 +335,7 @@ $colspan = 16;
 		<td width='50' style='text-align:center'><?= get_member_level($row['grade'])?></td>
 		<td width="100" style='text-align:center'><?= $row['origin_deposit'] ?></td>
 		<td width='80' style='text-align:center'><?php echo get_text($row['allowance_name']); ?></td>
-		<td width="100" class='bonus'><?php echo Number_format($soodang,2)  ?></td>
+		<td width="100" class='bonus'><?php echo Number_format($soodang,3)  ?></td>
 		<td width="500"><?= $row['rec']." <span class='adm'> [".$row['rec_adm']."]</span>" ?></td>
 		
     </tr>
@@ -350,7 +350,7 @@ $colspan = 16;
 	<tfoot>
 	<tr class="<?php echo $bg; ?>">
 		<td colspan=6>TOTAL :</td>
-		<td width="150" class='bonus' style='color:red'><?=number_format($soodang_sum,2)?></td>
+		<td width="150" class='bonus' style='color:red'><?=number_format($soodang_sum,3)?></td>
         <td ></td>
     </tr>
 	</tfoot>

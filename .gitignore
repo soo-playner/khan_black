@@ -3,3 +3,4 @@ test_server.php
 *.bak
 *.tmp
 
+.htaccess
