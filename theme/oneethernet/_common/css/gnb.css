@@ -63,7 +63,7 @@ header a.close, a.close:link {
 }
 
 .left_gnbWrap.on {left: 0; visibility: visible;}
-.gnb_logo_top{background: #333; padding: 30px;}
+.gnb_logo_top{background: #c92026; padding: 30px;}
 .left_gnb > li {width: 100%;}
 
 .left_gnb  li  a {
