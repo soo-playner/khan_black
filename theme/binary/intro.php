@@ -7,17 +7,18 @@ body{}
 	width:100%;
 	display:block;
 	height:100vh;
-	background:url('<?=G5_THEME_URL?>/_images/launcher.png') no-repeat 50% 50%;
-	background-size:cover;
+	/* background:url('<?=G5_THEME_URL?>/_images/launcher.png') no-repeat 50% 50%; */
+	background:#505478 url('<?=G5_THEME_URL?>/_images/logo.png') no-repeat center 10vh;
+	/* background-size:cover; */
 }
 
-.adm_title{background:#f9a62e;color:white;padding:5px 30px;font-size:1.2em; border-radius:25px;margin-bottom:20px;display:inline-block}
+/* .adm_title{background:#f9a62e;color:white;padding:5px 30px;font-size:1.2em; border-radius:25px;margin-bottom:20px;display:inline-block} */
 
 #btnDiv {
   display: none;
   text-align: center;
   position:absolute;
-  bottom:25%;
+  bottom:20vh;
   width:100%;
   z-index:1000;
 }
@@ -43,14 +44,19 @@ body{}
   animation-duration: 1s
 }
 
+.intro_title{
+	color:white;position:fixed;bottom:50px;text-align:center;width:100%;
+}
+.intro_title p {line-height:26px;letter-spacing:0;}
+
 @-webkit-keyframes animatebottom {
   from { bottom:-10%; opacity:0 }
-  to { bottom:25%; opacity:1 }
+  to { bottom:20vh; opacity:1 }
 }
 
 @keyframes animatebottom {
   from{ bottom:-10%; opacity:0 }
-  to{ bottom:25%; opacity:1 }
+  to{ bottom:20vh; opacity:1 }
 }
 
 
@@ -108,7 +114,7 @@ body{}
 	}
 
 	function temp_block(){
-	commonModal("Notice",'원이더넷 방문을 환영합니다.<br />사전 가입이 마감되었습니다.<br />가입하신 회원은 로그인 해주세요.<br /><br />Welcome to One-EtherNet.<br />Pre-subscription is closed.<br />If you are a registered member,<br />please log in.',220);
+		commonModal("Notice",'원이더넷 방문을 환영합니다.<br />사전 가입이 마감되었습니다.<br />가입하신 회원은 로그인 해주세요.<br /><br />Welcome to One-EtherNet.<br />Pre-subscription is closed.<br />If you are a registered member,<br />please log in.',220);
 	}
 
 	function showPage() {
@@ -193,11 +199,17 @@ body{}
 		<div class='btn_ly'>
 	  		<!-- <a href="/bbs/login_pw.php" class="btn btn_wd btn_primary login_btn">LOG IN</a> -->
 				<a href="javascript:auto_login()" class="btn btn_wd btn_primary login_btn">LOG IN</a>
-	  		<!-- <a href="/bbs/register_form.php" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a> -->
-				<a href="javascript:temp_block()" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a>
+	  			<a href="/bbs/register_form.php" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a>
+				<!-- <a href="javascript:temp_block()" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a> -->
 		</div>
 	</div>
+
+	<div class='intro_title'>
+		<p>GLOBAL SMART CONTRACT</p>
+		<p>CROWD FUNDING PLATFORM</p>
+	</div>
 </div>
+
 
 
 

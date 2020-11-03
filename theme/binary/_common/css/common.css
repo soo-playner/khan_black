@@ -10,7 +10,6 @@ a:focus, a:active{color:inherit;}
 *:focus { outline: none;}
 
 
-
 /*COLOR*/
 .font_blue{color:#006df3 !important;}.blue{background:#006df3}
 .font_bblue{color:#4556ff !important;} .b_blue{background:#4556ff !important}
@@ -41,17 +40,17 @@ a:focus, a:active{color:inherit;}
 .btn, a.btn{width:auto;  border-radius:3px; margin:10px auto;font-size:1em !important; letter-spacing:0.5px;border:0;border-radius:5px; cursor:pointer;}
 .btn:hover{background:rgba(0,0,0,0.2);}
 
-.btn_default{background:#f5f5f5;color:black}
+.btn_default{background:#f5f5f5;color:black;border-radius:30px !important;}
 .btn_default span{color:#0062cc;}
 .default_btn{background:rgba(0,0,0,0.1);}
 
 
 .btn-primary{background:#0062cc}
-.btn_primary{background:linear-gradient(to right,#204f83,#054dd5);color:white !important;font-weight:600}
-.btn_primary:hover{background:linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.7));color:white;}
+.btn_primary{background:transparent;border:1px solid white !important;color:white !important;font-weight:600;border-radius:30px !important;}
+.btn_primary:hover{background:white;color:#2a2c3c !important;}
 
-.btn_secondary{background:rgba(255,255,255,0.8);color:black}
-.btn_secondary:hover{background:rgba(255,255,255,1);color:black}
+.btn_secondary{background:#2a2c3c;color:WHITE !important;border:1px solid #2a2c3c !important;border-radius:30px !important;}
+.btn_secondary:hover{background:rgba(255,255,255,0.8);border:1px solid white !important;color:black !important;}
 
 
 .btn_wd{width:100%;padding:15px;display:block;}
@@ -276,10 +275,10 @@ input[type="text"], input[type="number"], input[type="password"], input[type="em
 
 
 /* login (pw_login)  */
-.login_wrap{width:85%;margin:0 auto;padding-top:9vh;text-align:center}
-.logo_login_div img{max-width: 250px; width: 75%;}
+.login_wrap{width:85%;margin:0 auto;padding-top:5vh;text-align:center}
+.logo_login_div img{max-width: 220px; width: 70%;}
 .login_wrap label{margin-bottom:10px; display:block;text-align: left;font-size:14px;}
-
+.login_wrap input{color:black;}
 .login_btn_bottom{margin-top:50px;}
 .login_wrap a.btn_basic_block{padding:0px; margin:30px 0px 10px;}
 a.desc{font-size:13px;text-decoration: underline;color:#565656}
@@ -925,10 +924,10 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 
 	.logo_login_div img {_width: 64%;}
 	#u_name{margin-bottom:5px;}
-	.logo_login_div {margin-bottom: 0px; width:100%; margin:auto;margin:10% 0;}
+	.logo_login_div {margin-bottom: 0px; width:100%; margin:auto;margin:10px 0;}
+	.login_wrap {padding-top:0;}
 	.login_wrap a.btn_basic_block{margin-top:20px;}
-	/*.login_btn_bottom{position:absolute; bottom:50px; width:70%; left: 15%;}*/
-	.login_btn_bottom{margin-top:100px;}
+	.login_btn_bottom{margin-top:5vh;}
 
 	.enroll_wrap{font-size:14px;}
 	input[type="password"]{font-size: 12px;}
@@ -1006,7 +1005,7 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 
 /* 안드 아이폰5 */
 @media screen and (max-width:360px){
-    .login_wrap{padding-top: 7vh;}
+    .login_wrap{padding-top: 2vh;}
 	/*.login_btn_bottom{bottom:10px;}*/
 	.login_wrap a.btn_basic_block{margin-bottom: 0;}
 	.support_a {margin-top: 0;}
