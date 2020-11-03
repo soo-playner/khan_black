@@ -619,8 +619,11 @@ function chkPwd_2(str,str2){
 
 			<div class="mb20 agreement_ly">
 				<div class="checkbox_wrap"><input type="checkbox" name='agree' id="agree" class="checkbox"><label for="agree"></label></div>
-				<span data-i18n='signUp.이용약관'>
-	I have read and agreed to the Terms and Conditions. I fully understood the this business and I know the NO REFUND policy. I know the change of Refferer is NOT POSSIBLE.</span>
+				<div style='display: inline-grid;width: 90%;'>
+				<span data-i18n='signUp.이용약관1'> I have read and agreed to the Terms and Conditions.</span>
+				<span data-i18n='signUp.이용약관2'> I fully understood the this business and I know the NO REFUND policy.</span>
+				<span data-i18n='signUp.이용약관3'> I know the change of Refferer is NOT POSSIBLE.</span>
+				</div>
 			</div>
 
 				<!--

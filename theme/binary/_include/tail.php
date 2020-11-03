@@ -7,7 +7,7 @@
 //window.onload=function(){
 $(document).ready(function(){
 	i18n.init({ 
-		lng: 'kor',
+		lng: 'en',
 		load: 'languageOnly',
 		resGetPath: '/locales/__lng__.json', 
 		//fallbackLng: false, 
