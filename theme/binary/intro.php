@@ -8,7 +8,7 @@ body{}
 	display:block;
 	height:100vh;
 	/* background:url('<?=G5_THEME_URL?>/_images/launcher.png') no-repeat 50% 50%; */
-	background:#505478 url('<?=G5_THEME_URL?>/_images/logo.png') no-repeat center 10vh;
+	background:#545979 url('<?=G5_THEME_URL?>/_images/logo1.gif') no-repeat center 10vh;
 	/* background-size:cover; */
 }
 
