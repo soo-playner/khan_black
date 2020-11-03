@@ -244,8 +244,8 @@ $(function() {
 		<span  data-i18n="popup.로그아웃 하시겠습니까?">Are you sure to log out?</span>
 	</div>
 	<div class="pop_close_wrap">
-		<a href="javascript:void(0);" class="btn inline wd b_white pop_close" data-i18n="popup.취소">Cancel</a>
-		<a href="/bbs/logout.php" class="btn inline wd btn_primary" style='margin-top:10px;' data-i18n="popup.네">Yes</a>
+		<a href="javascript:void(0);" class="btn inline wd btn_default pop_close" data-i18n="popup.취소">Cancel</a>
+		<a href="/bbs/logout.php" class="btn inline wd btn_secondary" style='margin-top:10px;' data-i18n="popup.네">Yes</a>
 	</div>
 </div>
 

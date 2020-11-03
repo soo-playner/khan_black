@@ -167,7 +167,8 @@
 
 			<div class='col-sm-12 col-12 content-box profile-box round primary'>
 				<h3 class='title b_line'><i class="ri-medal-line bullet"></i><span data-i18n="profile.추천인 정보">Referral</<i></h3>
-				<ul>
+				
+				<ul class='row'>
 					<li class='col-sm-12 col-12'>
 						<label data-i18n="profile.나의 추천">My Referral</label>
 						<p ><?=$member['mb_recommend']?></p>
@@ -191,7 +192,7 @@
 					<!-- <li><span data-i18n="profile.링크 QR 코드"> My QR Code:</span></li> -->
 					<!--<li><input type="button" value="Share" data-i18n="[value]profile.공유"></li>-->
 				</ul>
-
+					
 				<div class="google-auth-top-qr" id="qrcode"></div>
 			</div>
 

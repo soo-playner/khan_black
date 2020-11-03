@@ -114,7 +114,7 @@ $(document).ready(function(){
 	<?}?>
 
 	<div class="top_title">
-		<h3><a href="/"><img src= "<?=G5_URL?>/theme/oneethernet/_images/title.png" alt="logo"></a></h3>
+		<h3><a href="/"><img src= "<?=G5_THEME_URL?>/_images/title.png" alt="logo"></a></h3>
 	</div>
 
 	<div class="lang_selection user-drop-down-section">

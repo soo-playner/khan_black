@@ -500,12 +500,13 @@ function chkPwd_2(str,str2){
 				</div>
 			</section> -->
 
+			<p class="check_appear_title mt10"><span data-i18n="signUp.추천인정보">Referrer's Username</span></p>
 			<section class='referzone'>
-			<label class='text-white'>Referrer's Username</label>
+			<!-- <label class='text-white' data-i18n="signUp.추천인정보">Referrer's Username</label> -->
 				<div class="btn_input_wrap">
 					<input type="text" name="mb_recommend" id="reg_mb_recommend"  value="<?=$mb_recommend ?>" placeholder="Referrers Username"  required data-i18n='[placeholder]signUp.추천인 이름'/>
 					<div class='in_btn_ly2'>
-						<button type='button' class="btn_round check " onclick="getUser('#reg_mb_recommend',1);"  style="width:100px;"><span data-i18n="signUp.검색">Search</span></button>
+						<button type='button' class="btn_round check " onclick="getUser('#reg_mb_recommend',1);"  style="width:70px;"><span data-i18n="signUp.검색">Search</span></button>
 					</div>
 					<!--<a href="javascript:getUser('#reg_mb_recommend',1);" class="btn_round check" data-i18n='register.추천인 검색'>Search Referrer</a>-->
 				</div>
@@ -615,7 +616,7 @@ function chkPwd_2(str,str2){
 				<input class="btn_basic mt20" type="button" value="신규 회원 등록하기" onClick="location.href='dashboard.php'"> -->
 
 				<input class="btn btn_double default_btn enroll_cancel_pop_open pop_open" type="button" value="Cancel" data-i18n='[value]signUp.취소'>
-				<input class="btn btn_double blue" type="button" onclick="fregisterform_submit();" value="Enroll new member" data-i18n='[value]signUp.신규 회원 등록하기'>
+				<input class="btn btn_double btn_secondary" type="button" onclick="fregisterform_submit();" value="Enroll new member" data-i18n='[value]signUp.신규 회원 등록하기'>
 			</div>
 
 
@@ -632,7 +633,7 @@ function chkPwd_2(str,str2){
 
 	<script>
 		$(function() {
-			$(".top_title h3").html("<span data-i18n='title.신규 회원등록'>Create a new account</span>");
+			$(".top_title h3").html("<span data-i18n='title.신규 회원등록' style='font-size:16px;'>Create a new account</span>");
 		});
 	</script>
 

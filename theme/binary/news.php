@@ -107,8 +107,8 @@ $title = 'News';
 		<div class="title round">
 			<div class='row'>
 				<div class="col-sm-3 col-3 date " data-i18n="news.날짜">Date</div>
-				<div class="col-sm-7 col-7 inner_title text-center" data-i18n="news.제목">Title</div>
-				<div class="col-sm-2 col-2 views" data-i18n="news.조회수">Views</div>
+				<div class="col-sm-6 col-6 inner_title text-center" data-i18n="news.제목">Title</div>
+				<div class="col-sm-3 col-3 views" data-i18n="news.조회수">Views</div>
 			</div>
 		</div>
 	</div>
@@ -118,8 +118,8 @@ $title = 'News';
 			<div class="qa-container">
 				<div class="question row" no="<?echo $row['wr_id']?>">
 					<div class="col-sm-3 col-3 date"><?echo date("d-m-Y", strtotime($row['wr_last']))?></div>
-					<div class="col-sm-7 col-7 inner_title" ><?echo $row['wr_subject']?></div>
-					<div class="col-sm-2 col-2 views"><?echo $row['wr_hit']?></div>
+					<div class="col-sm-6 col-6 inner_title" ><?echo $row['wr_subject']?></div>
+					<div class="col-sm-3 col-3 views"><?echo $row['wr_hit']?></div>
 				</div>
 
 				<div class="answer">

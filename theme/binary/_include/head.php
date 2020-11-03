@@ -14,10 +14,10 @@
 	<meta name="subject" content="THE BINARY" />
 	<meta name="keywords" content="THE BINARY" />
 	<meta name="description" content="THE BINARY" />
-	<link rel="image_src" href="https://binary.willsoft.kr/img/launcher.png" />
+	<link rel="image_src" href="<?=G5_URL?>/img/launcher.png" />
 
 	<!--대표 이미지 URL (이미지를 여러 개 지정할 수 있음) //-->
-	<meta name="apple-mobile-web-app-title" content="https://binary.willsoft.kr/img/launcher.png" />
+	<meta name="apple-mobile-web-app-title" content="<?=G5_URL?>/img/launcher.png" />
 	<meta name="format-detection" content="telephone=no" />
 
 	<!-- 페이스북 공유 + 카카오톡 설정 //-->
