@@ -100,6 +100,7 @@ body{}
 	body{background:#0b0c13}
 	.container{width:550px;margin:0 auto;}
 	#btnDiv{width:550px;}
+	.intro_title{width:550px;}
 }
 </style>
 
