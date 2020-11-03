@@ -80,7 +80,7 @@ $(function(){
 		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
 		if (email == '' || !re.test(email)) {
-			alert("올바른 이메일 주소를 입력하세요")
+			commonModal("check email address","please put email correctly",80)
 			return false;
 		}
 	}
@@ -151,6 +151,7 @@ $(function(){
 	// 	chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val());
 	// }
 
+	check_id = 0;
 
 	// 아이디 중복 체크
 	$('#id_check').click(function(){
@@ -167,8 +168,10 @@ $(function(){
 					},
 					success : function(res){
 						if(res.code == '000'){
+							check_id = 0;
 							dialogModal("ID CHECK", res.response, 'failed');
 						}else{
+							check_id = 1;
 							dialogModal("ID CHECK", res.response, 'success');
 						}
 					}
@@ -180,9 +183,10 @@ $(function(){
 	 re = /[~!@\#$%^&*\()\-=+_']/gi;
 	 var temp=$("#reg_mb_id").val();
 	 if(re.test(temp)){ //특수문자가 포함되면 삭제하여 값으로 다시셋팅
-	 $("#reg_mb_id").val(temp.replace(re,"")); } });
-
-
+	 $("#reg_mb_id").val(temp.replace(re,"")); 
+	 } 
+	 check_id = 0;
+	 });
 
 	/*이용약관동의*/
 	$('.agreement_ly').click(function() {
@@ -197,7 +201,7 @@ $(function(){
 
 
 	$('#reg_mb_password').on('keyup',function(e){
-		chkPwd_1($('#reg_mb_password').val());
+		chkPwd_1($('#reg_mb_password').val(),$('#reg_mb_password_re').val());
 	});
 	$('#reg_mb_password_re').on('keyup',function(e){
 		chkPwd_1($('#reg_mb_password').val(), $('#reg_mb_password_re').val());
@@ -207,9 +211,9 @@ $(function(){
 		var wallet_addr_len = $('#wallet_addr').val().length;
 		console.log(wallet_addr_len);
 		if(wallet_addr_len <= 40){
-				dialogModal("ID CHECK", "Please check wallet address agin ", 'failed');
+				dialogModal("wallet check", "Please check wallet address again ", 'failed');
 		}else{
-				dialogModal("ID CHECK", "Available wallet address", 'success');
+				dialogModal("wallet check", "Available wallet address", 'success');
 		}
 	});
 
@@ -369,27 +373,46 @@ function chkPwd_2(str,str2){
 		}
 		*/
 
-		console.log( $('#reg_mb_email').val() + '/' + $('#reg_mb_email_re').val() );
-
-
-		if (f.mb_password.value != f.mb_password_re.value) {
-			commonModal('check password','<strong> Password does not match </strong>',80);
-
-			f.mb_password_re.focus();
+		if(!recommend_search){
+			commonModal('recommend check','<strong>please check recommend search Button and choose recommend.</strong>',80);
 			return false;
 		}
 
+		if (f.mb_id.value == f.mb_recommend.value) {
+			commonModal('recommend check','<strong> can not recommend self. </strong>',80);
+			f.mb_recommend.focus();
+			return false;
+		}
+
+		if (check_id == 0) {
+			commonModal('ID check', '<strong>please check ID. </strong>',80);
+			return false;
+		}
+
+		// if (f.mb_recommend.value =='' || f.mb_recommend.value =='undefined') {
+		// 	commonModal('check recommend','<strong>check recommend.</strong>',80);
+		// 	return false;
+		// }
+
 		if (f.mb_password.value.length > 0) {
-			if (f.mb_password_re.value.length < 3) {
-				commonModal('check password','<strong>password must contain 6 to 8 characters long</strong>',80);
+			if (f.mb_password_re.value.length < 4) {
+				commonModal('password check','<strong>put password 4 characters or more.</strong>',80);
 
 				f.mb_password_re.focus();
 				return false;
 			}
 		}
 
+		if (f.mb_password.value != f.mb_password_re.value) {
+			commonModal('password check','<strong> password does not match. </strong>',80);
+
+			f.mb_password_re.focus();
+			return false;
+		}
+
+
 		if(!chkPwd_1($('#reg_mb_password').val(),$('#reg_mb_password_re').val())){
-			commonModal('Check password Rule','<strong> Login Password does not match password Rule.</strong>',80);
+			commonModal('password rule check','<strong> login Password does not match password Rule.</strong>',80);
 			return false;
 		}
 
@@ -404,39 +427,34 @@ function chkPwd_2(str,str2){
 			return false;
 		}
 		*/
+		if($('#wallet_addr').val().length <= 40){
+			commonModal('check wallet address','<strong>check wallet address.</strong>',80);
+			return false;
+		}
 
+		if($('#reg_mb_email').val() == "" || $('#reg_mb_email_re').val() == ""){
+			commonModal('Check Email Address','<strong>please put email address. </strong>',80);
+			return false;
+		}
+
+		if(validateEmail($('#reg_mb_email').val()) == false){
+			return;
+		}
+
+		
 
 		if( $('#reg_mb_email').val() != $('#reg_mb_email_re').val() ){
 			commonModal('Check Email Address','<strong> Email Address does not match. </strong>',80);
 			return false;
 		}
-
-		if (f.mb_recommend.value =='' || f.mb_recommend.value =='undefined') {
-			commonModal('check recommend','<strong>check recommend.</strong>',80);
-			return false;
-		}
-
-
-		if(!recommend_search){
-			commonModal('Please check recommend search Button','<strong>Please check recommend search Button and choose recommend.</strong>',80);
-			return false;
-		}
-
-		if (f.mb_id.value == f.mb_recommend.value) {
-			commonModal('check recommend','<strong> can not recommend self. </strong>',80);
-			f.mb_recommend.focus();
-			return false;
-		}
+	
 
 		if(!$('#agree').prop('checked')){
-			commonModal('check the policy agreement!!','<strong>check the policy agreement!!</strong>',80);
+			commonModal('check the policy agreement','<strong>check the policy agreement.</strong>',80);
 			return false;
 		}
 
-		if($('#wallet_addr').val().length <= 40){
-			commonModal('check wallet address!!','<strong>check wallet address!!</strong>',80);
-			return false;
-		}
+		
 
 		f.submit();
 
@@ -550,9 +568,9 @@ function chkPwd_2(str,str2){
 				<input class="input_addr" type="text" name="first_name" id="wallet_addr" placeholder="Name" data-i18n='[placeholder]signUp.이름'/>
 				<div class='in_btn_ly'><input type="button" id='wallet_addr_check' class='btn_round check' value="ID Check" data-i18n='[value]signUp.지갑 확인'></div>
 				<!--<input type="text" name="last_name" placeholder="Last Name (Must match the legal name on file)" data-i18n='[placeholder]register.성 (신분증에 기록된 이름과 동일해야 함)'/>-->
-				<input type="email" name="mb_email" id="reg_mb_email" onChange="validateEmail(this.value);" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소'/>
+				<input type="email" name="mb_email" id="reg_mb_email" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소'/>
 
-				<input type="email" name="mb_email_re" id="reg_mb_email_re" onChange="validateEmail(this.value);" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소 확인'/>
+				<input type="email" name="mb_email_re" id="reg_mb_email_re" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소 확인'/>
 
 				<!--// 메일 인증-->
 				<?if($email_auth == true){?>
