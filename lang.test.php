@@ -82,8 +82,8 @@
 
 	<script>
 	// 자바스크립트에서 사용하는 전역변수 선언
-	var g5_url       = "http://seven.willsoft.kr";
-	var g5_bbs_url   = "http://seven.willsoft.kr/bbs";
+	var g5_url       = "";
+	var g5_bbs_url   = "";
 	var g5_is_member = "1";
 	var g5_is_admin  = "super";
 	var g5_is_mobile = "1";
