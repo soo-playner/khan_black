@@ -24,7 +24,7 @@
 	<meta property="fb:app_id" content="" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="THE BINARY" />
-	<meta property="og:description" content="THE BINARY" />
+	<meta property="og:description" content="GLOBAL SMART CONTRACT CROWD FUNDING PLATFORM" />
 	<meta property="og:site_name" content="THE BINARY" />
 	<meta property="og:image" content="" />
 	<meta property="og:url" content="" />
