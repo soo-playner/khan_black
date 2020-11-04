@@ -164,7 +164,8 @@ $(function(){
 					dataType : "json",
 					url : "/bbs/register_check_id.php",
 					data : {
-						"registerId" : registerId
+						"registerId" : registerId,
+						check : "id"
 					},
 					success : function(res){
 						if(res.code == '000'){
@@ -213,7 +214,27 @@ $(function(){
 		if(wallet_addr_len <= 40){
 				dialogModal("wallet check", "Please check wallet address again ", 'failed');
 		}else{
-				dialogModal("wallet check", "Available wallet address", 'success');
+				
+			$.ajax({
+					type : "POST",
+					dataType : "json",
+					url : "/bbs/register_check_id.php",
+					data : {
+						"registerId" : $('#wallet_addr').val(),
+						check : "wallet"
+					},
+					success : function(res){
+						if(res.code == '000'){
+							check_id = 0;
+							dialogModal("WALLET CHECK", res.response, 'failed');
+						}else{
+							check_id = 1;
+							dialogModal("WALLET CHECK", res.response, 'success');
+						}
+					}
+			});
+
+
 		}
 	});
 
