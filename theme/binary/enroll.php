@@ -152,7 +152,8 @@ $(function(){
 	// }
 
 	check_id = 0;
-
+	check_wallet = 0;
+	wallet = "";
 	// 아이디 중복 체크
 	$('#id_check').click(function(){
 		var registerId = $('#reg_mb_id').val();
@@ -224,11 +225,14 @@ $(function(){
 						check : "wallet"
 					},
 					success : function(res){
+						
 						if(res.code == '000'){
-							check_id = 0;
+							check_wallet = 0;
+							wallet = "";
 							dialogModal("WALLET CHECK", res.response, 'failed');
 						}else{
-							check_id = 1;
+							check_wallet = 1;
+							wallet = res.wallet;
 							dialogModal("WALLET CHECK", res.response, 'success');
 						}
 					}
@@ -450,6 +454,16 @@ function chkPwd_2(str,str2){
 		*/
 		if($('#wallet_addr').val().length <= 40){
 			commonModal('check wallet address','<strong>check wallet address.</strong>',80);
+			return false;
+		}
+
+		if(check_wallet == 0){
+			commonModal('wallet check', '<strong>please check wallet address. </strong>',80);
+			return false;
+		}
+
+		if(wallet != $('#wallet_addr').val() || wallet == ""){
+			commonModal('wallet check', '<strong>please check wallet address. </strong>',80);
 			return false;
 		}
 
