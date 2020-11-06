@@ -21,9 +21,9 @@ if($member['mb_wallet'] == ''){
 }
 */
 $domain = $_SERVER["HTTP_HOST"];
-print_R($domain);
+// print_R($domain);
 
-if($domain == 'adm.1eth.net'){
+if($domain == 'adm.thebinary.io'){
 	Header("Location:/adm/");  
 }else{
 	$mb_wallet = $member['mb_wallet'];

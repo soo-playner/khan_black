@@ -58,7 +58,7 @@ $(document).ready(function(){
 			<a href="/"><img src="<?=G5_THEME_URL?>/_images/gnb_logo.png" alt="ROCKET"></a>
 		</div>
 		<ul class="left_gnb">
-			<!-- <li><a href="/"><img src="<?=G5_THEME_URL?>/_images/menu01.gif" alt="아이콘" ><span data-i18n="nav.메인화면">dashboard</span></a></li> -->
+			<li><a href="/"><img src="<?=G5_THEME_URL?>/_images/menu01.gif" alt="아이콘" ><span data-i18n="nav.메인화면">dashboard</span></a></li>
 
 			<li><a href="/page.php?id=profile"><img src="<?=G5_THEME_URL?>/_images/menu02.gif" alt="아이콘" ><span data-i18n="nav.개인정보 & 보안설정">Profile & Settings</span></a></li>
 			<!-- <li><a href="/page.php?id=mywallet"><img src="<?=G5_THEME_URL?>/_images/menu04.gif" alt="아이콘"><span data-i18n="nav.내 지갑">My wallet</span></a></li>
