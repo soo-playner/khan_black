@@ -83,7 +83,7 @@ $(document).ready(function(){
 
 			<li><a href="/page.php?id=news"><img src="<?=G5_THEME_URL?>/_images/menu07.gif" alt="아이콘"><span data-i18n="nav.뉴스">News</span></a></li>
 			<li><a href="/page.php?id=support_center"><img src="<?=G5_THEME_URL?>/_images/menu08.gif" alt="아이콘"><span data-i18n="nav.지원 센터">Support Center</span></a></li>
-			<!-- <li><a href="/page.php?id=referral_link"><img src="<?=G5_THEME_URL?>/_images/menu11.gif" alt="아이콘"><span data-i18n="nav.내 추천인 링크">My Referral Link</span></a></li> -->
+			<li><a href="/page.php?id=referral_link"><img src="<?=G5_THEME_URL?>/_images/menu11.gif" alt="아이콘"><span data-i18n="nav.내 추천인 링크">My Referral Link</span></a></li>
 
 
 			<li><a href="javascript:void(0);" class="logout_pop_open"><img src="<?=G5_THEME_URL?>/_images/menu12.gif" alt="아이콘"><span data-i18n="nav.로그아웃">LOGOUT</span></a></li>
