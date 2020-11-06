@@ -75,14 +75,32 @@ $(function(){
 
 
 	/*이메일 체크*/
-	 validateEmail = function (email) {
-		var email = email;
+	 validateEmail = function () {
+		var email = $('#reg_mb_email').val();
 		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
 		if (email == '' || !re.test(email)) {
 			commonModal("check email address","please put email correctly",80)
 			return false;
 		}
+
+			$.ajax({
+					type: "POST",
+					url: "/mail/send_mail.php",
+					cache: false,
+					async: false,
+					dataType: "json",
+					data:  {
+						user_email : email
+					},
+					complete: function() {
+
+						commonModal("send email","An email has been sent",80);
+
+					}
+
+				});
+
 	}
 
 
@@ -152,7 +170,9 @@ $(function(){
 	// }
 
 	check_id = 0;
-
+	check_wallet = 0;
+	check_email = 0;
+	wallet = "";
 	// 아이디 중복 체크
 	$('#id_check').click(function(){
 		var registerId = $('#reg_mb_id').val();
@@ -164,7 +184,8 @@ $(function(){
 					dataType : "json",
 					url : "/bbs/register_check_id.php",
 					data : {
-						"registerId" : registerId
+						"registerId" : registerId,
+						check : "id"
 					},
 					success : function(res){
 						if(res.code == '000'){
@@ -213,7 +234,30 @@ $(function(){
 		if(wallet_addr_len <= 40){
 				dialogModal("wallet check", "Please check wallet address again ", 'failed');
 		}else{
-				dialogModal("wallet check", "Available wallet address", 'success');
+				
+			$.ajax({
+					type : "POST",
+					dataType : "json",
+					url : "/bbs/register_check_id.php",
+					data : {
+						"registerId" : $('#wallet_addr').val(),
+						check : "wallet"
+					},
+					success : function(res){
+						
+						if(res.code == '000'){
+							check_wallet = 0;
+							wallet = "";
+							dialogModal("WALLET CHECK", res.response, 'failed');
+						}else{
+							check_wallet = 1;
+							wallet = res.wallet;
+							dialogModal("WALLET CHECK", res.response, 'success');
+						}
+					}
+			});
+
+
 		}
 	});
 
@@ -432,31 +476,43 @@ function chkPwd_2(str,str2){
 			return false;
 		}
 
-		if($('#reg_mb_email').val() == "" || $('#reg_mb_email_re').val() == ""){
-			commonModal('Check Email Address','<strong>please put email address. </strong>',80);
+		if(check_wallet == 0){
+			commonModal('wallet check', '<strong>please check wallet address. </strong>',80);
 			return false;
 		}
 
-		if(validateEmail($('#reg_mb_email').val()) == false){
-			return;
-		}
-
-		
-
-		if( $('#reg_mb_email').val() != $('#reg_mb_email_re').val() ){
-			commonModal('Check Email Address','<strong> Email Address does not match. </strong>',80);
+		if(wallet != $('#wallet_addr').val() || wallet == ""){
+			commonModal('wallet check', '<strong>please check wallet address. </strong>',80);
 			return false;
 		}
-	
 
 		if(!$('#agree').prop('checked')){
 			commonModal('check the policy agreement','<strong>check the policy agreement.</strong>',80);
 			return false;
 		}
+	
+		$.ajax({
+			type: "POST",
+			url: "/mail/check_mail_for_register.php",
+			cache: false,
+			async: false,
+			dataType: "json",
+			data:  {
+				user_email : $('#reg_mb_email').val()
+			},
+			success: function(res) {
+				if(res.result == "OK"){
+					f.submit();
+				}else{						
+					dialogModal("Email Auth", res.res, 'failed');
+									
+				}
 
-		
-
-		f.submit();
+			},
+			error:function(e){
+				console.log(e)
+			}
+		});
 
 	}
 
@@ -569,12 +625,14 @@ function chkPwd_2(str,str2){
 				<input class="input_addr" type="text" name="first_name" id="wallet_addr" placeholder="Name" data-i18n='[placeholder]signUp.이름'/>
 				<div class='in_btn_ly'><input type="button" id='wallet_addr_check' class='btn_round check' value="ID Check" data-i18n='[value]signUp.지갑 확인'></div>
 				<!--<input type="text" name="last_name" placeholder="Last Name (Must match the legal name on file)" data-i18n='[placeholder]register.성 (신분증에 기록된 이름과 동일해야 함)'/>-->
-				<input type="email" name="mb_email" id="reg_mb_email" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소'/>
+				<!-- <input type="email" name="mb_email" id="reg_mb_email" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소'/> -->
 
-				<input type="email" name="mb_email_re" id="reg_mb_email_re" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소 확인'/>
+				<!-- <input type="email" name="mb_email_re" id="reg_mb_email_re" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소 확인'/> -->
+				<input type="email" name="mb_email" id="reg_mb_email" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소'/>
+				<div class='in_btn_ly'><input type="button" onclick="javascript:validateEmail()" class='btn_round check' value="Eamil" data-i18n='[value]signUp.이메일 전송'></div>
 
 				<!--// 메일 인증-->
-				<?if($email_auth == true){?>
+				<!-- <?if($email_auth == true){?>
 					<div class="clear_fix ecode_div">
 						<div class="sendbtn">
 						<a href="javascript:void(0);" class="btn" id="sendMail">
@@ -588,7 +646,7 @@ function chkPwd_2(str,str2){
 						<p id="verify_txt" class="text_right font_green mb20" data-i18n="signUp.인증 완료">Verification Complete</p>
 					</div>
 					<hr>
-				<?}?>
+				<?}?> -->
 
 
 
@@ -619,8 +677,11 @@ function chkPwd_2(str,str2){
 
 			<div class="mb20 agreement_ly">
 				<div class="checkbox_wrap"><input type="checkbox" name='agree' id="agree" class="checkbox"><label for="agree"></label></div>
-				<span data-i18n='signUp.이용약관'>
-	I have read and agreed to the Terms and Conditions. I fully understood the this business and I know the NO REFUND policy. I know the change of Refferer is NOT POSSIBLE.</span>
+				<div style='display: inline-grid;width: 90%;'>
+				<span data-i18n='signUp.이용약관1'> I have read and agreed to the Terms and Conditions.</span>
+				<span data-i18n='signUp.이용약관2'> I fully understood the this business and I know the NO REFUND policy.</span>
+				<span data-i18n='signUp.이용약관3'> I know the change of Refferer is NOT POSSIBLE.</span>
+				</div>
 			</div>
 
 				<!--

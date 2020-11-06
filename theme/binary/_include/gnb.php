@@ -1,5 +1,5 @@
 <?php
-$myLang = 'eng';
+$myLang = 'kor';
 
 if($_COOKIE['myLang'])
 {
