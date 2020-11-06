@@ -107,7 +107,7 @@
 		<div class="col-sm-12 col-12 content-box round primary">
 			
 			<div class='user-content'>
-				<li><p class='userid grade_<?=$member['grade']?>'></p></li>
+				<!-- <li><p class='userid grade_<?=$member['grade']?>'></p></li> -->
 				<li><p class='userid user_level'>
 					<?=$user?>
 					<!-- <i class='ri-user-line icon_user'></i><i class='ri-number-8 level_txt'></i> -->
