@@ -16,6 +16,11 @@
 
 	//시세 업데이트 시간
 	$next_rate_time = next_exchange_rate_time();
+
+	//내 직추천인
+	$direct_reffer_sql = "SELECT count(mb_id) as cnt from g5_member WHERE mb_recommend = '{$member['mb_id']}' ";
+	$direct_reffer_result = sql_fetch($direct_reffer_sql);
+	$direct_reffer = $direct_reffer_result['cnt'];
 	
 	//하부매출 
 	$recom_sale =  refferer_habu_sales($member['mb_id']);
@@ -43,7 +48,7 @@
 		<li><a href="/page.php?id=<?=$title?>" data-i18n="dashboard.메인화면"><?=$title?></a></li>
 	</ol>
 
-	<ol class='f_right black' id='timer'>
+	<!-- <ol class='f_right black' id='timer'>
 		<div class='counters '>
 			<div class='counter tx'>
 				<span class='exchange_tx'>Exchange Rate</span>
@@ -52,23 +57,23 @@
 
 			<div class='counter'>
 				<span id='hours' class='num'>12</span>
-				<!-- <p>Hours</p> -->
+				
 				<p>H</p>
 			</div>
 			
 			<div class='counter'>
 				<span id='minutes' class='num'>00</span>
-				<!-- <p>Minutes</p> -->
+				
 				<p>M</p>
 			</div>
 			
 			<div class='counter'>
 				<span id='seconds' class='num'>00</span>
-				<!-- <p>Seconds</p> -->
+				
 				<p>S</p>
 			</div>
 		</div>
-	<ol>
+	<ol> -->
 
 </section>
 
@@ -119,24 +124,24 @@
 				<?}?>
 			</div>
 
-			<div class="innerBox round mt20">
+			<!-- <div class="innerBox round mt20">
 				<dt class='col-6'><span> BONUS <?=BONUS_CURENCY?> </span></dt>
 				<dd class='col-6 '><?=$total_balance_num?> <?=BONUS_CURENCY?></dd>
-			</div>
+			</div> -->
 
-			<div class="innerBox round col-sm-12" >
+			<div class="innerBox round mt20 col-sm-12" >
 				<div class='bonus_state_bar' id='total_B_bar'></div>
 				<dt class='col-6'><span class='t_shadow_white'>TOTAL BONUS</span></dt>
 				<dd class='col-6 bonus_per'><?=Number_format($bonus_per,1);?>%</dd>
 			</div>
-			<div class='exp_per'>
+			<!-- <div class='exp_per'>
 				<p class='start'>0%</p>
 				<p class='end'>100%</p>
-			</div>
+			</div> -->
 
 			<div class="row mt20">
 			   <article class="col-md-6 col-sm-12"><button type='button' class='btn wd c_btn b_blue' onclick="go_to_url('mywallet');" data-i18n="dashboard.내 지갑"> MY WALLET</button></article>
-			   <article class="col-md-6 col-sm-12"><button type='button' class='btn wd c_btn b_green' onclick="go_to_url('referral_link');" data-i18n="dashboard.내 추천인"> MY REFERRAL</button></article>
+			   <article class="col-md-6 col-sm-12"><button type='button' class='btn wd c_btn b_green' onclick="go_to_url('structure');" data-i18n="dashboard.추천조직도"> MY REFERRAL LEVEL STRUCTURE</button></article>
 			</div>
 
 		</div>
@@ -145,25 +150,16 @@
 
 		<div class="col-sm-12 col-12 content-box round primary">
 
-			<div class="incard">
-				<dt data-i18n="dashboard.총 실적">My Sales</dt>
-				<dd><?=number_format($member['mb_deposit_point'])?> <span class='currency-right'>$</span></dd>
-			</div>
-
-			<div class="incard">
-				<dt data-i18n="dashboard.총 받은수당">Total My Bonus</dt>
-				<dd><?=number_format($member['mb_balance'])?> <span class='currency-right'>HAZ</span></dd>
-			</div>
-
-			<div class="incard">
-				<dt data-i18n="dashboard.패키지레벨">My Package</dt>
-				<dd>P<?=number_format($member['mb_level'])?></dd>
-			</div>
-
-			<div class="incard">
+			<!-- <div class="incard">
 				<dt data-i18n="dashboard.등급">My rank</dt>
 				<dd><span class='userid grade_<?=$member['grade']?> small'></span><?=number_format($member['grade'])?>STAR</dd>
+			</div> -->
+
+			<div class="incard">
+				<dt data-i18n="dashboard.내 사이클">My Circle</dt>
+				<dd><span data-i18n="dashboard.준비중">Preparing</span></dd>
 			</div>
+
 
 			<div class="incard">
 				<dt data-i18n="dashboard.추천인">My Referrer</dt>
@@ -172,18 +168,18 @@
 				</dd>
 			</div>
 			<div class="incard">
-				<dt data-i18n="dashboard.총 추천인 실적">Total Referrer Sales</dt>
-				<dd><?=Number_format($recom_sale)?><span class='currency-right'>$</span></dd>
+				<dt data-i18n="dashboard.직추천인">My Direct Referrer</dt>
+				<dd><?=$direct_reffer?></dd>
 			</div>
 
 			<div class="incard">
-				<dt data-i18n="dashboard. 대실적 ">Total Power leg Sales</dt>
-				<dd><?=Number_format($recom_sale_power)?><span class='currency-right'>$</span></dd>
+				<dt data-i18n="dashboard.하부추천인">My Referrer leg</dt>
+				<dd><?=$member['mb_child']?></dd>
 			</div>
 
 			<div class="incard">
-				<dt data-i18n="dashboard.소실적">Total weak leg Sales</dt>
-				<dd><?=number_format($recom_sale_weak)?><span class='currency-right'>$</span></dd>
+				<dt data-i18n="dashboard.후원인">My Sponsor</dt>
+				<dd><span data-i18n="dashboard.준비중">Preparing</span></dd>
 			</div>
 
 		</div>
