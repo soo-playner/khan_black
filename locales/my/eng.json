@@ -47,6 +47,8 @@
 		"총 액수" : "Total Balance",
 		"펀딩" : "Pakage",
 		"추천인" : "MY REFERRAL",
+		"직추천인" : "My Direct Referral",
+		"하부추천인" : "My Referral leg",
 		"후원인" : "My Sponsor",
 		"총 추천인 수" : "Total Referrer",
 		"총 후원인 수" : "Total Sponsor",
@@ -59,7 +61,7 @@
 		"총 보너스" : "Total Bonus",
 		"총 수익 (200%)" : "For OUT (200%)",
 		"펀딩한 내역" : "Upstair History",
-
+		"추천조직도" : "LEVEL STRUCTURE",
 		"공지사항" : "Notification",
 		"오늘하루 열지않기" : "Close for 24hrs",
 		"내 추천인" : "MY REFERRAL",
@@ -67,7 +69,8 @@
 		"보너스" : "BONUS",
 		"총 보너스" : "TOTAL BONUS",
 		"홈" : "HOME",
-		"내 사이클" : "My Cycle"
+		"내 사이클" : "My Cycle",
+		"준비중" : "Preparing"
 	},
 
 	"profile" : {
