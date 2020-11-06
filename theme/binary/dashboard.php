@@ -140,7 +140,7 @@
 			</div> -->
 
 			<div class="row mt20">
-			   <article class="col-md-6 col-sm-12"><button type='button' class='btn wd c_btn b_blue' onclick="go_to_url('mywallet');" data-i18n="dashboard.내 지갑"> MY WALLET</button></article>
+			   <article class="col-md-6 col-sm-12"><button type='button' class='btn wd c_btn b_blue' onclick="alert('준비중입니다.');" data-i18n="dashboard.내 지갑"> MY WALLET</button></article>
 			   <article class="col-md-6 col-sm-12"><button type='button' class='btn wd c_btn b_green' onclick="go_to_url('structure');" data-i18n="dashboard.추천조직도"> MY REFERRAL LEVEL STRUCTURE</button></article>
 			</div>
 
