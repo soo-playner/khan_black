@@ -84,7 +84,7 @@
 				<li><p class='userid id_<?=$member['mb_level']?>'><?=$user?></p></li>
 				<li>
 					<h4><?=$member['mb_id']?></h4>
-					<h6><?=$member['mb_name']?></h6>
+					<!-- <h6><?=$member['mb_name']?></h6> -->
 				</li>
 
 			<!-- 	<div class='col-sm-12 col-12 mt20'>

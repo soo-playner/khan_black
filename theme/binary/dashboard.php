@@ -115,7 +115,7 @@
 				</li>
 				<li>
 					<h4><?=$member['mb_id']?></h4>
-					<h6><?=$member['mb_name']?></h6>
+					<!-- <h6><?=$member['mb_name']?></h6> -->
 				</li>
 				<?if($notice_result_num > 0){ ?>
 					<button class="btn inline notice_open b_indianred text-white f_right" >
