@@ -20,14 +20,17 @@ try {
 
     $mail -> Host = "smtp.gmail.com";                // email 보낼때 사용할 서버를 지정
     $mail -> SMTPAuth = true;                        // SMTP 인증을 사용함
-    $mail -> Username = "willsoftkr@gmail.com";    // 메일 계정
+    // $mail -> Username = "willsoftkr@gmail.com";    // 메일 계정
+    // $mail -> Password = "willsoft0780";                // 메일 비밀번호
+    $mail -> Username = "thebinarybinary@gmail.com";    // 메일 계정
     $mail -> Password = "willsoft0780";                // 메일 비밀번호
     $mail -> SMTPSecure = "ssl";                    // SSL을 사용함
     $mail -> Port = 465;                            // email 보낼때 사용할 포트를 지정
     $mail -> CharSet = "utf-8";                        // 문자셋 인코딩
 
     // 보내는 메일
-    $mail -> setFrom("willsoftkr@gmail.com", "The Binary");
+    // $mail -> setFrom("willsoftkr@gmail.com", "The Binary");
+    $mail -> setFrom("thebinarybinary@gmail.com", "The Binary");
 
     // 받는 메일
     $mail -> addAddress($to_email, $to_id);
@@ -45,7 +48,7 @@ try {
 
 
     // 본문 이미지 첨부 및 내용
-    $image = '../theme/binary/_images/logo2.gif';
+    $image = '../theme/binary/_images/logo.png';
     $mail->AddEmbeddedImage($image, "keyImage");
     $mail->MsgHTML("<div><p><img src='cid:keyImage'
     style='max-width:80%;
