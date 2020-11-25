@@ -1,6 +1,6 @@
 <? include_once(G5_THEME_PATH.'/_include/head.php'); ?>
 <style>
-#wrapper{background:#2a2c3c !important;color:white;}
+#wrapper{background:#000 !important;color:white;}
 @media screen and (min-width:768px) {
 	body{background:#fff;color:white;}
 	#wrapper{max-width:767px;margin:0 auto;}
