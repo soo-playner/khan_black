@@ -46,6 +46,7 @@ try {
     $mail -> Subject = "D fine CERTIFICATION";              // 메일 제목
     // $mail -> Body = $auth_md5;    // 메일 내용
 
+    $hostname=$_SERVER["HTTP_HOST"];
 
     // 본문 이미지 첨부 및 내용
     $image = '../theme/dfine/_images/logo.png';
@@ -60,7 +61,7 @@ try {
 
     margin: 0 auto 20px;
     display: block;
-    margin-top: 20px;'>Click<a href='https://thebinary.io/mail/auth_mail.php?hash=$auth_md5'> HERE </a>to complete authentication</div></div>");
+    margin-top: 20px;'>Click<a href='https://$hostname/mail/auth_mail.php?hash=$auth_md5'> HERE </a>to complete authentication</div></div>");
 
 
 
