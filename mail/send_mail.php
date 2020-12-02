@@ -30,7 +30,7 @@ try {
 
     // 보내는 메일
     // $mail -> setFrom("willsoftkr@gmail.com", "The Binary");
-    $mail -> setFrom("thebinarybinary@gmail.com", "The Binary");
+    $mail -> setFrom("thebinarybinary@gmail.com", "D fine");
 
     // 받는 메일
     $mail -> addAddress($to_email, $to_id);
@@ -43,7 +43,7 @@ try {
 
     // 메일 내용
     $mail -> isHTML(true);                                               // HTML 태그 사용 여부
-    $mail -> Subject = "THE BINARY CERTIFICATION";              // 메일 제목
+    $mail -> Subject = "D fine CERTIFICATION";              // 메일 제목
     // $mail -> Body = $auth_md5;    // 메일 내용
 
 

@@ -10,22 +10,22 @@
 	<meta name="Robots" content="ALL">
 
 	<!-- 기본 공유 설정 //-->
-	<meta name="title" content="THE BINARY" />
-	<meta name="subject" content="THE BINARY" />
-	<meta name="keywords" content="THE BINARY" />
-	<meta name="description" content="THE BINARY" />
-	<link rel="image_src" href="<?=G5_URL?>/img/launcher.png" />
+	<meta name="title" content="D fine" />
+	<meta name="subject" content="D fine" />
+	<meta name="keywords" content="D fine" />
+	<meta name="description" content="D fine" />
+	<link rel="image_src" href="<?=G5_THEME_URL?>/img/logo.png" />
 
 	<!--대표 이미지 URL (이미지를 여러 개 지정할 수 있음) //-->
-	<meta name="apple-mobile-web-app-title" content="<?=G5_URL?>/img/launcher.png" />
+	<meta name="apple-mobile-web-app-title" content="<?=G5_THEME_URL?>/img/logo.png" />
 	<meta name="format-detection" content="telephone=no" />
 
 	<!-- 페이스북 공유 + 카카오톡 설정 //-->
 	<meta property="fb:app_id" content="" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="THE BINARY" />
+	<meta property="og:title" content="D fine" />
 	<meta property="og:description" content="GLOBAL SMART CONTRACT CROWD FUNDING PLATFORM" />
-	<meta property="og:site_name" content="THE BINARY" />
+	<meta property="og:site_name" content="D fine" />
 	<meta property="og:image" content="" />
 	<meta property="og:url" content="" />
 
