@@ -208,7 +208,7 @@ $objPHPExcel -> setActiveSheetIndex(0);
 
 // 파일의 저장형식이 utf-8일 경우 한글파일 이름은 깨지므로 euc-kr로 변환해준다.
 
-$filename = iconv("UTF-8", "EUC-KR", "1ETH.net_depositRequest");
+$filename = iconv("UTF-8", "EUC-KR", "depositRequest");
 
 
 

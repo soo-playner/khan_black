@@ -194,7 +194,8 @@
 		"입금완료된 Hash를 입력해주세요" : "Enter transaction hash",
 		"영수증" : "Txn Hash",
 		"내 지갑" : "My Wallet",
-		"홈" : "HOME"
+		"홈" : "HOME",
+		"입금액" : "Amount"
 	},
 
 	"popup" : {
