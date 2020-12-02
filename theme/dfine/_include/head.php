@@ -14,10 +14,10 @@
 	<meta name="subject" content="D fine" />
 	<meta name="keywords" content="D fine" />
 	<meta name="description" content="D fine" />
-	<link rel="image_src" href="<?=G5_THEME_URL?>/img/logo.png" />
+	<link rel="image_src" href="<?=G5_THEME_URL?>/img/default.png" />
 
 	<!--대표 이미지 URL (이미지를 여러 개 지정할 수 있음) //-->
-	<meta name="apple-mobile-web-app-title" content="<?=G5_THEME_URL?>/img/logo.png" />
+	<meta name="apple-mobile-web-app-title" content="<?=G5_THEME_URL?>/img/default.png" />
 	<meta name="format-detection" content="telephone=no" />
 
 	<!-- 페이스북 공유 + 카카오톡 설정 //-->
