@@ -48,7 +48,7 @@ try {
 
 
     // 본문 이미지 첨부 및 내용
-    $image = '../theme/binary/_images/logo.png';
+    $image = '../theme/dfine/_images/logo.png';
     $mail->AddEmbeddedImage($image, "keyImage");
     $mail->MsgHTML("<div><p><img src='cid:keyImage'
     style='max-width:80%;
