@@ -34,8 +34,9 @@ if($inerval->format('%a') > 0){
 }
 
  $sql_search = "and day >= '$fr_date' and day <= '$to_date'";
+ $sql_allow = "";
  if($direct != "" || $rollup != "" || $cycle != ""){
-    $sql_allow = "and (";
+    $sql_allow .= "and (";
 
     if($direct != ""){
 
