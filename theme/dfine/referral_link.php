@@ -2,7 +2,7 @@
 include_once(G5_THEME_PATH.'/_include/head.php');
 include_once(G5_THEME_PATH.'/_include/gnb.php');
 include_once(G5_THEME_PATH.'/_include/wallet.php');
-//print_r($member);
+
 $short_URL = '';
 $url = G5_URL.'/go/?url='.G5_URL.'/bbs/register_form.php?recom_referral='.$member['mb_no']; //접속할 url 입력
 
@@ -22,10 +22,11 @@ $res = curl_exec ($ch);
 $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
 $header = substr($res, 0, $header_size);
 $short_URL_row = substr($res, $header_size);
-$short_URL_p = preg_replace("/\s+/", "", (substr($short_URL_row,3)));
+
+$short_URL_p = preg_replace("/\s+/", "", (substr($short_URL_row,2)));
 
 $short_URL = str_replace(array('www.'), '', $short_URL_p);
-//print_r($short_URL_p);
+
 curl_close($ch);
 ?>
 
