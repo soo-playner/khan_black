@@ -381,11 +381,11 @@ input + label > i{font-size:20px;}
 .wallet_title{margin:5px 0 20px;color:#054dd5}
 .wallet_addr{width:100%;text-align:center;border:none!important;outline:0;font-size:14px}
 .qrBox{margin-top:30px}
-.qr_img{width:150px;margin:0 auto}
+.qr_img{width:120px;margin:0 auto}
 .btn_ly{display:block;width:100%;text-align:center}
 
 
-.history_box{background:slategray;color:white;}
+.history_box{_background:slategray;color:white;}
 .loadable{display:none;}
 .loadable.active{display:block; animation: slidein 0.5s ease-out; -webkit-animation:slidein 0.5s ease-out ;}
 

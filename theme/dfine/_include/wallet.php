@@ -31,10 +31,10 @@ if (empty($to_date)){$to_date =  date("Y-m-d", strtotime(date("Y-m-d")));}
 
 
 // 회사지갑 설정
-define('BONUS_CURENCY','$');
+define('BONUS_CURENCY','ETH');
 define('BALANCE_CURENCY','$');
 
-define('ETH_ADDRESS','0x5Cc8C164F0cB14bf72E15C8021c27fdEb3313c8a');
+define('ETH_ADDRESS','0xfAd6dB131138dA1B8FF8092337b0067805af60C2');
 
 
 $bonus_sql = "select * from {$g5['bonus_config']} order by idx";

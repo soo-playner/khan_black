@@ -179,9 +179,9 @@
 
             
             <!-- 입금 요청 내역 -->
-            <div class="history_box content-box round secondary ">
+            <div class="history_box content-box round" style='border-top:2px solid dodgerblue'>
                 <h3 class="hist_tit" data-i18n="deposit.입금 내역">Deposit History</h3>
-
+                    <hr class='dash'>
 										<?while( $row = sql_fetch_array($result_deposit) ){?>
 												<div class="hist_con">
 												<div class="hist_con_row1">

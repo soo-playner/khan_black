@@ -35,10 +35,6 @@
 	$title = 'Dashboard';
 ?>
 
-<style>
-	.top_title h3{padding:0;}
-	.top_title h3 img{vertical-align: bottom;}
-</style>
 
 
 <section class='breadcrumb'>
@@ -132,7 +128,7 @@
 			<div class="innerBox round mt20 col-sm-12" >
 				<div class='bonus_state_bar' id='total_B_bar'></div>
 				<dt class='col-6'><span class='t_shadow_white'>TOTAL BONUS</span></dt>
-				<dd class='col-6 bonus_per'><?=Number_format($bonus_per,1);?>%</dd>
+				<dd class='col-6'><?=$total_balance_num?> <?=BONUS_CURENCY?></dd>
 			</div>
 			<!-- <div class='exp_per'>
 				<p class='start'>0%</p>
@@ -201,7 +197,6 @@
 
 	$(function(){
 		
-		$(".top_title h3").html("<a href='/'><img src='<?=G5_THEME_URL?>/img/title.png' alt='logo'></a>");
 		
 		var notice_open = getCookie('notice');
 
