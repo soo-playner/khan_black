@@ -195,6 +195,7 @@ $result = sql_query($sql);
         <td class='coin'><?=strtoupper($row['coin']);?></td>
         
         <td><input type='text' class='reg_text input_amt_val' value='<?=$row['in_amt']?>'></td>
+      
         <td>
             <!-- <?=status($row['status'])?> -->
             <select name="status" uid="<?=$row['uid']?>" class='sel_<?=$row['status']?>'>

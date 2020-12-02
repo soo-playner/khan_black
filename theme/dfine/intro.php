@@ -198,8 +198,8 @@ body{}
 
 	<div id="btnDiv" class="animate-bottom">
 		<div class='btn_ly'>
-	  		<!-- <a href="/bbs/login_pw.php" class="btn btn_wd btn_primary login_btn">LOG IN</a> -->
-				<a href="javascript:auto_login()" class="btn btn_wd btn_primary login_btn">LOG IN</a>
+	  		<a href="/bbs/login_pw.php" class="btn btn_wd btn_primary login_btn">LOG IN</a>
+				<!-- <a href="javascript:auto_login()" class="btn btn_wd btn_primary login_btn">LOG IN</a> -->
 	  			<a href="/bbs/register_form.php" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a>
 				<!-- <a href="javascript:temp_block()" class="btn btn_wd btn_secondary signup_btn">SIGN UP</a> -->
 		</div>
