@@ -542,7 +542,9 @@ function chkPwd_2(str,str2){
 
 </script>
 
-
+<style>
+	#wrapper{margin-lefT:0;}
+</style>
 
 <div class="v_center">
 
@@ -712,7 +714,7 @@ function chkPwd_2(str,str2){
 
 	<script>
 		$(function() {
-			$(".top_title h3").html("<span data-i18n='title.신규 회원등록' style='font-size:16px;'>Create a new account</span>");
+			$(".top_title h3").html("<span data-i18n='title.신규 회원등록' style='font-size:16px;margin-left:20px'>Create a new account</span>");
 		});
 	</script>
 

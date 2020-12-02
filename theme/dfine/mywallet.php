@@ -104,32 +104,7 @@
             <li class='home'><i class="ri-home-4-line"></i><a href="<?php echo G5_URL; ?>" data-i18n='deposit.홈'>Home</a></li>
             <li><a href="/page.php?id=<?=$title?>" data-i18n="deposit.내 지갑"><?=$title?></a></li>
         </ol>
-        <ol class='f_right black' id='timer'>
-          <div class='counters '>
-            <div class='counter tx'>
-              <span class='exchange_tx'>Exchange Rate</span>
-              <p class='time_left_tx'>Time LEFT</p>
-            </div>
-
-            <div class='counter'>
-              <span id='hours' class='num'>12</span>
-              <!-- <p>Hours</p> -->
-              <p>H</p>
-            </div>
-            
-            <div class='counter'>
-              <span id='minutes' class='num'>00</span>
-              <!-- <p>Minutes</p> -->
-              <p>M</p>
-            </div>
-            
-            <div class='counter'>
-              <span id='seconds' class='num'>00</span>
-              <!-- <p>Seconds</p> -->
-              <p>S</p>
-            </div>
-          </div>
-        <ol>
+        
     </section>
 
 
@@ -148,24 +123,15 @@
          	</div>
 
             <div class="innerBox round mt20">
-                <dt class='col-5'><span> BONUS <?=BONUS_CURENCY?></span></dt>
+                <dt class='col-5'><span> BONUS </span></dt>
                 <dd class='col-7 '><?=$total_balance_num?> <?=BONUS_CURENCY?></dd>
             </div>
 
-            <div class="innerBox round col-sm-12" >
-              <div class='bonus_state_bar' id='total_B_bar'></div>
-              <dt class='col-6'><span class='t_shadow_white'>TOTAL BONUS</span></dt>
-              <!-- <dd class='col-6 bonus_per'><?=Number_format($bonus_per,1);?>%</dd> -->
-              <dd class='col-6 bonus_per'><?=$member['mb_balance']?> HAZ</dd>
-            </div>
-            <div class='exp_per'>
-              <p class='start'>0%</p>
-              <p class='end'>100%</p>
-            </div>
+            
 
             <div class="row mt20">
-              <article class="col-md-6 col-sm-6"><button type='button' class='btn wd c_btn b_blue' onclick="switch_func_paging('deposit')" data-i18n='deposit.대문자 입금'> DEPOSIT</button></article>
-              <article class="col-md-6 col-sm-6"><button type='button' class='btn wd c_btn b_red' onclick="switch_func_paging('withdraw')" data-i18n='withdraw.대문자 출금'> WITHDRAW</button></article>
+              <article class="col-sm-12"><button type='button' class='btn wd c_btn b_blue' onclick="switch_func_paging('deposit')" data-i18n='deposit.대문자 입금'> DEPOSIT</button></article>
+              <!-- <article class="col-md-6 col-sm-6"><button type='button' class='btn wd c_btn b_red' onclick="switch_func_paging('withdraw')" data-i18n='withdraw.대문자 출금'> WITHDRAW</button></article> -->
             </div>
         </div>
 
@@ -173,53 +139,6 @@
 
         <!-- 입금 -->
         <section  id='deposit' class='loadable'>
-
-            <!-- USDT -->
-            <div class="col-sm-12 col-12 content-box round mt20" id="usdt" style='border-top:2px solid #4556ff'>
-                <h3 class="wallet_title font_bblue" data-i18n="deposit.USDT 입금 주소">Deposit USDT  Address</h3>
-
-                <div class="wallet qrBox">
-                    <div class="usdt_qr_img qr_img" id="usdt_qr_img"></div>
-                    <input type="text" id="usdt_wallet_addr" class="wallet_addr" value="" title='my address' disabled/>
-                </div>
-
-                <div class="btn_ly">
-                    
-                    <?if($sel_price){?> 
-                      <div class='col-sm-12 col-12'>
-                        <div class='pre_price round'>
-                          <span class='deposit_price'>Selected Deposit Price</span>
-                          <h2 class='d_price'><?=round(shift_price('usd',$sel_price,'usdt'),2)?> USDT </h2>
-                        </div>
-                      </div>
-                    <?}?>
-
-                    <div class='col-sm-12 col-12 '>
-                        <button class="btn wd line_btn" id="accountCopy" onclick="copyURL('#usdt_wallet_addr')">
-                            <span data-i18n="deposit.주소복사"> Copy Address </span><i class="ri-file-copy-2-line"></i>
-                        </button>
-                    </div>
-
-                    <div class="col-sm-12 col-12 withdraw mt20">
-                        <input type="text" class='confirm_hash b_ghostwhite f_small' placeholder="" data-i18n='[placeholder]deposit.입금완료된 Hash를 입력해주세요'>
-                    </div>
-
-                    <div class='col-sm-12 col-12 '>
-                        <button class="btn btn_wd c_btn b_blue font_white deposit_request" data-currency="usdt" >
-                            <span data-i18n="deposit.입금확인요청">입금확인요청</span>
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-
-            <hr class='hr_dash'>
-
-            <!-- 입금요청 통합
-            <div class="col-sm-12 col-12 content-box primary round mt20">
-              <h3 class="wallet_title text-white" data-i18n="deposit.입금 요청">Deposit confirm Request</h3>
-            </div>
-            -->
 
             <!-- ETH -->
             <div class="col-sm-12 col-12 content-box round mt20" id="eth" style='border-top:2px solid dodgerblue'>
@@ -460,11 +379,11 @@ $(function(){
     }
 
     /* 입금 */
-    var usdt_wallet_addr = '<?=USDT_ADDRESS?>';
+    /* var usdt_wallet_addr = '<?=USDT_ADDRESS?>';
     if(usdt_wallet_addr != ''){
         $('#usdt_wallet_addr').val(usdt_wallet_addr);
         generateQrCode("usdt_qr_img",usdt_wallet_addr, 150, 150);
-    }
+    } */
 
     var eth_wallet_addr = '<?=ETH_ADDRESS?>';
     if(eth_wallet_addr != ''){
@@ -681,9 +600,9 @@ $(function(){
 
 
 window.onload = function(){
-  move(<?=$bonus_per?>);
+  // move(<?=$bonus_per?>);
   switch_func("<?=$view?>");
-  getTime("<?=$next_rate_time?>");
+  // getTime("<?=$next_rate_time?>");
 }
 
 

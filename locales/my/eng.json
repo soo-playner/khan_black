@@ -186,7 +186,7 @@
 
 	"deposit" : {
 		"입금" : "Deposit",
-		"대문자 입금" : "only 1ether DEPOSIT",
+		"대문자 입금" : "DEPOSIT",
 		"입금 내역" : "Deposit History",
 		"USDT 입금 주소" : "Deposit USDT Address",
 		"주소복사" : "Copy Address",
