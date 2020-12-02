@@ -20,7 +20,8 @@
 
 
 
-<link rel="stylesheet" href="<?=G5_THEME_URL?>/_common/css/level_structure.css">
+<!-- <link rel="stylesheet" href="<?=G5_THEME_URL?>/_common/css/level_structure.css"> -->
+<link rel="stylesheet" href="<?=G5_THEME_URL?>/_common/css/level_structure_dark.css">
 <style>
 #now_id{width:calc(100% - 175px); margin-right:10px;}
 </style>

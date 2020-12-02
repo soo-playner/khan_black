@@ -36,7 +36,7 @@
 
 				<div class="login_btn_bottom">
 					<button type="button" class="btn btn_wd btn_primary" onclick="flogin_submit();" ><span>LOG IN</span></button>
-					<a href="/bbs/register_form.php" class="btn btn_wd btn_default"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a>
+					<a href="/bbs/register_form.php" class="btn btn_wd btn_primary"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a>
 					<!-- <a href="javascript:temp_block();" class="btn btn_wd btn_default"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a> -->
 					<!--<a href="javascript:serviceModal();"class='desc'>lost password?</a>-->
 						<!--<a href="<?=G5_BBS_URL?>/password_lost.php" class='desc'>lost password?</a>

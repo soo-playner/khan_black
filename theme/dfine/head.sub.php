@@ -105,6 +105,7 @@ if($config['cf_add_meta'])
 	<script src="<?=G5_THEME_URL?>/_common/js/jquery-ui.min.js"></script>
 	<script src="<?=G5_THEME_URL?>/_common/js/common.js"></script>
 	<script src="<?=G5_THEME_URL?>/_common/js/gnb.js"></script>
+	
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
 	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->

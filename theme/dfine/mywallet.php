@@ -141,8 +141,8 @@
         <section  id='deposit' class='loadable'>
 
             <!-- ETH -->
-            <div class="col-sm-12 col-12 content-box round mt20" id="eth" style='border-top:2px solid dodgerblue'>
-                <h3 class="wallet_title font_dodgerblue" data-i18n="deposit.eht 입금 주소">Deposit Ethereum Address</h3>
+            <div class="col-sm-12 col-12 content-box round mt20" id="eth">
+                <h3 class="wallet_title" data-i18n="deposit.eht 입금 주소">Deposit Ethereum Address</h3>
 
                 <div class="wallet qrBox">
                     <div class="eth_qr_img qr_img" id="eth_qr_img"></div>
@@ -170,7 +170,7 @@
                     </div>
 
                     <div class='col-sm-12 col-12 '>
-                        <button class="btn btn_wd c_btn b_dodgerblue font_white deposit_request" data-currency="eth" >
+                        <button class="btn btn_wd c_btn b_blue font_white deposit_request" data-currency="eth" >
                             <span data-i18n="deposit.입금확인요청">입금확인요청</span>
                         </button>
                     </div>
@@ -179,7 +179,7 @@
 
             
             <!-- 입금 요청 내역 -->
-            <div class="history_box content-box round" style='border-top:2px solid dodgerblue'>
+            <div class="history_box content-box round">
                 <h3 class="hist_tit" data-i18n="deposit.입금 내역">Deposit History</h3>
                     
 										<?while( $row = sql_fetch_array($result_deposit) ){?>

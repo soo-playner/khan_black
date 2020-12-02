@@ -35,10 +35,12 @@
 	
 	<link href="<?=G5_URL?>/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?=G5_THEME_URL?>/_common/css/normalize.css" rel="stylesheet">
-	<link href="<?=G5_THEME_URL?>/_common/css/common.css?ver=20200429" rel="stylesheet">
+	<!-- <link href="<?=G5_THEME_URL?>/_common/css/common.css?ver=20200429" rel="stylesheet"> -->
 	<link href="<?=G5_THEME_URL?>/_common/css/jquery-ui.min.css" rel="stylesheet">
-	<link href="<?=G5_THEME_URL?>/_common/css/gnb.css" rel="stylesheet">
-
+	<!-- <link href="<?=G5_THEME_URL?>/_common/css/gnb.css" rel="stylesheet"> -->
+	
+	<link href="<?=G5_THEME_URL?>/_common/css/common_dark.css" rel="stylesheet">
+	<link href="<?=G5_THEME_URL?>/_common/css/gnb_dark.css" rel="stylesheet">
 
 
 

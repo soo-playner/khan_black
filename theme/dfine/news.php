@@ -105,7 +105,7 @@ $title = 'News';
 
 	<div class="qa-container">
 		<div class="title round">
-			<div class='row'>
+			<div class='row font_size14'>
 				<div class="col-sm-3 col-3 date " data-i18n="news.날짜">Date</div>
 				<div class="col-sm-6 col-6 inner_title text-center" data-i18n="news.제목">Title</div>
 				<div class="col-sm-3 col-3 views" data-i18n="news.조회수">Views</div>

@@ -582,7 +582,7 @@ function chkPwd_2(str,str2){
 				<div class="btn_input_wrap">
 					<input type="text" name="mb_recommend" id="reg_mb_recommend"  value="<?=$mb_recommend ?>" placeholder="Referrers Username"  required data-i18n='[placeholder]signUp.추천인 이름'/>
 					<div class='in_btn_ly2'>
-						<button type='button' class="btn_round check " onclick="getUser('#reg_mb_recommend',1);"  style="width:70px;"><span data-i18n="signUp.검색">Search</span></button>
+						<button type='button' class="btn_round check " onclick="getUser('#reg_mb_recommend',1);"  style="width:70px;margin-top:10px;"><span data-i18n="signUp.검색">Search</span></button>
 					</div>
 					<!--<a href="javascript:getUser('#reg_mb_recommend',1);" class="btn_round check" data-i18n='register.추천인 검색'>Search Referrer</a>-->
 				</div>
@@ -625,7 +625,7 @@ function chkPwd_2(str,str2){
 				<div class="check_appear mt40">
 				<p class="check_appear_title"><span data-i18n='signUp.개인 정보 & 인증'>Personal Information & Authentication </span></p>
 				<input class="input_addr" type="text" name="first_name" id="wallet_addr" placeholder="Name" data-i18n='[placeholder]signUp.이름'/>
-				<div class='in_btn_ly'><input type="button" id='wallet_addr_check' class='btn_round check' value="ID Check" data-i18n='[value]signUp.지갑 확인'></div>
+				<div class='in_btn_ly'><input type="button" id='wallet_addr_check' class='btn_round check' value="ID Check" data-i18n='[value]signUp.지갑 확인' style="margin-top:5px;"></div>
 				<!--<input type="text" name="last_name" placeholder="Last Name (Must match the legal name on file)" data-i18n='[placeholder]register.성 (신분증에 기록된 이름과 동일해야 함)'/>-->
 				<!-- <input type="email" name="mb_email" id="reg_mb_email" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소'/> -->
 
@@ -679,7 +679,7 @@ function chkPwd_2(str,str2){
 
 			<div class="mb20 agreement_ly">
 				<div class="checkbox_wrap"><input type="checkbox" name='agree' id="agree" class="checkbox"><label for="agree"></label></div>
-				<div style='display: inline-grid;width: 90%;'>
+				<div style='display: inline-grid;width: 90%;color: #000;'>
 				<span data-i18n='signUp.이용약관1'> I have read and agreed to the Terms and Conditions.</span>
 				<span data-i18n='signUp.이용약관2'> I fully understood the this business and I know the NO REFUND policy.</span>
 				<span data-i18n='signUp.이용약관3'> I know the change of Refferer is NOT POSSIBLE.</span>
@@ -696,7 +696,7 @@ function chkPwd_2(str,str2){
 				<!-- <input class="btn_basic mt20" type="button" value="취소" onClick="history.back(-1);">
 				<input class="btn_basic mt20" type="button" value="신규 회원 등록하기" onClick="location.href='dashboard.php'"> -->
 
-				<input class="btn btn_double default_btn enroll_cancel_pop_open pop_open" type="button" value="Cancel" data-i18n='[value]signUp.취소'>
+				<input class="btn btn_double default_btn enroll_cancel_pop_open btn_secondary pop_open" type="button" value="Cancel" data-i18n='[value]signUp.취소'>
 				<input class="btn btn_double btn_secondary" type="button" onclick="fregisterform_submit();" value="Enroll new member" data-i18n='[value]signUp.신규 회원 등록하기'>
 			</div>
 
