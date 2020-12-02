@@ -55,7 +55,7 @@ $(document).ready(function(){
 	<nav class="left_gnbWrap">
 		<a href="#" class="close">X</a>
 		<div class="gnb_logo_top">
-			<a href="/"><img src="<?=G5_THEME_URL?>/_images/gnb_logo.png" alt="ROCKET"></a>
+			<a href="/"><img src="<?=G5_THEME_URL?>/img/gnb_logo.png" alt="ROCKET"></a>
 		</div>
 		<ul class="left_gnb">
 			<li><a href="/"><img src="<?=G5_THEME_URL?>/_images/menu01.gif" alt="아이콘" ><span data-i18n="nav.메인화면">dashboard</span></a></li>
@@ -114,7 +114,7 @@ $(document).ready(function(){
 	<?}?>
 
 	<div class="top_title">
-		<h3><a href="/"><img src= "<?=G5_THEME_URL?>/_images/title.png" alt="logo"></a></h3>
+		<h3><a href="/"><img src= "<?=G5_THEME_URL?>/img/title.png" alt="logo"></a></h3>
 	</div>
 
 	<div class="lang_selection user-drop-down-section">

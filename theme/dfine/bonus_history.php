@@ -151,7 +151,7 @@ function search_submit(act = null)
 }
 
 $(function(){
-	$(".top_title h3").html("<a href='/'><img src='<?=G5_THEME_URL?>/_images/title.png' alt='logo'></a>");
+	$(".top_title h3").html("<a href='/'><img src='<?=G5_THEME_URL?>/img/title.png' alt='logo'></a>");
 
     //
     $('.hist').click(function () {
