@@ -181,8 +181,9 @@
             <!-- 입금 요청 내역 -->
             <div class="history_box content-box round" style='border-top:2px solid dodgerblue'>
                 <h3 class="hist_tit" data-i18n="deposit.입금 내역">Deposit History</h3>
-                    <hr class='dash'>
+                    
 										<?while( $row = sql_fetch_array($result_deposit) ){?>
+                      <hr class='dash'>
 												<div class="hist_con">
 												<div class="hist_con_row1">
                           <div class="row1_left"><span class="hist_name" data-i18n='deposit.입금'>Deposit</span></div>
@@ -402,7 +403,8 @@ $(function(){
     var max_limit = '<?=$max_limit?>';
     var day_limit = '<?=$day_limit?>';
     var mb_max_limit = <?=$total_balance?> * max_limit * 0.01;
-    var fee = (<?=$fee?>*0.01);
+    // var fee = (<?=$fee?>*0.01);
+    var fee = 1;
 
     if(debug) console.log("ETH PRICE :: " + "<?=$eth_price?>" + ' / ' + fee);
 

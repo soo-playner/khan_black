@@ -2,10 +2,11 @@
 include_once('./_common.php');
 
 
+
 $servername = 'localhost';
 $username = 'root';
-$password = 'willsoft0780'; // on localhost by default there is no password
-$dbname = 'wallet';
+$password = 'willsoft0780!@'; // on localhost by default there is no password
+$dbname = 'dfine';
 
 $base = str_replace(array('www.'), '', G5_URL);
 $base_url= G5_URL.'/go/'; // it is your application url
@@ -59,6 +60,7 @@ function GetShortUrl($url){
  $mb_no = $urlstring[1];
  
  $query = "SELECT * FROM url_shorten WHERE url = '".$url."' "; 
+
  $result = $conn->query($query);
  if ($result->num_rows > 0) {
 $row = $result->fetch_assoc();
