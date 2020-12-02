@@ -14,7 +14,7 @@ header{
 .top_title>a{height:20px;}
 
 .top_title h3{line-height:20px; display: inline-block; width: auto;  margin: 0 auto; padding-right: 13px; font-size:1.3rem !important;margin-left:30px;}
-.top_title h3 img{height: 20px; margin-top:-4px;}
+.top_title h3 img{height: 20px; vertical-align:bottom;}
 
 /* 모바일 메뉴 버튼 */
 .menu {
