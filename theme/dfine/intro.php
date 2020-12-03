@@ -8,7 +8,7 @@ body{}
 	display:block;
 	height:100vh;
 	/* background:url('<?=G5_THEME_URL?>/_images/launcher.png') no-repeat 50% 50%; */
-	background:#000 url('<?=G5_THEME_URL?>/_images/logo1.gif') no-repeat center 10vh;
+	background:#000 url('<?=G5_THEME_URL?>/_images/launcher.png') no-repeat center;
 	/* background-size:cover; */
 }
 
@@ -206,8 +206,7 @@ body{}
 	</div>
 
 	<div class='intro_title'>
-		<p>GLOBAL SMART CONTRACT</p>
-		<p>CROWD FUNDING PLATFORM</p>
+		<p>GLOBAL CROWD FUNDING PLATFORM</p>
 	</div>
 </div>
 
