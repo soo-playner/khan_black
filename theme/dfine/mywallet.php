@@ -114,11 +114,11 @@
         <div class="col-sm-12 col-12 content-box round primary">
           
           <div class='user-content'>
-              <li><p class='userid grade_<?=$member['grade']?>'></p></li>
+              <!-- <li><p class='userid grade_<?=$member['grade']?>'></p></li> -->
               <li><p class='userid user_level'> <?=$user?></p></li>
               <li>
                 <h4><?=$member['mb_id']?></h4>
-                <h6><?=$member['mb_name']?></h6>
+                <!-- <h6><?=$member['mb_name']?></h6> -->
               </li>
          	</div>
 
