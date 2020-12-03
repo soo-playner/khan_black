@@ -10,7 +10,7 @@
 	<div class="v_center">
 		<div class="login_wrap">
 			<div class="logo_login_div">
-				<img src="<?=G5_THEME_URL?>/_images/logo.png" alt="LOGO">
+				<img src="<?=G5_THEME_URL?>/img/logo.png" alt="LOGO">
 				<?if(strpos($url,'adm')){echo "<br><span class='adm_title'>For Administrator</span>";}?>
 			</div>
 
