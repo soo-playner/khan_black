@@ -10,6 +10,7 @@ body{}
 	/* background:url('<?=G5_THEME_URL?>/_images/launcher.png') no-repeat 50% 50%; */
 	background:#000 url('<?=G5_THEME_URL?>/img/launcher.png') no-repeat center;
 	/* background-size:cover; */
+	background-position-y: 35%;
 }
 
 /* .adm_title{background:#f9a62e;color:white;padding:5px 30px;font-size:1.2em; border-radius:25px;margin-bottom:20px;display:inline-block} */
