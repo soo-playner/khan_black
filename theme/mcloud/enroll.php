@@ -551,7 +551,7 @@ function chkPwd_2(str,str2){
 				<div class="btn_input_wrap">
 					<input type="text" name="mb_recommend" id="reg_mb_recommend"  value="<?=$mb_recommend ?>" placeholder="Referrers Username"  required data-i18n='[placeholder]signUp.추천인 이름'/>
 					<div class='in_btn_ly2'>
-						<button type='button' class="btn_round check " onclick="getUser('#reg_mb_recommend',1);"  style="width:70px;margin-top:10px;"><span data-i18n="signUp.검색">Search</span></button>
+						<button type='button' class="btn_round check " onclick="getUser('#reg_mb_recommend',1);"  style="width:70px;"><span data-i18n="signUp.검색">Search</span></button>
 					</div>
 					<!--<a href="javascript:getUser('#reg_mb_recommend',1);" class="btn_round check" data-i18n='register.추천인 검색'>Search Referrer</a>-->
 				</div>
@@ -568,7 +568,7 @@ function chkPwd_2(str,str2){
 					<input type="password" name="mb_password" id="reg_mb_password"  minlength="4" placeholder="Login Password" data-i18n='[placeholder]signUp.로그인 비밀번호'/>
 					<input type="password" name="mb_password_re" id="reg_mb_password_re" minlength="4" placeholder="Confirm login password" data-i18n='[placeholder]signUp.로그인 비밀번호 확인'/>
 
-					<strong ><span class='mb10' style='display:block' data-i18n='signUp.강도 높은 비밀번호 설정 조건' >Your password must contain</span></strong>
+					<strong ><span class='mb10' style='display:block;font-size:13px;' data-i18n='signUp.강도 높은 비밀번호 설정 조건' >Your password must contain</span></strong>
 					<ul>
 						<li class="x_li" id="pm_1" data-i18n='signUp.4자 이상 20자 이하' >4 characters or more</li>
 						<li class="x_li" id="pm_3" data-i18n='signUp.숫자+영문' >Digits + Characters</li>
@@ -580,10 +580,11 @@ function chkPwd_2(str,str2){
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password" name="reg_tr_password" placeholder="Pin-Code" data-i18n='[placeholder]signUp.핀코드'/>
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password_re" name="reg_tr_password_re" placeholder="confirm Pin-Code" data-i18n='[placeholder]signUp.핀코드확인'/>
 
-					<strong><span class='mb10' style='display:block' data-i18n='signUp.강도 높은 핀코드 설정 조건'>Your Pin-code must contain</span></strong>
+					<strong><span class='mb10' style='display:block;font-size:13px;' data-i18n='signUp.강도 높은 핀코드 설정 조건'>Your Pin-code must contain</span></strong>
 					<ul>
 						<li class="x_li" id="pt_1" data-i18n='signUp.6 자리' >6 digits</li>
 						<li class="x_li" id="pt_2" data-i18n='signUp.핀코드 비교' >Compare Pin-code</li>
+						<li class="x_li" id="pm_5" ></li>
 					</ul>
 				</li>
 			</ul>

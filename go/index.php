@@ -6,7 +6,7 @@ include_once('./_common.php');
 $servername = 'localhost';
 $username = 'root';
 $password = 'willsoft0780!@'; // on localhost by default there is no password
-$dbname = 'dfine';
+$dbname = 'mcloud';
 
 $base = str_replace(array('www.'), '', G5_URL);
 $base_url= G5_URL.'/go/'; // it is your application url
