@@ -13,22 +13,22 @@
 		"센터 이름" : "Center's Username",
 		"검색" : "Search",
 		"일반정보" : "General Information",
-		"아이디" : "ID (5 to 20 characters)",
+		"아이디" : "ID (8 characters more)",
 		"중복확인" : "ID Check",
 		"8 글자 또는 그 이상" : "8 letters or more",
 		"로그인 비밀번호" : "Login Password",
 		"로그인 비밀번호 확인" : "Confirm Login Password",
 		"핀코드확인" : "Confirm Pin-Code",
 		"강도 높은 비밀번호 설정 조건" : "Password must contain",
-		"4자 이상 20자 이하" : "4 characters or more",
+		"4자 이상 20자 이하" : "4 or more and 8 or less",
 		"숫자+영문" : "Digits + Characters",
 		"비밀번호 비교" : "Compare Password",
 		"강도 높은 핀코드 설정 조건" : "Pin-Code must contain",
 		"6 자리" : "6 Digits",
 		"핀코드 비교" : "Compare Pin-Code",
 		"개인 정보 & 인증" : "Personal Information & Authentication",
-		"이름" : "Wallet Address",
-		"이메일 주소" : "e-mail Address",
+		"이름" : "Name",
+		"이메일 주소" : "E-mail Address",
 		"이메일 주소 확인" : "e-mail Address Confirm",
 		"이메일 전송" : "send Email",
 		"핸드폰 번호" : "Phone Number",
@@ -42,7 +42,8 @@
 		"핀코드" : "Pin-Code",
 		"이메일인증번호" : "Email Authentication Code",
 		"인증 완료" : "Verification Complete",
-		"지갑 확인" : "Wallet Check"
+		"지갑 확인" : "Wallet Check",
+		"영문이름" : "English Name"
 	},
 
 	"dashboard" : {
@@ -325,6 +326,15 @@
 	"referral" : {
 		"내 추천인 링크 공유" : "Share My Referrer Link",
 		"링크 복사" : "Copy Link"
+	},
+
+	"find_pw" : {
+		"아이디를 입력해주세요" : "Put your login ID",
+		"이메일을 입력해주세요" : "Put your E-mail",
+		"인증번호 받기" : "Get verification number",
+		"비밀번호 재설정" : "Reset password",
+		"비밀번호 재설정 확인" : "Confirm password reset",
+		"확인" : "Confirm"
 	}
 
 

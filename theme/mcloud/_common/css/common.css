@@ -319,7 +319,7 @@ a.desc{font-size:13px;text-decoration: underline;color:#565656}
 .referzone.blue{background:#204f83;color:white}
 
 #reg_mb_hp{padding-left:40px;}
-.phone_num{position:absolute;left:42px;margin-top:12px;z-index:2;display:inline;}
+.phone_num{position:absolute;left:25px;margin-top:12px;z-index:2;display:inline;}
 input + label > i{font-size:20px;}
 
 

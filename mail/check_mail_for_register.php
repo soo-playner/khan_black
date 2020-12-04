@@ -21,16 +21,16 @@ if($count > 0){
     if($after_ten_min >= $date_time){
       echo json_encode(array("result"=>"OK"));
     }else{
-      echo json_encode(array("result"=>"FAIL_expired", "res"=>"인증 날짜를 초과하였습니다. 다시 인증해주세요!"));
+      echo json_encode(array("result"=>"FAIL_expired", "res"=>"The authentication date has been exceeded. Please verify again!"));
     }
 
   
   }else{
-    echo json_encode(array("result"=>"FAIL", "res"=>"이메일 인증을 해주세요!"));
+    echo json_encode(array("result"=>"FAIL", "res"=>"Please verify your email!"));
   }
   
 }else{
-   echo json_encode(array("result"=>"FAIL", "res"=>"이메일 인증을 해주세요!"));
+   echo json_encode(array("result"=>"FAIL", "res"=>"Please verify your email!"));
 }
 
 

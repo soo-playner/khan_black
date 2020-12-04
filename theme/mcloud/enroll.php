@@ -32,46 +32,46 @@ $(function(){
 
 	/*초기설정*/
 	//$('.agreement_ly').hide();
-	$('#verify_txt').hide();
+	// $('#verify_txt').hide();
 
 
 	/* 핸드폰 SMS 문자인증 사용 */
 
-	$('#nation_number').on('change',function(e){
-		$('#reg_mb_hp').val( $(this).val() ) ;
-	});
+	// $('#nation_number').on('change',function(e){
+	// 	$('#nation_number_tmp').val( $(this).val() ) ;
+	// });
 
-	var phone_auth = "<?=$phone_auth?>";
-	if( phone_auth > 0){
-		$('.verify_phone').hide();
+	// var phone_auth = "<?=$phone_auth?>";
+	// if( phone_auth > 0){
+	// 	$('.verify_phone').hide();
 
-		//SMS발송
-		$('#sendSms').on('click', function(e){
-			if(!$('#reg_mb_hp').val()){
-				commonModal('Mobile authentication','<p>Please enter your Mobile Number</p>',80);
-				return;
-			}
-			var reg_mb_hp = + ($('#reg_mb_hp').val().replace(/-/gi,''));
-			$.ajax({
-				url: '/bbs/register.sms.verify.php',
-				type: 'post',
-				async: false,
-				data: {
-					"nation_no": $('#nation_number').val(),
-					"mb_hp": reg_mb_hp
-				},
-				dataType: 'json',
-				success: function(result) {
-					// console.log(result);
-					smsKey = result.key;
-					commonModal('SMS authentication','<p>Sent a authentication code to your Mobile.</p>',80);
-				},
-				error: function(e){
-					console.log(e);
-				}
-			});
-		});
-	}
+	// 	//SMS발송
+	// 	$('#sendSms').on('click', function(e){
+	// 		if(!$('#reg_mb_hp').val()){
+	// 			commonModal('Mobile authentication','<p>Please enter your Mobile Number</p>',80);
+	// 			return;
+	// 		}
+	// 		var reg_mb_hp = + ($('#reg_mb_hp').val().replace(/-/gi,''));
+	// 		$.ajax({
+	// 			url: '/bbs/register.sms.verify.php',
+	// 			type: 'post',
+	// 			async: false,
+	// 			data: {
+	// 				"nation_no": $('#nation_number').val(),
+	// 				"mb_hp": reg_mb_hp
+	// 			},
+	// 			dataType: 'json',
+	// 			success: function(result) {
+	// 				// console.log(result);
+	// 				smsKey = result.key;
+	// 				commonModal('SMS authentication','<p>Sent a authentication code to your Mobile.</p>',80);
+	// 			},
+	// 			error: function(e){
+	// 				console.log(e);
+	// 			}
+	// 		});
+	// 	});
+	// }
 
 
 	/*이메일 체크*/
@@ -132,42 +132,42 @@ $(function(){
 	});
 
 	// 메일 인증 코드 성공
-	$('#vCode').on('change', function(e){
-		console.log( $('#vCode').val().trim() );
-		if(key == sha256( $('#vCode').val().trim()) ){
+	// $('#vCode').on('change', function(e){
+	// 	console.log( $('#vCode').val().trim() );
+	// 	if(key == sha256( $('#vCode').val().trim()) ){
 
-			console.log( "verify OK" );
-			verify = true;
-			$('#verify_txt').show();
-			$('#reg_mb_email').css('background-color','#ccc').prop('readonly', true);;
+	// 		console.log( "verify OK" );
+	// 		verify = true;
+	// 		$('#verify_txt').show();
+	// 		$('#reg_mb_email').css('background-color','#ccc').prop('readonly', true);;
 
-		}else{
-			commonModal('Do not match','<p>Email verification code is incorrect. Please enter the correct code</p>',80);
-		}
-	});
+	// 	}else{
+	// 		commonModal('Do not match','<p>Email verification code is incorrect. Please enter the correct code</p>',80);
+	// 	}
+	// });
 
 	// 핀번호 (오직 숫자만)
-	// document.getElementById('reg_tr_password').oninput = function(){
-	// 	// if empty
-	// 	if(!this.value) return;
-	//
-	// 	// if non numeric
-	// 	let isNum = this.value[this.value.length - 1].match(/[0-9]/g);
-	// 	if(!isNum) this.value = this.value.substring(0, this.value.length - 1);
-	//
-	// 	chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val());
-	// }
-	//
-	// document.getElementById('reg_tr_password_re').oninput = function(){
-	// 	// if empty
-	// 	if(!this.value) return;
-	//
-	// 	// if non numeric
-	// 	let isNum = this.value[this.value.length - 1].match(/[0-9]/g);
-	// 	if(!isNum) this.value = this.value.substring(0, this.value.length - 1);
-	//
-	// 	chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val());
-	// }
+	document.getElementById('reg_tr_password').oninput = function(){
+		// if empty
+		if(!this.value) return;
+	
+		// if non numeric
+		let isNum = this.value[this.value.length - 1].match(/[0-9]/g);
+		if(!isNum) this.value = this.value.substring(0, this.value.length - 1);
+	
+		chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val());
+	}
+	
+	document.getElementById('reg_tr_password_re').oninput = function(){
+		// if empty
+		if(!this.value) return;
+	
+		// if non numeric
+		let isNum = this.value[this.value.length - 1].match(/[0-9]/g);
+		if(!isNum) this.value = this.value.substring(0, this.value.length - 1);
+	
+		chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val());
+	}
 
 	check_id = 0;
 	check_wallet = 0;
@@ -176,8 +176,8 @@ $(function(){
 	// 아이디 중복 체크
 	$('#id_check').click(function(){
 		var registerId = $('#reg_mb_id').val();
-		if(registerId.length < 5){
-			dialogModal("ID CHECK", "Please put 5 letters or more", "failed");
+		if(registerId.length < 8){
+			dialogModal("ID CHECK", "Please put 8 letters or more", "failed");
 		}else{
 			$.ajax({
 					type : "POST",
@@ -274,7 +274,7 @@ function chkPwd_1(str,str2){
 
 var pattern = /^(?!((?:[0-9]+)|(?:[a-zA-Z]+)|(?:[\[\]\^\$\.\|\?\*\+\(\)\\~`\!@#%&\-_+={}'""<>:;,\n]+))$)(.){4,}$/;
 
-	if(pw.length < 4){
+	if(pw.length < 4 || pw.length > 8){
 		$("#pm_1").attr('class','x_li');
 	}else{
 		$("#pm_1").attr('class','o_li');
@@ -304,7 +304,7 @@ var pattern = /^(?!((?:[0-9]+)|(?:[a-zA-Z]+)|(?:[\[\]\^\$\.\|\?\*\+\(\)\\~`\!@#%
 	// }
 
 
-	if( pw_rule == 2 && str == str2){
+	if(str == str2 && pw_rule == 2){
 		$("#pm_5").attr('class','o_li');
 		pw_rule += 1;
 	}else{
@@ -326,7 +326,7 @@ function chkPwd_2(str,str2){
 		$("#pt_1").attr('class','o_li');
 	}
 
-	if(str == str2){
+	if(str == str2 && str.length > 5){
 		$("#pt_2").attr('class','o_li');
 	}else{
 		$("#pt_2").attr('class','x_li');
@@ -409,6 +409,7 @@ function chkPwd_2(str,str2){
 	// submit 최종 폼체크
 	function fregisterform_submit(){
 		var f = $('#fregisterform')[0];
+		var check_phone_number = /^\d{3}\d{3,4}\d{4}$/;
 		//console.log(recommend_search);
 		/*
 		if(key != sha256($('#vCode').val())){
@@ -416,14 +417,19 @@ function chkPwd_2(str,str2){
 		 	return false;
 		}
 		*/
+	
+		if($('#nation_number').val() == "" || $('#nation_number').val() == "country"){
+			commonModal('Select country','<strong>please select country.</strong>',80);
+			return false;
+		}
 
 		if(!recommend_search){
-			commonModal('recommend check','<strong>please check recommend search Button and choose recommend.</strong>',80);
+			commonModal('Recommend check','<strong>please check recommend search Button and choose recommend.</strong>',80);
 			return false;
 		}
 
 		if (f.mb_id.value == f.mb_recommend.value) {
-			commonModal('recommend check','<strong> can not recommend self. </strong>',80);
+			commonModal('Recommend check','<strong> can not recommend self. </strong>',80);
 			f.mb_recommend.focus();
 			return false;
 		}
@@ -433,56 +439,19 @@ function chkPwd_2(str,str2){
 			return false;
 		}
 
-		// if (f.mb_recommend.value =='' || f.mb_recommend.value =='undefined') {
-		// 	commonModal('check recommend','<strong>check recommend.</strong>',80);
-		// 	return false;
-		// }
-
-		if (f.mb_password.value.length > 0) {
-			if (f.mb_password_re.value.length < 4) {
-				commonModal('password check','<strong>put password 4 characters or more.</strong>',80);
-
-				f.mb_password_re.focus();
-				return false;
-			}
-		}
-
-		if (f.mb_password.value != f.mb_password_re.value) {
-			commonModal('password check','<strong> password does not match. </strong>',80);
-
-			f.mb_password_re.focus();
-			return false;
-		}
-
 
 		if(!chkPwd_1($('#reg_mb_password').val(),$('#reg_mb_password_re').val())){
-			commonModal('password rule check','<strong> login Password does not match password Rule.</strong>',80);
+			commonModal('Password rule check','<strong> login Password does not match password Rule.</strong>',80);
 			return false;
 		}
 
-		// if(!chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val())){
-		// 	commonModal('Check password Rule','<strong> Transaction Password does not match password Rule.</strong>',80);
-		// 	return false;
-		// }
-
-		/* 메일인증
-		if(verify == false){
-			commonModal('check e-mail verifiy','<strong>Enter the verification code to verify your email address</strong>',80);
-			return false;
-		}
-		*/
-		if($('#wallet_addr').val().length <= 40){
-			commonModal('check wallet address','<strong>check wallet address.</strong>',80);
+		if(!chkPwd_2($('#reg_tr_password').val(),$('#reg_tr_password_re').val())){
+			commonModal('Check password rule','<strong> Transaction Password does not match password Rule.</strong>',80);
 			return false;
 		}
 
-		if(check_wallet == 0){
-			commonModal('wallet check', '<strong>please check wallet address. </strong>',80);
-			return false;
-		}
-
-		if(wallet != $('#wallet_addr').val() || wallet == ""){
-			commonModal('wallet check', '<strong>please check wallet address. </strong>',80);
+		if(!check_phone_number.test($('#reg_mb_hp').val())){
+			commonModal('Check moblie number','<strong> Please put your molibe number correctly.</strong>',80);
 			return false;
 		}
 
@@ -551,19 +520,19 @@ function chkPwd_2(str,str2){
 	<div class="enroll_wrap">
 		<form id="fregisterform" name="fregisterform" action="/bbs/register_form_update.php" method="post" enctype="multipart/form-data" autocomplete="off">
 
-			<!-- <div>
+			<div>
 				<select id="nation_number" name="nation_number" required >
 					<option value="country" data-i18n="signUp.국가를 선택해주세요" >Select Country</option>
-					<option value="1">001 - USA</option>
-					<option value="81">081 - Japan</option>
+					<!-- <option value="1">001 - USA</option> -->
+					<!-- <option value="81">081 - Japan</option> -->
 					<option value="82">082 - Korea</option>
-					<option value="84">084 - Vietnam</option>
-					<option value="86">086 - China</option>
-					<option value="62">062 - Indonesia</option>
-					<option value="63">063 - Philippines</option>
-					<option value="66">066 - Thailand</option>
+					<!-- <option value="84">084 - Vietnam</option> -->
+					<!-- <option value="86">086 - China</option> -->
+					<!-- <option value="62">062 - Indonesia</option> -->
+					<!-- <option value="63">063 - Philippines</option> -->
+					<!-- <option value="66">066 - Thailand</option> -->
 				</select>
-			</div> -->
+			</div>
 
 			<!-- <section class='referzone blue'>
 				<label>Center's Username</label>
@@ -590,7 +559,7 @@ function chkPwd_2(str,str2){
 
 			<p class="check_appear_title mt40"><span data-i18n='signUp.일반정보'>General Information</span></p>
 			<div>
-				<input type="text" minlength="5" maxlength="20" name="mb_id"  id="reg_mb_id"  placeholder="" data-i18n='[placeholder]signUp.아이디'/>
+				<input type="text" minlength="8" maxlength="20" name="mb_id"  id="reg_mb_id"  placeholder="" data-i18n='[placeholder]signUp.아이디'/>
 				<div class='in_btn_ly'><input type="button" id='id_check' class='btn_round check' value="ID Check" data-i18n='[value]signUp.중복확인'></div>
 			</div>
 
@@ -607,7 +576,7 @@ function chkPwd_2(str,str2){
 						<li class="x_li" id="pm_5" data-i18n='signUp.비밀번호 비교' >Compare Password</li>
 					</ul>
 				</li>
-				<!-- <li>
+				<li>
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password" name="reg_tr_password" placeholder="Pin-Code" data-i18n='[placeholder]signUp.핀코드'/>
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password_re" name="reg_tr_password_re" placeholder="confirm Pin-Code" data-i18n='[placeholder]signUp.핀코드확인'/>
 
@@ -616,7 +585,7 @@ function chkPwd_2(str,str2){
 						<li class="x_li" id="pt_1" data-i18n='signUp.6 자리' >6 digits</li>
 						<li class="x_li" id="pt_2" data-i18n='signUp.핀코드 비교' >Compare Pin-code</li>
 					</ul>
-				</li> -->
+				</li>
 			</ul>
 
 
@@ -624,12 +593,14 @@ function chkPwd_2(str,str2){
 			<section id="personal">
 				<div class="check_appear mt40">
 				<p class="check_appear_title"><span data-i18n='signUp.개인 정보 & 인증'>Personal Information & Authentication </span></p>
-				<input class="input_addr" type="text" name="first_name" id="wallet_addr" placeholder="Name" data-i18n='[placeholder]signUp.이름'/>
-				<div class='in_btn_ly'><input type="button" id='wallet_addr_check' class='btn_round check' value="ID Check" data-i18n='[value]signUp.지갑 확인' style="margin-top:5px;"></div>
-				<!--<input type="text" name="last_name" placeholder="Last Name (Must match the legal name on file)" data-i18n='[placeholder]register.성 (신분증에 기록된 이름과 동일해야 함)'/>-->
-				<!-- <input type="email" name="mb_email" id="reg_mb_email" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소'/> -->
-
-				<!-- <input type="email" name="mb_email_re" id="reg_mb_email_re" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소 확인'/> -->
+				<!-- <input class="input_addr" type="text" name="mb_name" id="mb_name" placeholder="Name" data-i18n='[placeholder]signUp.이름'/>
+				<!-- <div class='in_btn_ly'><input type="button" id='wallet_addr_check' class='btn_round check' value="ID Check" data-i18n='[value]signUp.지갑 확인' style="margin-top:5px;"></div> -->
+				<div>
+					<!-- <span style='display:block;margin-left:10px;' class='' data-i18n='signUp.핸드폰 번호'> Phone number</span> -->
+					<input type="text" name="mb_hp"  id="reg_mb_hp"  pattern="[09]*" placeholder="Phone number" value='' data-i18n='[placeholder]signUp.핸드폰 번호'/>
+					<label class='phone_num'><i class="ri-smartphone-line"></i></label>
+			
+				</div>
 				<input type="email" name="mb_email" id="reg_mb_email" placeholder="Email address" data-i18n='[placeholder]signUp.이메일 주소'/>
 				<div class='in_btn_ly'><input type="button" onclick="javascript:validateEmail()" class='btn_round check' value="Eamil" data-i18n='[value]signUp.이메일 전송'></div>
 
@@ -652,12 +623,7 @@ function chkPwd_2(str,str2){
 
 
 
-				<!-- <div>
-					<span style='display:block;margin-left:10px;' class='' data-i18n='signUp.핸드폰 번호'> Phone number</span>
-					<input type="text" name="mb_hp"  id="reg_mb_hp"  pattern="[09]*" placeholder="Phone number" value='' data-i18n='[placeholder]signUp.핸드폰 번호'/>
-					<label class='phone_num'><i class="ri-smartphone-line"></i></label>
-				</div> -->
-
+		
 				<!-- // 폰인증 -->
 				<!-- <?if($phone_auth > 1){?>
 					<div class="clear_fix ecode_div">

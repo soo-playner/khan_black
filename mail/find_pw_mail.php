@@ -1,7 +1,17 @@
 <?php
 include_once("../common.php");
 
+$mb_id = $_POST['mb_id'];
 $to_email = $_POST['user_email'];
+$auth_number = $_POST['auth_number'];
+
+$sql = "SELECT * FROM g5_member WHERE mb_id = '{$mb_id}' AND mb_email = '{$to_email}'";
+$result = sql_query($sql);
+$cnt = sql_num_rows($result);
+if($cnt < 1 ){
+    echo json_encode(array("code"=>"00002"));
+    return;
+}
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -33,15 +43,10 @@ try {
     // 받는 메일
     $mail -> addAddress($to_email, $to_id);
 
-    //인증해시값
-    $dateTime = new DateTime("now", new DateTimeZone("Asia/Seoul"));
-    $date_time = $dateTime->format("Y-m-d H:i:s");
-    $auth_md5 = hash("sha256", $date_time.$to_email);
-    
-
+  
     // 메일 내용
     $mail -> isHTML(true);                                               // HTML 태그 사용 여부
-    $mail -> Subject = "M cloud CERTIFICATION";              // 메일 제목
+    $mail -> Subject = "M cloud FIND PASSWORD";              // 메일 제목
     // $mail -> Body = $auth_md5;    // 메일 내용
 
     $hostname=$_SERVER["HTTP_HOST"];
@@ -59,7 +64,7 @@ try {
 
     margin: 0 auto 20px;
     display: block;
-    margin-top: 20px;'>Click<a href='https://$hostname/mail/auth_mail.php?hash=$auth_md5'> HERE </a>to complete authentication</div></div>");
+    margin-top: 20px;'>인증번호는 [ $auth_number ] 입니다.</div></div>");
 
 
 
@@ -72,24 +77,9 @@ try {
             , "allow_self_signed" => true
         )
     );
-
     // 메일 전송
     $mail -> send();
 
-    $sql_select = "SELECT * FROM auth_email WHERE email = '$to_email' ORDER BY auth_start_date DESC LIMIT 0,1";
-    $result_select = sql_query($sql_select);
-    $count = sql_num_rows($result_select);
-    
-    if($count > 0){
-        $row_select = sql_fetch_array($result_select);
-        $sql_update = "UPDATE auth_email SET auth_check = '2' WHERE id ='{$row_select['id']}'";
-        sql_query($sql_update);
-    }
-
-    // DB 저장
-    $sql_insert = "INSERT INTO auth_email(email, auth_md5, auth_start_date) VALUES('$to_email','$auth_md5','$date_time')";
-    $result_insert = sql_query($sql_insert);
-
-} catch (Exception $e) {echo $e;}
+} catch (Exception $e) {}
 
 ?>
