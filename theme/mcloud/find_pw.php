@@ -40,8 +40,8 @@ $rand_num = sprintf("%06d", rand(000000, 999999));
 
     <div class="container mt-5">
         <div class="hp_form" id="hp_form">
-            <input type="text" id="mb_id" class="bd-radius-none border-bottom-0 mb-0" data-i18n="[placeholder]find_pw.아이디를 입력해주세요">
-            <input type="text" id="hp_num" class="bd-radius-none border-bottom-0 mb-0" data-i18n="[placeholder]find_pw.이메일을 입력해주세요">
+            <input type="text" id="mb_id" class="bd-radius-none mb-2" placeholder="아이디를 입력해주세요" data-i18n="[placeholder]find_pw.아이디를 입력해주세요">
+            <input type="text" id="hp_num" class="bd-radius-none mb-2" placeholder="이메일을 입력해주세요" data-i18n="[placeholder]find_pw.이메일을 입력해주세요">
             <input type="button" class="btn btn_wd btn--gray bd-radius-none" id="hp_button" value="인증번호 받기" data-i18n="[value]find_pw.인증번호 받기">
         </div>
 

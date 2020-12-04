@@ -697,7 +697,8 @@ input + label > i{font-size:20px;}
 .ticket-header.closed::before{font-weight:700;content:'[Closed]'}
 
 
-
+/* ---------------find_pw -----------*/
+.bf-login input[type="text"] {border: 1px solid rgba(0,0,0,0.2);}
 
 
 

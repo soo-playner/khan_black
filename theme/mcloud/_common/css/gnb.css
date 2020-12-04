@@ -123,6 +123,7 @@ header a.close, a.close:link {
 @media screen and (min-width:768px) {
 	.left_gnbWrap{height: 100vh; position: fixed; visibility:visible; left:0; box-shadow:1px 0 10px rgba(0,0,0,0.15);}
 	#wrapper{max-width:inherit; position:initial;left:0;margin-left:254px;}
+	.bf-login #wrapper {margin:0px;}
 	header{max-width:100%;}
 	.menu{visibility:hidden}
 	.top_title h3{margin-left:0;}
