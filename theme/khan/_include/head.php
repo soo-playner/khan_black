@@ -10,10 +10,10 @@
 	<meta name="Robots" content="ALL">
 
 	<!-- 기본 공유 설정 //-->
-	<meta name="title" content="M CLOUD" />
-	<meta name="subject" content="M CLOUD" />
-	<meta name="keywords" content="M CLOUD" />
-	<meta name="description" content="M CLOUD" />
+	<meta name="title" content="<?=$config['cf_title']?>" />
+	<meta name="subject" content="<?=$config['cf_title']?>" />
+	<meta name="keywords" content="<?=$config['cf_title']?>" />
+	<meta name="description" content="<?=$config['cf_title']?>" />
 	<link rel="image_src" href="<?=G5_THEME_URL?>/img/default.png" />
 
 	<!--대표 이미지 URL (이미지를 여러 개 지정할 수 있음) //-->
@@ -23,9 +23,9 @@
 	<!-- 페이스북 공유 + 카카오톡 설정 //-->
 	<meta property="fb:app_id" content="" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="M CLOUD" />
-	<meta property="og:description" content="GLOBAL SMART CONTRACT CROWD FUNDING PLATFORM" />
-	<meta property="og:site_name" content="M CLOUD" />
+	<meta property="og:title" content="<?=$config['cf_title']?>" />
+	<meta property="og:description" content="<?=$config['cf_title']?> " />
+	<meta property="og:site_name" content="<?=$config['cf_title']?>" />
 	<meta property="og:image" content="" />
 	<meta property="og:url" content="" />
 
