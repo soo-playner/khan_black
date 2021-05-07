@@ -39,14 +39,8 @@
 	<link href="<?=G5_THEME_URL?>/_common/css/jquery-ui.min.css" rel="stylesheet">
 	<link href="<?=G5_THEME_URL?>/_common/css/gnb.css" rel="stylesheet">
 	
-	<!-- <link href="<?=G5_THEME_URL?>/_common/css/common_dark.css" rel="stylesheet">
-	<link href="<?=G5_THEME_URL?>/_common/css/gnb_dark.css" rel="stylesheet"> -->
-
-
-
-	<!-- CSS  기본 설정 //
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">-->
-	<!--<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">-->
+	<!-- 커스텀 SCSS 추가 -->
+	<link href="<?=G5_THEME_URL?>/css/scss/custom.css" rel="stylesheet">
 
 
 	<!-- JQuery  기본 설정 //-->
@@ -55,10 +49,7 @@
 	<script src="<?=G5_THEME_URL?>/_common/js/common.js"></script>
 	<script src="<?=G5_THEME_URL?>/_common/js/gnb.js"></script>
 
-	<!-- // 확인할것////////////////////////////////////////////////////////////////////////////////////////
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-	-->
+
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

@@ -46,11 +46,11 @@ a:focus, a:active{color:inherit;}
 
 
 .btn-primary{background:#0062cc}
-.btn_primary{background:transparent;border:1px solid white !important;color:white !important;font-weight:600;border-radius:30px !important;}
-.btn_primary:hover{background:white;color:#2a2c3c !important;}
+.btn_primary{background:transparent;border:1px solid white ;color:white ;font-weight:600;border-radius:30px ;}
+.btn_primary:hover{background:white;color:#2a2c3c ;}
 
-.btn_secondary{background:#2a2c3c;color:WHITE !important;border:1px solid #2a2c3c !important;border-radius:30px !important;}
-.btn_secondary:hover{background:rgba(255,255,255,0.8);border:1px solid white !important;color:black !important;}
+.btn_secondary{background:#2a2c3c;color:WHITE ;border:1px solid #2a2c3c ;border-radius:30px ;}
+.btn_secondary:hover{background:rgba(255,255,255,0.8);border:1px solid white ;color:black ;}
 
 
 .btn_wd{width:100%;padding:15px;display:block;}
@@ -276,7 +276,7 @@ input[type="text"], input[type="number"], input[type="password"], input[type="em
 
 /* login (pw_login)  */
 .login_wrap{width:85%;margin:0 auto;padding-top:5vh;text-align:center}
-.logo_login_div img{max-width: 220px; width: 70%; margin: 15% 0;}
+.logo_login_div img{ margin: 5% 0;}
 .login_wrap label{margin-bottom:10px; display:block;text-align: left;font-size:14px;}
 .login_wrap input{color:black;}
 .login_btn_bottom{margin-top:2vh;}
@@ -291,11 +291,12 @@ a.desc{font-size:13px;text-decoration: underline;color:#565656}
 
 
 /* 회원가입 enroll */
-.enroll_wrap{width:100%;margin:0 auto;font-size:15px;letter-spacing:-.3px;padding-bottom:50px}
+.enroll_wrap{width:100%;margin:0 auto;font-size:15px;letter-spacing:-.3px;padding-bottom:30px}
 .enroll_title{padding:20px 0;font-size:23px;font-weight:600;text-align:center;color:#0079d3}
 ..pw_ul{margin-top:10px;}
 .pw_ul>li{
   width:49%;
+  min-height:251px;
   -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;background:#f2f3f4;padding:15px;border-radius:10px;}
 .pw_ul>li + li{
 	margin-left:2px;
@@ -309,15 +310,16 @@ a.desc{font-size:13px;text-decoration: underline;color:#565656}
 .agreement_btn button{}
 #nation_number{height:48px;width:100%;padding-left:10px;font-size:0.9em;border-top:0; border-left:0; border-right:0;}
 
-.in_btn_ly{position:absolute; right:30px; margin-top:-56px;}
+
 .check{
   /* width:80px; */
   height:28px;display:inline-block;line-height:28px;}
 
-.in_btn_ly2{position:absolute; right:30px; margin-top:-38px;}
+.in_btn_ly{position:relative; float:right; margin-top:-56px;margin-right:10px;}
+.in_btn_ly2{position:relative; float:right;margin-top:-40px;margin-right:10px;}
 .agreement_ly{background:#f5f5f5;padding:15px;margin:25px 0;letter-spacing:-1px; font-size:12px;border-radius:10px;}
 
-.referzone{background:#fff;padding:5px;margin:20px 0;border-radius:5px;box-shadow:0 1px 1px rgba(0,0,0,0.15);border:3px solid #545878}
+.referzone{background:#fff;margin:20px 0;border-radius:5px;box-shadow:0 1px 1px rgba(0,0,0,0.15);border:3px solid #545878}
 .referzone input[type=text]{color:black;border-bottom:1px solid white;background:transparent;margin-bottom:0;border-radius: 0;;}
 .referzone input::placeholder{color:#666}
 .referzone.blue{background:#204f83;color:white}
@@ -760,6 +762,7 @@ input + label > i{font-size:20px;}
 .user {border: 1px solid rgb(242, 242, 242);cursor: pointer;margin-bottom: 5px;padding: 10px;}
 .user:hover {border-color: rgb(0, 121, 211);}
 .user.selected {background: rgb(0, 121, 211);color:white;}
+.non_user {border: 1px solid rgb(242, 242, 242);cursor: pointer;margin-bottom: 5px;padding: 10px;}
 
 
 /* 공통 팝업  */
@@ -912,7 +915,7 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 
 /* 모바일 */
 @media screen and (max-width:414px) {
-
+	
 	.pack_btn{line-height:18px;height:66px;}
 	.pakage_list .col-4:nth-of-type(3n-2) {
 		padding-left: 0px;
@@ -1039,8 +1042,8 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 
 /*  아이폰 x  */
 @media screen and (min-height:810px){
-	.login_wrap {padding-top: 10vh;}
-	.logo_login_div img{margin-bottom: 3vh}
+	.login_wrap {padding-top: 2vh;}
+	.logo_login_div img{margin-bottom: 3vh;}
 	.fp_img {margin-top: 4vh;}
 	.login_wrap input.btn_basic_block {margin-top: 4vh;}
 
@@ -1050,6 +1053,7 @@ a.gray_close{background:#6c757d; color:#fff; text-align: center; padding: 8px 10
 /* 아이폰 플러스 세로 */
 @media screen and (max-width:736px) {
 	.binary_wrap{font-size:12px;}
+	.logo_login_div img{max-width:220px}
 }
 
 

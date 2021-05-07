@@ -1,6 +1,6 @@
 <?
 
-define('CONFIG_TITLE','Khan Marketing');
+define('CONFIG_TITLE','KHAN PLATFORM');
 define('CONFIG_SUB_TITLE','');
 
 // 메일설정

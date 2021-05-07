@@ -1,10 +1,10 @@
 <? include_once(G5_THEME_PATH.'/_include/head.php'); ?>
 <style>
-#wrapper{background:#000 !important;color:white;}
-@media screen and (min-width:768px) {
-	body{background:#fff;color:white;}
+#wrapper{background:#f5f5f5 ;}
+/* @media screen and (min-width:768px) {
+	body{background:#fff;}
 	#wrapper{max-width:767px;margin:0 auto;}
-}
+} */
 </style>
 <section id="wrapper">
 	<div class="v_center">
@@ -36,7 +36,7 @@
 
 				<div class="login_btn_bottom">
 					<button type="button" class="btn btn_wd btn_primary" onclick="flogin_submit();" ><span>LOG IN</span></button>
-					<a href="/bbs/register_form.php" class="btn btn_wd btn_primary"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a>
+					<a href="/bbs/register_form.php" class="btn btn_wd btn_secondary"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a>
 					<!-- <a href="javascript:temp_block();" class="btn btn_wd btn_default"><span data-i18n="login.신규 회원 등록하기">Create new account</span></a> -->
 					<a href="<?=G5_THEME_URL?>/find_pw.php"class='desc'>FORGOT PASSWORD?</a>
 						<!--<a href="<?=G5_BBS_URL?>/password_lost.php" class='desc'>lost password?</a>

@@ -1,16 +1,14 @@
 
 <style>
-body{}
+body{overflow-y: hidden;}
 .container {
 	margin:0;
 	padding:0;
 	width:100%;
 	display:block;
 	height:100vh;
-	/* background:url('<?=G5_THEME_URL?>/_images/launcher.png') no-repeat 50% 50%; */
 	background:#000 url('<?=G5_THEME_URL?>/img/launcher.png') no-repeat center;
-	/* background-size:cover; */
-	background-position-y: 35%;
+	background-size:cover;
 }
 
 /* .adm_title{background:#f9a62e;color:white;padding:5px 30px;font-size:1.2em; border-radius:25px;margin-bottom:20px;display:inline-block} */
@@ -19,7 +17,7 @@ body{}
   display: none;
   text-align: center;
   position:absolute;
-  bottom:20vh;
+  bottom:15vh;
   width:100%;
   z-index:1000;
 }
@@ -52,12 +50,12 @@ body{}
 
 @-webkit-keyframes animatebottom {
   from { bottom:-10%; opacity:0 }
-  to { bottom:20vh; opacity:1 }
+  to { bottom:15vh; opacity:1 }
 }
 
 @keyframes animatebottom {
   from{ bottom:-10%; opacity:0 }
-  to{ bottom:20vh; opacity:1 }
+  to{ bottom:15vh; opacity:1 }
 }
 
 
@@ -116,7 +114,7 @@ body{}
 	}
 
 	function temp_block(){
-		commonModal("Notice",'디파인 방문을 환영합니다.<br />사전 가입이 마감되었습니다.<br />가입하신 회원은 로그인 해주세요.<br /><br />Welcome to One-EtherNet.<br />Pre-subscription is closed.<br />If you are a registered member,<br />please log in.',220);
+		commonModal("Notice",' 방문을 환영합니다.<br />사전 가입이 마감되었습니다.<br />가입하신 회원은 로그인 해주세요.<br /><br />Welcome to One-EtherNet.<br />Pre-subscription is closed.<br />If you are a registered member,<br />please log in.',220);
 	}
 
 	function showPage() {
@@ -207,7 +205,7 @@ body{}
 	</div>
 
 	<div class='intro_title'>
-		<p>GLOBAL CROWD FUNDING PLATFORM</p>
+		<p><?=$config['cf_title']?></p>
 	</div>
 </div>
 
